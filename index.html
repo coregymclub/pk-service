@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PK Service — Fastighetsteknik & Underhåll</title>
+  <meta name="description" content="PK Service erbjuder fastighetsteknik, underhåll och service. Kontakta oss för en kostnadsfri offert.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0f1114;
+      --bg-card: #1a1d23;
+      --bg-card-hover: #22262e;
+      --text: #f0f0f0;
+      --text-muted: #9ca3af;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --border: #2a2d35;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 17, 20, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--text); }
+
+    .nav-links { display: flex; gap: 2rem; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 550px;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 30px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      background: var(--bg-card);
+      border-color: var(--accent);
+      box-shadow: none;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      position: relative;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 3rem;
+      max-width: 500px;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .service-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* ABOUT */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .stat {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .contact-section .section-title {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-section .section-subtitle {
+      margin: 0 auto 2rem;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .contact-item a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .contact-item a:hover { color: var(--accent); }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(59, 130, 246, 0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .about-content { grid-template-columns: 1fr; }
+      section { padding: 3rem 1.5rem; }
+      .contact-section { padding: 2rem 1.5rem; }
+      .contact-info { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">PK <span>Service</span></div>
+    <div class="nav-links">
+      <a href="#tjanster">Tjänster</a>
+      <a href="#om-oss">Om oss</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Fastighetsteknik<br>& Service</h1>
+    <p>Vi hjälper fastighetsägare och bostadsrättsföreningar med drift, underhåll och tekniska lösningar. Professionellt, pålitligt och personligt.</p>
+    <div class="hero-buttons">
+      <a href="tel:+46739542966" class="btn">Ring oss</a>
+      <a href="#tjanster" class="btn btn-outline">Våra tjänster</a>
+    </div>
+  </section>
+
+  <section id="tjanster">
+    <h2 class="section-title">Tjänster</h2>
+    <p class="section-subtitle">Vi erbjuder helhetslösningar inom fastighetsteknik och underhåll.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>Fastighetsdrift</h3>
+        <p>Löpande drift och underhåll av fastigheter. Vi ser till att allt fungerar som det ska, dygnet runt.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <h3>Underhåll & Reparation</h3>
+        <p>Förebyggande och akut underhåll. Från VVS och el till byggnadstekniska åtgärder.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Tekniska System</h3>
+        <p>Installation, konfiguration och underhåll av fastighetstekniska system och styrsystem.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>Konsulttjänster</h3>
+        <p>Rådgivning och projektledning för fastighetsägare som vill optimera sin drift och sänka kostnader.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="om-oss">
+    <h2 class="section-title">Om PK Service</h2>
+    <p class="section-subtitle">Kunskap och erfarenhet inom fastighetsteknik.</p>
+    <div class="about-content">
+      <div class="about-text">
+        <p>PK Service grundades med en enkel idé: att erbjuda pålitlig och professionell fastighetsteknik med personligt engagemang.</p>
+        <p>Med gedigen erfarenhet inom fastighetsdrift och tekniska system hjälper vi fastighetsägare och bostadsrättsföreningar att hålla sina fastigheter i toppskick.</p>
+        <p>Vi tror på långsiktiga relationer och jobbar alltid för att leverera kvalitet i varje uppdrag.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Engagemang</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Tillgänglighet</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">Snabbt</div>
+          <div class="stat-label">Utryckning</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">Lokalt</div>
+          <div class="stat-label">Södertörn</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="contact-section">
+      <h2 class="section-title">Kontakta oss</h2>
+      <p class="section-subtitle">Hör av dig för en kostnadsfri offert eller om du har frågor.</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <a href="tel:+46739542966">073-954 29 66</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <a href="mailto:info@pkservice.se">info@pkservice.se</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 PK Service. Alla rättigheter förbehållna.</p>
+  </footer>
+
+</body>
+</html>
