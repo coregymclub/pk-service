@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PK Service — Fastighetsteknik & Underhåll</title>
-  <meta name="description" content="PK Service erbjuder fastighetsteknik, underhåll och service. Kontakta oss för en kostnadsfri offert.">
+  <title>PK Service — Byggnation, Projektledning & Förvaltning</title>
+  <meta name="description" content="PK Service erbjuder byggnation, projektledning, fastighetsskötsel och teknisk förvaltning i Stockholm och Åre.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -97,7 +97,7 @@
 
     .hero h1 {
       font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1.1;
       margin-bottom: 1.5rem;
@@ -107,7 +107,7 @@
     .hero p {
       font-size: 1.2rem;
       color: var(--text-muted);
-      max-width: 550px;
+      max-width: 580px;
       margin-bottom: 2.5rem;
       position: relative;
     }
@@ -125,6 +125,8 @@
       font-size: 1rem;
       transition: all 0.2s;
       position: relative;
+      border: none;
+      cursor: pointer;
     }
 
     .btn:hover {
@@ -153,6 +155,16 @@
       justify-content: center;
     }
 
+    .location-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 2rem;
+      position: relative;
+    }
+
     /* SECTIONS */
     section {
       padding: 5rem 2rem;
@@ -177,7 +189,7 @@
     /* SERVICES */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.5rem;
     }
 
@@ -196,8 +208,24 @@
     }
 
     .service-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      width: 48px;
+      height: 48px;
+      background: rgba(59, 130, 246, 0.12);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .service-card h3 {
@@ -238,7 +266,7 @@
     }
 
     .stat-number {
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--accent);
     }
@@ -298,7 +326,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+    }
+
+    .contact-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     /* FOOTER */
@@ -332,66 +369,83 @@
   </nav>
 
   <section class="hero">
-    <h1>Fastighetsteknik<br>& Service</h1>
-    <p>Vi hjälper fastighetsägare och bostadsrättsföreningar med drift, underhåll och tekniska lösningar. Professionellt, pålitligt och personligt.</p>
+    <h1>Byggnation &<br>Förvaltning</h1>
+    <p>PK Service erbjuder byggnation, projektledning, fastighetsskötsel och teknisk förvaltning i Stockholm och Åre.</p>
     <div class="hero-buttons">
-      <a href="tel:+46739542966" class="btn">Ring oss</a>
-      <a href="#tjanster" class="btn btn-outline">Våra tjänster</a>
+      <a href="tel:+46739542966" class="btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        Ring oss
+      </a>
+      <a href="mailto:info@pkservice.se" class="btn btn-outline">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        Maila oss
+      </a>
+    </div>
+    <div class="location-tag">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+      Stockholm & Åre
     </div>
   </section>
 
   <section id="tjanster">
-    <h2 class="section-title">Tjänster</h2>
-    <p class="section-subtitle">Vi erbjuder helhetslösningar inom fastighetsteknik och underhåll.</p>
+    <h2 class="section-title">Våra tjänster</h2>
+    <p class="section-subtitle">Helhetslösningar från byggnation till löpande förvaltning.</p>
     <div class="services-grid">
       <div class="service-card">
-        <div class="service-icon">🔧</div>
-        <h3>Fastighetsdrift</h3>
-        <p>Löpande drift och underhåll av fastigheter. Vi ser till att allt fungerar som det ska, dygnet runt.</p>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V10l8-6 8 6v10M9 20v-6h6v6"></path></svg>
+        </div>
+        <h3>Byggnation</h3>
+        <p>Nybyggnation, ombyggnation och renoveringar. Vi tar projektet från ritning till färdigt resultat.</p>
       </div>
       <div class="service-card">
-        <div class="service-icon">🏗️</div>
-        <h3>Underhåll & Reparation</h3>
-        <p>Förebyggande och akut underhåll. Från VVS och el till byggnadstekniska åtgärder.</p>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2M9 5h6M9 14l2 2 4-4"></path></svg>
+        </div>
+        <h3>Projektledning</h3>
+        <p>Professionell projektledning som håller budget, tidplan och kvalitet genom hela processen.</p>
       </div>
       <div class="service-card">
-        <div class="service-icon">⚡</div>
-        <h3>Tekniska System</h3>
-        <p>Installation, konfiguration och underhåll av fastighetstekniska system och styrsystem.</p>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+        </div>
+        <h3>Fastighetsskötsel</h3>
+        <p>Löpande skötsel och underhåll av fastigheter. Vi ser till att allt fungerar och ser bra ut.</p>
       </div>
       <div class="service-card">
-        <div class="service-icon">📋</div>
-        <h3>Konsulttjänster</h3>
-        <p>Rådgivning och projektledning för fastighetsägare som vill optimera sin drift och sänka kostnader.</p>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+        </div>
+        <h3>Teknisk förvaltning</h3>
+        <p>Teknisk drift och förvaltning av fastighetssystem. Planerat underhåll och felavhjälpning.</p>
       </div>
     </div>
   </section>
 
   <section id="om-oss">
     <h2 class="section-title">Om PK Service</h2>
-    <p class="section-subtitle">Kunskap och erfarenhet inom fastighetsteknik.</p>
+    <p class="section-subtitle">Kvalitet och pålitlighet i varje projekt.</p>
     <div class="about-content">
       <div class="about-text">
-        <p>PK Service grundades med en enkel idé: att erbjuda pålitlig och professionell fastighetsteknik med personligt engagemang.</p>
-        <p>Med gedigen erfarenhet inom fastighetsdrift och tekniska system hjälper vi fastighetsägare och bostadsrättsföreningar att hålla sina fastigheter i toppskick.</p>
-        <p>Vi tror på långsiktiga relationer och jobbar alltid för att leverera kvalitet i varje uppdrag.</p>
+        <p>PK Service erbjuder helhetslösningar inom byggnation och fastighetsförvaltning. Vi arbetar i Stockholm och Åre med allt från nybyggnation och projektledning till löpande fastighetsskötsel och teknisk förvaltning.</p>
+        <p>Vi tror på långsiktiga relationer och levererar alltid med kvalitet, oavsett projektets storlek. Vårt mål är att vara den partner du kan lita på.</p>
       </div>
       <div class="about-stats">
+        <div class="stat">
+          <div class="stat-number">Stockholm</div>
+          <div class="stat-label">Huvudkontor</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">Åre</div>
+          <div class="stat-label">Fjällregionen</div>
+        </div>
         <div class="stat">
           <div class="stat-number">100%</div>
           <div class="stat-label">Engagemang</div>
         </div>
         <div class="stat">
-          <div class="stat-number">24/7</div>
-          <div class="stat-label">Tillgänglighet</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">Snabbt</div>
-          <div class="stat-label">Utryckning</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">Lokalt</div>
-          <div class="stat-label">Södertörn</div>
+          <div class="stat-number">Kvalitet</div>
+          <div class="stat-label">I varje projekt</div>
         </div>
       </div>
     </div>
@@ -403,11 +457,15 @@
       <p class="section-subtitle">Hör av dig för en kostnadsfri offert eller om du har frågor.</p>
       <div class="contact-info">
         <div class="contact-item">
-          <div class="contact-icon">📞</div>
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          </div>
           <a href="tel:+46739542966">073-954 29 66</a>
         </div>
         <div class="contact-item">
-          <div class="contact-icon">✉️</div>
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </div>
           <a href="mailto:info@pkservice.se">info@pkservice.se</a>
         </div>
       </div>
