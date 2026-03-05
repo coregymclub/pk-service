@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pelto & Kraiman — Brand Guidelines</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black:     #111009;
+    --white:     #F8F5F0;
+    --warm-gray: #EDEAE4;
+    --mid-gray:  #A8A198;
+    --dark-gray: #3A3428;
+    --border:    #DDD8CF;
+    --orange:    #D95C14;
+    --orange-lt: #FBF0E8;
+    --serif: 'DM Serif Display', serif;
+    --sans:  'DM Sans', sans-serif;
+  }
+
+  html { font-size: 16px; }
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--sans);
+    line-height: 1.6;
+  }
+
+  /* ─── COVER ─────────────────────────────────────── */
+  .cover {
+    min-height: 100vh;
+    background: var(--black);
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding: 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover-slash {
+    position: absolute;
+    top: 0; right: 0;
+    width: 46%;
+    height: 100%;
+    background: var(--orange);
+    clip-path: polygon(22% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  .cover-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 36px;
+    max-width: 52%;
+  }
+  .cover-logo {
+    width: min(380px, 72vw);
+    filter: invert(1);
+    opacity: 0.92;
+  }
+  .cover-logo svg { width: 100%; height: auto; }
+  .cover-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    font-weight: 400;
+  }
+  .cover-title {
+    font-family: var(--serif);
+    font-size: clamp(44px, 6.5vw, 84px);
+    color: var(--white);
+    line-height: 1.02;
+    font-weight: 400;
+  }
+  .cover-title em {
+    font-style: italic;
+    color: var(--orange);
+  }
+  .cover-tags {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+  }
+  .cover-tag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0,0,0,0.2);
+    border-left: 2px solid rgba(255,255,255,0.35);
+    padding: 9px 16px;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.88);
+    font-weight: 500;
+  }
+  .cover-tag svg { opacity: 0.75; flex-shrink: 0; }
+  .cover-footer {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .cover-footer-text {
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 0.1em;
+  }
+
+  /* ─── SECTIONS ───────────────────────────────────── */
+  section {
+    padding: 88px 72px;
+    border-bottom: 1px solid var(--border);
+  }
+  section:last-child { border-bottom: none; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 56px;
+  }
+  .section-number {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--orange);
+    font-weight: 700;
+    min-width: 28px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(30px, 4.5vw, 50px);
+    font-weight: 400;
+    line-height: 1.1;
+  }
+
+  /* ─── INDUSTRIES ─────────────────────────────────── */
+  .industries {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 2px;
+    margin-bottom: 48px;
+  }
+  .industry-card {
+    padding: 28px 26px;
+    background: var(--warm-gray);
+    border-top: 3px solid transparent;
+    transition: border-color 0.15s;
+  }
+  .industry-card:hover { border-top-color: var(--orange); }
+  .industry-icon {
+    color: var(--dark-gray);
+    margin-bottom: 14px;
+    opacity: 0.75;
+  }
+  .industry-name { font-weight: 600; font-size: 13px; margin-bottom: 6px; letter-spacing: 0.01em; }
+  .industry-desc { font-size: 12px; color: var(--mid-gray); line-height: 1.6; }
+
+  .local-note {
+    padding: 28px 32px;
+    background: var(--orange);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 640px;
+  }
+  .local-note-icon { color: rgba(255,255,255,0.7); flex-shrink: 0; }
+  .local-note-title { color: white; font-weight: 600; font-size: 14px; margin-bottom: 5px; }
+  .local-note-body { color: rgba(255,255,255,0.78); font-size: 13px; line-height: 1.6; }
+
+  /* ─── LOGOS ──────────────────────────────────────── */
+  .logo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .logo-card {
+    padding: 52px 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: var(--warm-gray);
+  }
+  .logo-card.dark { background: var(--black); }
+  .logo-card.orange-bg { background: var(--orange); }
+  .logo-card.charcoal { background: #1C1A14; }
+  .logo-card.wide { grid-column: span 2; }
+  .logo-card svg { width: 100%; max-width: 480px; height: auto; }
+  .logo-card.dark svg, .logo-card.charcoal svg { fill: var(--white); }
+  .logo-card.orange-bg svg { fill: var(--white); }
+  .logo-card-name { font-weight: 600; font-size: 13px; color: var(--dark-gray); letter-spacing: 0.01em; }
+  .logo-card.dark .logo-card-name,
+  .logo-card.charcoal .logo-card-name { color: #ccc; }
+  .logo-card.orange-bg .logo-card-name { color: rgba(255,255,255,0.9); }
+  .logo-card-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  .logo-card.dark .logo-card-label,
+  .logo-card.charcoal .logo-card-label { color: #484440; }
+  .logo-card.orange-bg .logo-card-label { color: rgba(255,255,255,0.55); }
+  .logo-symbol-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 0;
+  }
+  .logo-symbol-wrap svg { max-width: 160px; width: 100%; height: auto; }
+
+  /* ─── ORANGE BAR ─────────────────────────────────── */
+  .accent-bar { height: 5px; background: var(--orange); }
+
+  /* ─── CLEARSPACE ─────────────────────────────────── */
+  .clearspace-demo {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 56px;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .clearspace-guide {
+    position: absolute;
+    inset: 20px;
+    border: 1px dashed var(--orange);
+    opacity: 0.35;
+  }
+  .clearspace-label {
+    font-size: 11px;
+    color: var(--mid-gray);
+    letter-spacing: 0.14em;
+    margin-top: 18px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  /* ─── MIN SIZE ───────────────────────────────────── */
+  .minsize-demo { display: flex; align-items: flex-end; gap: 44px; flex-wrap: wrap; margin-top: 52px; }
+  .minsize-item { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .minsize-ruler {
+    font-size: 11px;
+    color: var(--mid-gray);
+    letter-spacing: 0.1em;
+    text-align: center;
+    border-top: 1px solid var(--orange);
+    padding-top: 7px;
+    width: 100%;
+    text-transform: uppercase;
+  }
+
+  /* ─── COLORS ─────────────────────────────────────── */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 2px;
+  }
+  .color-swatch { display: flex; flex-direction: column; overflow: hidden; }
+  .swatch-block { height: 130px; }
+  .swatch-info { padding: 16px 18px; background: var(--warm-gray); }
+  .swatch-name { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+  .swatch-hex { font-size: 11px; color: var(--dark-gray); font-family: monospace; line-height: 1.75; }
+  .swatch-role { font-size: 11px; color: var(--mid-gray); margin-top: 5px; line-height: 1.5; }
+
+  .color-usage { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 2px; }
+  .color-usage-box { padding: 26px 30px; }
+  .color-usage-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    font-weight: 700;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .color-usage-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .color-usage-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .color-usage-list li svg { flex-shrink: 0; }
+
+  /* ─── TYPOGRAPHY ─────────────────────────────────── */
+  .type-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 32px;
+    align-items: start;
+    padding: 44px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .type-row:last-child { border-bottom: none; }
+  .type-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 700;
+    margin-bottom: 7px;
+  }
+  .type-spec { font-size: 12px; color: var(--dark-gray); line-height: 1.8; }
+  .type-display {
+    font-family: var(--serif);
+    font-size: clamp(40px, 5.5vw, 68px);
+    line-height: 1.02;
+    font-weight: 400;
+  }
+  .type-display-italic {
+    font-family: var(--serif);
+    font-size: clamp(40px, 5.5vw, 68px);
+    line-height: 1.02;
+    font-style: italic;
+    color: var(--dark-gray);
+  }
+  .type-heading { font-size: clamp(24px, 3.5vw, 34px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+  .type-subheading { font-size: 16px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dark-gray); }
+  .type-body { font-size: 15px; line-height: 1.72; max-width: 520px; color: var(--dark-gray); }
+  .type-caption { font-size: 11px; letter-spacing: 0.12em; color: var(--mid-gray); text-transform: uppercase; }
+
+  /* ─── USAGE ──────────────────────────────────────── */
+  .usage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .usage-card { padding: 40px; background: var(--warm-gray); }
+  .usage-card.dont { background: #F5EDEA; }
+  .usage-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 24px;
+    padding: 5px 11px;
+  }
+  .badge-do { background: var(--orange); color: white; }
+  .badge-dont { background: #E5CCC8; color: #6E2A22; }
+  .usage-preview {
+    background: white;
+    padding: 36px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 130px;
+    border: 1px solid #EAE5DC;
+  }
+  .usage-preview.dark { background: var(--black); border: none; }
+  .usage-preview.orange { background: var(--orange); border: none; }
+  .usage-desc { font-size: 13px; color: var(--dark-gray); line-height: 1.6; }
+  .usage-dont-overlay { position: relative; }
+  .usage-dont-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg, transparent, transparent 8px,
+      rgba(150,40,30,0.04) 8px, rgba(150,40,30,0.04) 9px
+    );
+    pointer-events: none;
+  }
+
+  /* ─── TONE ───────────────────────────────────────── */
+  .tone-section {
+    background: var(--black);
+    padding: 88px 72px;
+  }
+  .tone-headline {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4.5vw, 52px);
+    color: var(--white);
+    font-weight: 400;
+    line-height: 1.18;
+    max-width: 680px;
+    margin-bottom: 36px;
+  }
+  .tone-headline em { font-style: italic; color: var(--orange); }
+  .tone-note { font-size: 14px; color: #666; line-height: 1.72; max-width: 460px; margin-bottom: 52px; }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 2px;
+  }
+  .pillar {
+    background: #181610;
+    padding: 28px 24px;
+    border-top: 2px solid var(--orange);
+  }
+  .pillar-icon { color: var(--orange); margin-bottom: 12px; opacity: 0.85; }
+  .pillar-title { font-size: 12px; font-weight: 700; color: var(--white); letter-spacing: 0.1em; margin-bottom: 7px; text-transform: uppercase; }
+  .pillar-desc { font-size: 12px; color: #585450; line-height: 1.6; }
+
+  /* ─── FOOTER ─────────────────────────────────────── */
+  .page-footer {
+    background: var(--black);
+    padding: 48px 72px;
+    border-top: 3px solid var(--orange);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  @media (max-width: 768px) {
+    section, .cover, .tone-section { padding: 48px 24px; }
+    .logo-grid, .usage-grid { grid-template-columns: 1fr; }
+    .logo-card.wide { grid-column: span 1; }
+    .type-row { grid-template-columns: 1fr; gap: 10px; }
+    .cover-content { max-width: 100%; }
+    .cover-tags { display: none; }
+    .cover-slash { width: 100%; clip-path: none; opacity: 0.1; }
+    .color-usage { grid-template-columns: 1fr; }
+    .page-footer { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-slash"></div>
+
+  <div class="cover-content">
+    <p class="cover-eyebrow">Varumärkesriktlinjer &nbsp;·&nbsp; Version 1.0</p>
+    <div class="cover-logo"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3700.08 927.13">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path d="M865.31,184.52c-21.71-46.3-46.37-85.3-83.13-117.73-28.44-27.62-60.92-47.93-97.35-64.64,3.07-3.99,7.09-1.22,11.19-1.21l169.98.13-.69,183.46Z"/>
+    <path d="M2982.54,262.29c-59.45,27.38-141.18,18.4-186.61-31.09-41.97-45.72-41.59-114.34.01-160.39,47.92-53.05,142.47-59.42,201.54-23.57,35.95,21.82,58.56,58.02,59.78,100.54,1.44,50.2-28.65,93.29-74.72,114.51ZM2955.15,216.89c30.17-17.36,44.37-50.85,36.56-83.95-7.3-30.92-33.66-54.52-67.25-58.58-21.92-2.65-44.68,1.27-63.81,13.95-25.55,16.94-37.41,48.8-30.93,79.28,5.88,27.62,28.19,50.89,57.96,57.91,22.87,5.39,46.24,3.62,67.47-8.6Z"/>
+    <path d="M2272.31,170.94l-124.31.46.24,55.54,145.76.16-.34,45.84-201.22.1c-1.47,0-6.2-1.37-6.42-2.79-.28-1.78-.02-4.48-.02-7.78l.14-233.53,201.86.1-.14,45.9-139.86.17.29,51.83,123.71.27.31,43.73Z"/>
+    <path d="M1999.22,187.18c-16.45,8.57-33.92,14.45-52.18,14.76l-76.04,1.28-.52,69.72-62.48-.2-.03-243.8,137.26.8c22.72.13,43.65,8.7,62.13,19.53,17.48,11.87,27.53,28.37,32.16,48.56,8.25,35.94-6.33,71.65-40.32,89.35ZM1970.48,139.24c12.35-15.93,9.48-38.85-5.29-51.08-8.85-7.33-21.78-12.18-33.41-12.22l-61.78-.19.05,81.13c31.76-1.59,79.98,8.73,100.43-17.64Z"/>
+    <path d="M2666,75.4l-.26,196.54-61.74.5-.12-196.5-85.88-.9.46-46.1h232.6c-.85,14.41-.95,26.24.44,37.68.25,2.03-1.99,8.31-4.12,8.32l-81.38.46Z"/>
+    <path d="M2536,225.24l.16,35.56c.01,2.95,1.59,12.13-3.12,12.14l-193.04.1-.04-243.1,62.04-.46-.04,195.46,134.04.3Z"/>
+    <path d="M3423.55,277l-33.77-25.94c-44.63,33.99-129.24,36.68-174.12.51-25.49-20.54-28.94-56.09-8.84-81.77,11.62-14.85,26.34-23.71,44.6-32.76l-13.24-16.31c-10.77-13.27-15.3-30.8-10.72-48.6,3.4-13.23,13.61-27.75,29.04-35.17,44.11-21.21,122.04-15.41,131.18,34.05,6.87,37.19-19.88,53.45-50.51,72.25l47.62,40.61c8.78-10.67,12.13-22.45,16.26-37.59l48.02,12.73c-3.23,21.51-13.38,37.42-24.39,55.81l32.55,27.79-33.67,34.4ZM3330.63,96.94c9.25-8.94,6.6-22.79-3.3-29.38-11.02-7.34-26.17-5.92-36.77,1.93-8.78,6.49-11.96,18.97-4.51,27.85,5.1,6.08,10.38,11.24,16.55,17.38,10.06-4.75,19.68-9.71,28.03-17.78ZM3351.85,218.94l-64.3-52.95c-17.02,6.88-39.82,26.51-29.93,45.62,16.15,31.21,69.71,26.76,94.23,7.33Z"/>
+    <path d="M3037,632.94v-142.03l-78.85,115.19c-8.52,1.38-22.43,2.88-30.58-.14-29.22-35.74-48.94-76.8-78.57-112.77v138.75h-61v-242.06c35.67,5.21,48.29-9.92,60.88,8.8l93.74,139.45,92.12-140.15c3.41-5.18,7.09-8.04,13.26-9.16l46.99,1.25v242.86h-58Z"/>
+    <path d="M3700.08,631.94h-52.04l-133.04-145.19v145.19l-63,.33.06-242.73c19.97-.95,34.43-1.1,54,.08l127.47,141.14c1.59,1.77,4.47-1.22,4.47-2.54v-138.1c21.01-1.62,39.72-1.79,62-.69l.08,242.5Z"/>
+    <path d="M2258.14,632.63l-50.3-69.68-50.49-.2c-2.27,0-7.34,3.46-7.34,5.92l-.14,64.28-61.86-.73.03-243.27,121.05.45c29.89.11,58.9,5.17,82.46,23.8,17.4,13.29,27.02,31.41,29.63,53.02,4.57,37.83-15.48,71.5-53.83,85.87l58.94,79.86-68.14.68ZM2258.37,474.25c-1.12-20.6-21.63-37.28-41.75-37.31l-65.61-.09-.28,80.09,68.19-.08c14.22-.02,40.92-15.72,39.46-42.61Z"/>
+    <path d="M2017.43,427.74l-69.76,68.58,114.86,135.59c-26.29,1.89-49.19,1.46-72.91.69l-83.2-96.31-35.42,34.36-.44,62.3-62.56.13v-243.13h62v109.33l76.99-73.42,37.9-36.09c20.74,1.24,39.7,1.51,60.03.31,3.68-.22,6.83-.1,8.94,2.21l-36.43,35.45Z"/>
+    <path d="M3336.07,580.94h-126.18s-23.19,52-23.19,52l-64.72-.39,119.14-242.61,62.85-.64c3.87,4.12,6.51,9.56,9.23,15.03l113.71,228.61-66.09.27-24.74-52.27ZM3315.29,536.76l-21.86-47.35-20.37-42.45-42.04,89.98,84.28-.18Z"/>
+    <path d="M2546.86,580.94l-118.81-.39c-3.17-.01-8.24,3.58-9.34,6.06l-20.49,46.33-63.4-.2,12.84-28.55,101.51-208.13c1.97-4.03,6.76-7.12,10.7-7.13l48.19-.14c9.51-.03,10.63,4.36,14.37,11.87l114.96,230.8-65.88,1.17-24.65-51.7ZM2526.56,536.83l-17.58-37.3-25.04-53.01-41.28,90.43,83.9-.11Z"/>
+    <rect x="2664" y="388.94" width="64" height="244"/>
+    <g>
+      <path d="M834.24,336.85c-12.26,158.08-118.54,245.06-264.61,282.02-39.39,7.66-77.44,14.94-118.13,15.07l-226.5.74-.17,282.26-224.83-.08L.04.94l447.61-.1c56.68-.01,110.07,7.58,163.51,24.59,52.74,15.02,99.67,40.72,139.59,78.45,61.96,58.56,90.04,148.65,83.5,232.97ZM576.44,414.3c31.95-36.5,40.85-84.41,32.7-130.75-6.51-36.99-25.81-68.6-57.6-88.54-33.58-21.06-71.49-30.86-111.56-30.61l-20.36-1.46h-195.62s-.08,306-.08,306l217.56-.86c43.08-.17,104.16-18.58,134.97-53.78Z"/>
+      <path d="M911.29,625.37l-45.29,44.19.02,247.39-224.02-.09.18-269.97c53.87-20.29,100.1-47.55,140.87-84.73,45.9-44.16,77.31-98.07,93.65-159.34l40.14-39.16,62.01-59.99,65.03-62.9,51-49.08,51.99-50.03,69.99-67.95,47.99-45.93,21.96-20.82,256.65.11c-12.49,14.97-23.65,24.44-35.6,36l-62.02,59.99-79.95,77.95-90.12,88.1-138.85,135.51,99.25,118.05,107.46,128.65,222.1,265.63-267.72.4-307.54-367.8-79.17,75.82Z"/>
+    </g>
+    <path d="M2915.46,924.06l-31.94-41.12-46.72.11-1.04,39.86c-5.01,2.21-12.32,2.15-19.76.63l-.09-130.6,73.89.36c12.43.06,26.87,7.72,34.77,16.35,10.33,11.29,12.91,26.88,8.69,40.99-3.74,12.48-13.8,21.71-29.63,28.27l33.7,44.07c-7.29,1.89-15.42,2.28-21.86,1.07ZM2915.28,834.6c-4.48-34.78-52.53-24.07-78.28-25.62l-.3,57.81c18.26.4,34.2,1.18,50.98-.54,16.05-1.65,29.75-14.91,27.6-31.66Z"/>
+    <path d="M3683.28,864.94l-74.67.58c-.62,15.82-.61,28.8.42,43.42l84.26.18c5.21,1,5.38,15.81-.22,15.82l-105.06.16-.1-132.16,104.71-.09c2.28,3.34,2.24,9.41,1.05,15.09l-84.66.05.12,40.95,73.73.35c3.25,3.12,3.46,11.31.43,15.65Z"/>
+    <path d="M2708.64,864.94l-73.64.33-.19,43.67,86.85.22c3.69,3.24,3.6,12.53-.13,15.78l-100.84.19c-1.54,0-6.12-1.45-6.62-2.83-.62-1.73-.06-4.62-.06-7.7l-.13-121.66,102.9-.09c2.09,3.41,2.16,9.56,1.06,15.09l-79.84.19c-2.28,0-4.85,4.43-4.72,6.6.66,10.95.39,21.28.03,34.21l72.73.52c2.87,3.44,3.72,9.23,2.61,15.48Z"/>
+    <path d="M1917.97,890.94l-79.6-.22-16.82,31.85c-3.58,3.68-15.24,2.73-20.9.12l64.94-128.84c5.45-4.31,17.99-4.43,23.55-.37l66.7,129.19c-6.86,2.54-14.8,2.61-20.84,1.18l-17.02-32.91ZM1848.46,876.45c22.81.45,39.1,1.02,61.27-1.21l-29.21-58.96c-.44-.89-3.36-3.3-3.67-2.81s-1.67,2.18-2.03,2.9l-26.16,52.62c-1.02,2.05-1.98,7.42-.2,7.46Z"/>
+    <path d="M2503.76,917.18c-26.04,15.24-74.49,12.35-98.02-8.89,2.6-4.55,5.37-8.62,8.97-13.15,22.11,20.34,84.88,23.06,85.34-5.11.09-5.34-5.69-14.7-12.47-16.43l-50.78-13c-13.63-3.49-24.59-13.34-26.64-24.92-2.76-15.57,2.91-28.58,16.35-36.37,20.99-12.16,64.24-11.72,84.25,1.78,4.23,2.85-1.22,14.55-5.96,14.94-18.75-12.43-75.63-16.14-74.84,11.92.21,7.33,6.75,14.25,14.73,16.4l51.7,13.9c13.56,3.65,22.18,14.57,23.58,26.24,1.6,13.4-4.17,25.62-16.23,32.68Z"/>
+    <path d="M3388.3,884.05c21.19,31.69,64.63,34.38,92.19,10.87,5.26-.82,13.03,6.27,13.36,12.03-30.74,27.01-78.7,26.56-110.2.81-28.36-23.19-31.02-63.1-7.69-90.81,28.16-33.44,89.08-35,118.56-5.85-4.14,4.91-8.6,8.82-14.17,11.78-27.71-25.23-72.67-20.69-92.58,11.54-8.6,13.92-9.07,35.29.52,49.63Z"/>
+    <path d="M3139.21,794.64c5.27-2.87,14.33-2.37,21.91-.47l-64.25,129.65c-6.82,1.81-14.68,1.79-21.46.09l-63.76-130.25c8.48-.73,14.41-.77,21.96-.29l52.88,108,52.72-106.72Z"/>
+    <path d="M2139.49,909.53c3.84.6,3.3,12.49-.34,15.41l-94.78-.12c-4.36,0-2.36-9.14-2.37-12.33l-.14-116.12c5.75-1.26,11.25-1.33,20.14-.87l.45,113.44,77.04.59Z"/>
+    <path d="M2328.55,909.3c3.89,1.64,3.25,12.08.03,15.64l-98.58.19-.31-130.86,20.31-.45.35,115.11,78.2.36Z"/>
+    <rect x="3244.01" y="792.94" width="21.98" height="132"/>
+  </g>
+</svg></div>
+    <h1 class="cover-title">Brand<br><em>Guidelines</em></h1>
+  </div>
+
+  <div class="cover-tags">
+    <div class="cover-tag">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5a2.12 2.12 0 0 1-3-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c.53-.78.51-1.82-.06-2.56l-4.45-5.29a1.5 1.5 0 0 0-2.35.06L9.5 6.5l2.5 2.5 1.41-1.41 1.25 1.25"/></svg>
+      Snickeri
+    </div>
+    <div class="cover-tag">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18"/><path d="M9 3v18"/></svg>
+      Renovering
+    </div>
+    <div class="cover-tag">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>
+      Fastighetsservice
+    </div>
+    <div class="cover-tag">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 14h6"/><path d="M9 10h6"/></svg>
+      Hyresavtal & besiktning
+    </div>
+    <div class="cover-tag">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      Allservice
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <span class="cover-footer-text">Pelto &amp; Kraiman Allservice</span>
+    <span class="cover-footer-text">Konfidentiellt — ej för extern distribution</span>
+  </div>
+</div>
+
+<div class="accent-bar"></div>
+
+<!-- 01 – TJÄNSTER -->
+<section>
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2 class="section-title">Vad vi gör</h2>
+  </div>
+
+  <div class="industries">
+    <div class="industry-card">
+      <div class="industry-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5a2.12 2.12 0 0 1-3-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c.53-.78.51-1.82-.06-2.56l-4.45-5.29a1.5 1.5 0 0 0-2.35.06L9.5 6.5l2.5 2.5 1.41-1.41 1.25 1.25"/></svg></div>
+      <p class="industry-name">Snickeri &amp; Träarbete</p>
+      <p class="industry-desc">Snickerier, inredning, konstruktion och speciallösningar i trä.</p>
+    </div>
+    <div class="industry-card">
+      <div class="industry-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg></div>
+      <p class="industry-name">Renovering &amp; Ombyggnad</p>
+      <p class="industry-desc">Bad, kök, golv och målning — vi tar hand om hela processen.</p>
+    </div>
+    <div class="industry-card">
+      <div class="industry-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg></div>
+      <p class="industry-name">Fastighetsservice</p>
+      <p class="industry-desc">Löpande underhåll, jour och felavhjälpning för fastighetsägare och BRF.</p>
+    </div>
+    <div class="industry-card">
+      <div class="industry-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 14h6"/><path d="M9 10h6"/><path d="M9 18h4"/></svg></div>
+      <p class="industry-name">Hyresavtal &amp; Besiktning</p>
+      <p class="industry-desc">In- och utflyttningsbesiktning, dokumentation och åtgärdsprotokoll.</p>
+    </div>
+    <div class="industry-card">
+      <div class="industry-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+      <p class="industry-name">Allservice</p>
+      <p class="industry-desc">VVS-koppling, montering, el-felsökning och akuta uppdrag.</p>
+    </div>
+  </div>
+
+  <div class="local-note">
+    <div class="local-note-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+    <div>
+      <p class="local-note-title">Lokal förankring</p>
+      <p class="local-note-body">Pelto &amp; Kraiman är ett lokalt förankrat hantverksföretag. Varumärket ska kännas som en pålitlig granne — inte ett anonymt storföretag.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 – LOGOTYP -->
+<section>
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <h2 class="section-title">Logotyp &amp;<br>Varianter</h2>
+  </div>
+
+  <div class="logo-grid">
+
+    <div class="logo-card wide">
+      <div style="max-width:500px;"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3700.08 927.13">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path d="M865.31,184.52c-21.71-46.3-46.37-85.3-83.13-117.73-28.44-27.62-60.92-47.93-97.35-64.64,3.07-3.99,7.09-1.22,11.19-1.21l169.98.13-.69,183.46Z"/>
+    <path d="M2982.54,262.29c-59.45,27.38-141.18,18.4-186.61-31.09-41.97-45.72-41.59-114.34.01-160.39,47.92-53.05,142.47-59.42,201.54-23.57,35.95,21.82,58.56,58.02,59.78,100.54,1.44,50.2-28.65,93.29-74.72,114.51ZM2955.15,216.89c30.17-17.36,44.37-50.85,36.56-83.95-7.3-30.92-33.66-54.52-67.25-58.58-21.92-2.65-44.68,1.27-63.81,13.95-25.55,16.94-37.41,48.8-30.93,79.28,5.88,27.62,28.19,50.89,57.96,57.91,22.87,5.39,46.24,3.62,67.47-8.6Z"/>
+    <path d="M2272.31,170.94l-124.31.46.24,55.54,145.76.16-.34,45.84-201.22.1c-1.47,0-6.2-1.37-6.42-2.79-.28-1.78-.02-4.48-.02-7.78l.14-233.53,201.86.1-.14,45.9-139.86.17.29,51.83,123.71.27.31,43.73Z"/>
+    <path d="M1999.22,187.18c-16.45,8.57-33.92,14.45-52.18,14.76l-76.04,1.28-.52,69.72-62.48-.2-.03-243.8,137.26.8c22.72.13,43.65,8.7,62.13,19.53,17.48,11.87,27.53,28.37,32.16,48.56,8.25,35.94-6.33,71.65-40.32,89.35ZM1970.48,139.24c12.35-15.93,9.48-38.85-5.29-51.08-8.85-7.33-21.78-12.18-33.41-12.22l-61.78-.19.05,81.13c31.76-1.59,79.98,8.73,100.43-17.64Z"/>
+    <path d="M2666,75.4l-.26,196.54-61.74.5-.12-196.5-85.88-.9.46-46.1h232.6c-.85,14.41-.95,26.24.44,37.68.25,2.03-1.99,8.31-4.12,8.32l-81.38.46Z"/>
+    <path d="M2536,225.24l.16,35.56c.01,2.95,1.59,12.13-3.12,12.14l-193.04.1-.04-243.1,62.04-.46-.04,195.46,134.04.3Z"/>
+    <path d="M3423.55,277l-33.77-25.94c-44.63,33.99-129.24,36.68-174.12.51-25.49-20.54-28.94-56.09-8.84-81.77,11.62-14.85,26.34-23.71,44.6-32.76l-13.24-16.31c-10.77-13.27-15.3-30.8-10.72-48.6,3.4-13.23,13.61-27.75,29.04-35.17,44.11-21.21,122.04-15.41,131.18,34.05,6.87,37.19-19.88,53.45-50.51,72.25l47.62,40.61c8.78-10.67,12.13-22.45,16.26-37.59l48.02,12.73c-3.23,21.51-13.38,37.42-24.39,55.81l32.55,27.79-33.67,34.4ZM3330.63,96.94c9.25-8.94,6.6-22.79-3.3-29.38-11.02-7.34-26.17-5.92-36.77,1.93-8.78,6.49-11.96,18.97-4.51,27.85,5.1,6.08,10.38,11.24,16.55,17.38,10.06-4.75,19.68-9.71,28.03-17.78ZM3351.85,218.94l-64.3-52.95c-17.02,6.88-39.82,26.51-29.93,45.62,16.15,31.21,69.71,26.76,94.23,7.33Z"/>
+    <path d="M3037,632.94v-142.03l-78.85,115.19c-8.52,1.38-22.43,2.88-30.58-.14-29.22-35.74-48.94-76.8-78.57-112.77v138.75h-61v-242.06c35.67,5.21,48.29-9.92,60.88,8.8l93.74,139.45,92.12-140.15c3.41-5.18,7.09-8.04,13.26-9.16l46.99,1.25v242.86h-58Z"/>
+    <path d="M3700.08,631.94h-52.04l-133.04-145.19v145.19l-63,.33.06-242.73c19.97-.95,34.43-1.1,54,.08l127.47,141.14c1.59,1.77,4.47-1.22,4.47-2.54v-138.1c21.01-1.62,39.72-1.79,62-.69l.08,242.5Z"/>
+    <path d="M2258.14,632.63l-50.3-69.68-50.49-.2c-2.27,0-7.34,3.46-7.34,5.92l-.14,64.28-61.86-.73.03-243.27,121.05.45c29.89.11,58.9,5.17,82.46,23.8,17.4,13.29,27.02,31.41,29.63,53.02,4.57,37.83-15.48,71.5-53.83,85.87l58.94,79.86-68.14.68ZM2258.37,474.25c-1.12-20.6-21.63-37.28-41.75-37.31l-65.61-.09-.28,80.09,68.19-.08c14.22-.02,40.92-15.72,39.46-42.61Z"/>
+    <path d="M2017.43,427.74l-69.76,68.58,114.86,135.59c-26.29,1.89-49.19,1.46-72.91.69l-83.2-96.31-35.42,34.36-.44,62.3-62.56.13v-243.13h62v109.33l76.99-73.42,37.9-36.09c20.74,1.24,39.7,1.51,60.03.31,3.68-.22,6.83-.1,8.94,2.21l-36.43,35.45Z"/>
+    <path d="M3336.07,580.94h-126.18s-23.19,52-23.19,52l-64.72-.39,119.14-242.61,62.85-.64c3.87,4.12,6.51,9.56,9.23,15.03l113.71,228.61-66.09.27-24.74-52.27ZM3315.29,536.76l-21.86-47.35-20.37-42.45-42.04,89.98,84.28-.18Z"/>
+    <path d="M2546.86,580.94l-118.81-.39c-3.17-.01-8.24,3.58-9.34,6.06l-20.49,46.33-63.4-.2,12.84-28.55,101.51-208.13c1.97-4.03,6.76-7.12,10.7-7.13l48.19-.14c9.51-.03,10.63,4.36,14.37,11.87l114.96,230.8-65.88,1.17-24.65-51.7ZM2526.56,536.83l-17.58-37.3-25.04-53.01-41.28,90.43,83.9-.11Z"/>
+    <rect x="2664" y="388.94" width="64" height="244"/>
+    <g>
+      <path d="M834.24,336.85c-12.26,158.08-118.54,245.06-264.61,282.02-39.39,7.66-77.44,14.94-118.13,15.07l-226.5.74-.17,282.26-224.83-.08L.04.94l447.61-.1c56.68-.01,110.07,7.58,163.51,24.59,52.74,15.02,99.67,40.72,139.59,78.45,61.96,58.56,90.04,148.65,83.5,232.97ZM576.44,414.3c31.95-36.5,40.85-84.41,32.7-130.75-6.51-36.99-25.81-68.6-57.6-88.54-33.58-21.06-71.49-30.86-111.56-30.61l-20.36-1.46h-195.62s-.08,306-.08,306l217.56-.86c43.08-.17,104.16-18.58,134.97-53.78Z"/>
+      <path d="M911.29,625.37l-45.29,44.19.02,247.39-224.02-.09.18-269.97c53.87-20.29,100.1-47.55,140.87-84.73,45.9-44.16,77.31-98.07,93.65-159.34l40.14-39.16,62.01-59.99,65.03-62.9,51-49.08,51.99-50.03,69.99-67.95,47.99-45.93,21.96-20.82,256.65.11c-12.49,14.97-23.65,24.44-35.6,36l-62.02,59.99-79.95,77.95-90.12,88.1-138.85,135.51,99.25,118.05,107.46,128.65,222.1,265.63-267.72.4-307.54-367.8-79.17,75.82Z"/>
+    </g>
+    <path d="M2915.46,924.06l-31.94-41.12-46.72.11-1.04,39.86c-5.01,2.21-12.32,2.15-19.76.63l-.09-130.6,73.89.36c12.43.06,26.87,7.72,34.77,16.35,10.33,11.29,12.91,26.88,8.69,40.99-3.74,12.48-13.8,21.71-29.63,28.27l33.7,44.07c-7.29,1.89-15.42,2.28-21.86,1.07ZM2915.28,834.6c-4.48-34.78-52.53-24.07-78.28-25.62l-.3,57.81c18.26.4,34.2,1.18,50.98-.54,16.05-1.65,29.75-14.91,27.6-31.66Z"/>
+    <path d="M3683.28,864.94l-74.67.58c-.62,15.82-.61,28.8.42,43.42l84.26.18c5.21,1,5.38,15.81-.22,15.82l-105.06.16-.1-132.16,104.71-.09c2.28,3.34,2.24,9.41,1.05,15.09l-84.66.05.12,40.95,73.73.35c3.25,3.12,3.46,11.31.43,15.65Z"/>
+    <path d="M2708.64,864.94l-73.64.33-.19,43.67,86.85.22c3.69,3.24,3.6,12.53-.13,15.78l-100.84.19c-1.54,0-6.12-1.45-6.62-2.83-.62-1.73-.06-4.62-.06-7.7l-.13-121.66,102.9-.09c2.09,3.41,2.16,9.56,1.06,15.09l-79.84.19c-2.28,0-4.85,4.43-4.72,6.6.66,10.95.39,21.28.03,34.21l72.73.52c2.87,3.44,3.72,9.23,2.61,15.48Z"/>
+    <path d="M1917.97,890.94l-79.6-.22-16.82,31.85c-3.58,3.68-15.24,2.73-20.9.12l64.94-128.84c5.45-4.31,17.99-4.43,23.55-.37l66.7,129.19c-6.86,2.54-14.8,2.61-20.84,1.18l-17.02-32.91ZM1848.46,876.45c22.81.45,39.1,1.02,61.27-1.21l-29.21-58.96c-.44-.89-3.36-3.3-3.67-2.81s-1.67,2.18-2.03,2.9l-26.16,52.62c-1.02,2.05-1.98,7.42-.2,7.46Z"/>
+    <path d="M2503.76,917.18c-26.04,15.24-74.49,12.35-98.02-8.89,2.6-4.55,5.37-8.62,8.97-13.15,22.11,20.34,84.88,23.06,85.34-5.11.09-5.34-5.69-14.7-12.47-16.43l-50.78-13c-13.63-3.49-24.59-13.34-26.64-24.92-2.76-15.57,2.91-28.58,16.35-36.37,20.99-12.16,64.24-11.72,84.25,1.78,4.23,2.85-1.22,14.55-5.96,14.94-18.75-12.43-75.63-16.14-74.84,11.92.21,7.33,6.75,14.25,14.73,16.4l51.7,13.9c13.56,3.65,22.18,14.57,23.58,26.24,1.6,13.4-4.17,25.62-16.23,32.68Z"/>
+    <path d="M3388.3,884.05c21.19,31.69,64.63,34.38,92.19,10.87,5.26-.82,13.03,6.27,13.36,12.03-30.74,27.01-78.7,26.56-110.2.81-28.36-23.19-31.02-63.1-7.69-90.81,28.16-33.44,89.08-35,118.56-5.85-4.14,4.91-8.6,8.82-14.17,11.78-27.71-25.23-72.67-20.69-92.58,11.54-8.6,13.92-9.07,35.29.52,49.63Z"/>
+    <path d="M3139.21,794.64c5.27-2.87,14.33-2.37,21.91-.47l-64.25,129.65c-6.82,1.81-14.68,1.79-21.46.09l-63.76-130.25c8.48-.73,14.41-.77,21.96-.29l52.88,108,52.72-106.72Z"/>
+    <path d="M2139.49,909.53c3.84.6,3.3,12.49-.34,15.41l-94.78-.12c-4.36,0-2.36-9.14-2.37-12.33l-.14-116.12c5.75-1.26,11.25-1.33,20.14-.87l.45,113.44,77.04.59Z"/>
+    <path d="M2328.55,909.3c3.89,1.64,3.25,12.08.03,15.64l-98.58.19-.31-130.86,20.31-.45.35,115.11,78.2.36Z"/>
+    <rect x="3244.01" y="792.94" width="21.98" height="132"/>
+  </g>
+</svg></div>
+      <div>
+        <p class="logo-card-name">Primär logotyp — Horisontell</p>
+        <p class="logo-card-label">Föredragen version. Hemsida, fordon, visitkort, trycksaker.</p>
+      </div>
+    </div>
+
+    <div class="logo-card dark">
+      <div class="logo-symbol-wrap"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1565.73 917.34">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path d="M865.31,184.52c-21.71-46.3-46.37-85.3-83.13-117.73-28.44-27.62-60.92-47.93-97.35-64.64,3.07-3.99,7.09-1.22,11.19-1.21l169.98.13-.69,183.46Z"/>
+    <g>
+      <path d="M834.24,336.85c-12.26,158.08-118.54,245.06-264.61,282.02-39.39,7.66-77.44,14.94-118.13,15.07l-226.5.74-.17,282.26-224.83-.08L.04.94l447.61-.1c56.68-.01,110.07,7.58,163.51,24.59,52.74,15.02,99.67,40.72,139.59,78.45,61.96,58.56,90.04,148.65,83.5,232.97ZM576.44,414.3c31.95-36.5,40.85-84.41,32.7-130.75-6.51-36.99-25.81-68.6-57.6-88.54-33.58-21.06-71.49-30.86-111.56-30.61l-20.36-1.46h-195.62s-.08,306-.08,306l217.56-.86c43.08-.17,104.16-18.58,134.97-53.78Z"/>
+      <path d="M911.29,625.37l-45.29,44.19.02,247.39-224.02-.09.18-269.97c53.87-20.29,100.1-47.55,140.87-84.73,45.9-44.16,77.31-98.07,93.65-159.34l40.14-39.16,62.01-59.99,65.03-62.9,51-49.08,51.99-50.03,69.99-67.95,47.99-45.93,21.96-20.82,256.65.11c-12.49,14.97-23.65,24.44-35.6,36l-62.02,59.99-79.95,77.95-90.12,88.1-138.85,135.51,99.25,118.05,107.46,128.65,222.1,265.63-267.72.4-307.54-367.8-79.17,75.82Z"/>
+    </g>
+  </g>
+</svg></div>
+      <div>
+        <p class="logo-card-name">PK-symbolen</p>
+        <p class="logo-card-label">Ikon, favicon, stämpel, arbetsklädsel, hjälmmärke.</p>
+      </div>
+    </div>
+
+    <div class="logo-card orange-bg">
+      <div class="logo-symbol-wrap"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1565.73 917.34">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path d="M865.31,184.52c-21.71-46.3-46.37-85.3-83.13-117.73-28.44-27.62-60.92-47.93-97.35-64.64,3.07-3.99,7.09-1.22,11.19-1.21l169.98.13-.69,183.46Z"/>
+    <g>
+      <path d="M834.24,336.85c-12.26,158.08-118.54,245.06-264.61,282.02-39.39,7.66-77.44,14.94-118.13,15.07l-226.5.74-.17,282.26-224.83-.08L.04.94l447.61-.1c56.68-.01,110.07,7.58,163.51,24.59,52.74,15.02,99.67,40.72,139.59,78.45,61.96,58.56,90.04,148.65,83.5,232.97ZM576.44,414.3c31.95-36.5,40.85-84.41,32.7-130.75-6.51-36.99-25.81-68.6-57.6-88.54-33.58-21.06-71.49-30.86-111.56-30.61l-20.36-1.46h-195.62s-.08,306-.08,306l217.56-.86c43.08-.17,104.16-18.58,134.97-53.78Z"/>
+      <path d="M911.29,625.37l-45.29,44.19.02,247.39-224.02-.09.18-269.97c53.87-20.29,100.1-47.55,140.87-84.73,45.9-44.16,77.31-98.07,93.65-159.34l40.14-39.16,62.01-59.99,65.03-62.9,51-49.08,51.99-50.03,69.99-67.95,47.99-45.93,21.96-20.82,256.65.11c-12.49,14.97-23.65,24.44-35.6,36l-62.02,59.99-79.95,77.95-90.12,88.1-138.85,135.51,99.25,118.05,107.46,128.65,222.1,265.63-267.72.4-307.54-367.8-79.17,75.82Z"/>
+    </g>
+  </g>
+</svg></div>
+      <div>
+        <p class="logo-card-name">Symbol på orange</p>
+        <p class="logo-card-label">Byggskyltar, varselvästar, profilerat material.</p>
+      </div>
+    </div>
+
+    <div class="logo-card charcoal wide">
+      <div style="max-width:300px; margin:0 auto; filter:invert(1);"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1908.34 1402.67">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <path d="M1073.87,383.32c-13.99,180.34-135.23,279.56-301.86,321.72-44.93,8.74-88.34,17.04-134.77,17.19l-258.39.84-.2,322-256.48-.1L122.23.12,632.85,0c64.66-.02,125.57,8.64,186.52,28.05,60.17,17.13,113.7,46.45,159.24,89.5,70.68,66.81,102.72,169.58,95.26,265.77ZM779.78,471.67c36.45-41.63,46.61-96.29,37.3-149.16-7.43-42.2-29.44-78.26-65.71-101.01-38.31-24.02-81.56-35.21-127.26-34.92l-23.22-1.66-223.16.02-.09,349.06,248.18-.98c49.14-.19,118.82-21.2,153.97-61.35Z"/>
+      <path d="M1161.77,712.45l-51.67,50.41.02,282.22-255.55-.1.21-307.98c61.45-23.14,114.19-54.25,160.71-96.66,52.36-50.38,88.2-111.88,106.83-181.78l45.8-44.68,70.74-68.43,74.19-71.76,58.18-55.99,59.31-57.07,79.84-77.52,54.75-52.4,25.05-23.75,292.78.13c-14.25,17.08-26.98,27.88-40.61,41.07l-70.75,68.43-91.21,88.92-102.81,100.51-158.4,154.58,113.22,134.67,122.59,146.77,253.37,303.03-305.41.46-350.84-419.58-90.32,86.5Z"/>
+    </g>
+    <path d="M1114.81,1399.6l-31.94-41.12-46.72.11-1.04,39.86c-5.01,2.21-12.32,2.15-19.76.63l-.09-130.6,73.89.36c12.43.06,26.87,7.72,34.77,16.35,10.33,11.29,12.91,26.88,8.69,40.99-3.74,12.48-13.8,21.71-29.63,28.27l33.7,44.07c-7.29,1.89-15.42,2.28-21.86,1.07ZM1114.63,1310.14c-4.48-34.78-52.53-24.07-78.28-25.62l-.3,57.81c18.26.4,34.2,1.18,50.98-.54,16.05-1.65,29.75-14.91,27.6-31.66Z"/>
+    <path d="M1882.63,1340.48l-74.67.58c-.62,15.82-.61,28.8.42,43.42l84.26.18c5.21,1,5.38,15.81-.22,15.82l-105.06.16-.1-132.16,104.71-.09c2.28,3.34,2.24,9.41,1.05,15.09l-84.66.05.12,40.95,73.73.35c3.25,3.12,3.46,11.31.43,15.65Z"/>
+    <path d="M907.99,1340.48l-73.64.33-.19,43.67,86.85.22c3.69,3.24,3.6,12.53-.13,15.78l-100.84.19c-1.54,0-6.12-1.45-6.62-2.83-.62-1.73-.06-4.62-.06-7.7l-.13-121.66,102.9-.09c2.09,3.41,2.16,9.56,1.06,15.09l-79.84.19c-2.28,0-4.85,4.43-4.72,6.6.66,10.95.39,21.28.03,34.21l72.73.52c2.87,3.44,3.72,9.23,2.61,15.48Z"/>
+    <path d="M117.32,1366.48l-79.6-.22-16.82,31.85c-3.58,3.68-15.24,2.73-20.9.12l64.94-128.84c5.45-4.31,17.99-4.43,23.55-.37l66.7,129.19c-6.86,2.54-14.8,2.61-20.84,1.18l-17.02-32.91ZM47.82,1351.99c22.81.45,39.1,1.02,61.27-1.21l-29.21-58.96c-.44-.89-3.36-3.3-3.67-2.81s-1.67,2.18-2.03,2.9l-26.16,52.62c-1.02,2.05-1.98,7.42-.2,7.46Z"/>
+    <path d="M703.11,1392.72c-26.04,15.24-74.49,12.35-98.02-8.89,2.6-4.55,5.37-8.62,8.97-13.15,22.11,20.34,84.88,23.06,85.34-5.11.09-5.34-5.69-14.7-12.47-16.43l-50.78-13c-13.63-3.49-24.59-13.34-26.64-24.92-2.76-15.57,2.91-28.58,16.35-36.37,20.99-12.16,64.24-11.72,84.25,1.78,4.23,2.85-1.22,14.55-5.96,14.94-18.75-12.43-75.63-16.14-74.84,11.92.21,7.33,6.75,14.25,14.73,16.4l51.7,13.9c13.56,3.65,22.18,14.57,23.58,26.24,1.6,13.4-4.17,25.62-16.23,32.68Z"/>
+    <path d="M1587.65,1359.59c21.19,31.69,64.63,34.38,92.19,10.87,5.26-.82,13.03,6.27,13.36,12.03-30.74,27.01-78.7,26.56-110.2.81-28.36-23.19-31.02-63.1-7.69-90.81,28.16-33.44,89.08-35,118.56-5.85-4.14,4.91-8.6,8.82-14.17,11.78-27.71-25.23-72.67-20.69-92.58,11.54-8.6,13.92-9.07,35.29.52,49.63Z"/>
+    <path d="M1338.56,1270.18c5.27-2.87,14.33-2.37,21.91-.47l-64.25,129.65c-6.82,1.81-14.68,1.79-21.46.09l-63.76-130.25c8.48-.73,14.41-.77,21.96-.29l52.88,108,52.72-106.72Z"/>
+    <path d="M338.84,1385.07c3.84.6,3.3,12.49-.34,15.41l-94.78-.12c-4.36,0-2.36-9.14-2.37-12.33l-.14-116.12c5.75-1.26,11.25-1.33,20.14-.87l.45,113.44,77.04.59Z"/>
+    <path d="M527.9,1384.84c3.89,1.64,3.25,12.08.03,15.64l-98.58.19-.31-130.86,20.31-.45.35,115.11,78.2.36Z"/>
+    <rect x="1443.36" y="1268.48" width="21.98" height="132"/>
+  </g>
+</svg></div>
+      <div style="text-align:center;">
+        <p class="logo-card-name">Vertikal variant</p>
+        <p class="logo-card-label">Byggskyltar, profilbild, kvadratiska format.</p>
+      </div>
+    </div>
+
+    <div class="logo-card wide" style="background:#F0EDE6;">
+      <div style="max-width:480px;"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920.37 843.43">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path d="M1202.83,237.55c-59.45,27.38-141.18,18.4-186.61-31.09-41.97-45.72-41.59-114.34.01-160.39,47.92-53.05,142.47-59.42,201.54-23.57,35.95,21.82,58.56,58.02,59.78,100.54,1.44,50.2-28.65,93.29-74.72,114.51ZM1175.43,192.15c30.17-17.36,44.37-50.85,36.56-83.95-7.3-30.92-33.66-54.52-67.25-58.58-21.92-2.65-44.68,1.27-63.81,13.95-25.55,16.94-37.41,48.8-30.93,79.28,5.88,27.62,28.19,50.89,57.96,57.91,22.87,5.39,46.24,3.62,67.47-8.6Z"/>
+    <path d="M492.6,146.2l-124.31.46.24,55.54,145.76.16-.34,45.84-201.22.1c-1.47,0-6.2-1.37-6.42-2.79-.28-1.78-.02-4.48-.02-7.78l.14-233.53,201.86.1-.14,45.9-139.86.17.29,51.83,123.71.27.31,43.73Z"/>
+    <path d="M219.51,162.44c-16.45,8.57-33.92,14.45-52.18,14.76l-76.04,1.28-.52,69.72-62.48-.2-.03-243.8,137.26.8c22.72.13,43.65,8.7,62.13,19.53,17.48,11.87,27.53,28.37,32.16,48.56,8.25,35.94-6.33,71.65-40.32,89.35ZM190.76,114.5c12.35-15.93,9.48-38.85-5.29-51.08-8.85-7.33-21.78-12.18-33.41-12.22l-61.78-.19.05,81.13c31.76-1.59,79.98,8.73,100.43-17.64Z"/>
+    <path d="M886.29,50.66l-.26,196.54-61.74.5-.12-196.5-85.88-.9.46-46.1h232.6c-.85,14.41-.95,26.24.44,37.68.25,2.03-1.99,8.31-4.12,8.32l-81.38.46Z"/>
+    <path d="M756.29,200.5l.16,35.56c.01,2.95,1.59,12.13-3.12,12.14l-193.04.1-.04-243.1,62.04-.46-.04,195.46,134.04.3Z"/>
+    <path d="M1643.84,252.26l-33.77-25.94c-44.63,33.99-129.24,36.68-174.12.51-25.49-20.54-28.94-56.09-8.84-81.77,11.62-14.85,26.34-23.71,44.6-32.76l-13.24-16.31c-10.77-13.27-15.3-30.8-10.72-48.6,3.4-13.23,13.61-27.75,29.04-35.17,44.11-21.21,122.04-15.41,131.18,34.05,6.87,37.19-19.88,53.45-50.51,72.25l47.62,40.61c8.78-10.67,12.13-22.45,16.26-37.59l48.02,12.73c-3.23,21.51-13.38,37.42-24.39,55.81l32.55,27.79-33.67,34.4ZM1550.92,72.2c9.25-8.94,6.6-22.79-3.3-29.38-11.02-7.34-26.17-5.92-36.77,1.93-8.78,6.49-11.96,18.97-4.51,27.85,5.1,6.08,10.38,11.24,16.55,17.38,10.06-4.75,19.68-9.71,28.03-17.78ZM1572.14,194.2l-64.3-52.95c-17.02,6.88-39.82,26.51-29.93,45.62,16.15,31.21,69.71,26.76,94.23,7.33Z"/>
+    <path d="M1257.29,608.2v-142.03l-78.85,115.19c-8.52,1.38-22.43,2.88-30.58-.14-29.22-35.74-48.94-76.8-78.57-112.77v138.75h-61v-242.06c35.67,5.21,48.29-9.92,60.88,8.8l93.74,139.45,92.12-140.15c3.41-5.18,7.09-8.04,13.26-9.16l46.99,1.25v242.86h-58Z"/>
+    <path d="M1920.37,607.2h-52.04l-133.04-145.19v145.19l-63,.33.06-242.73c19.97-.95,34.43-1.1,54,.08l127.47,141.14c1.59,1.77,4.47-1.22,4.47-2.54v-138.1c21.01-1.62,39.72-1.79,62-.69l.08,242.5Z"/>
+    <path d="M478.43,607.88l-50.3-69.68-50.49-.2c-2.27,0-7.34,3.46-7.34,5.92l-.14,64.28-61.86-.73.03-243.27,121.05.45c29.89.11,58.9,5.17,82.46,23.8,17.4,13.29,27.02,31.41,29.63,53.02,4.57,37.83-15.48,71.5-53.83,85.87l58.94,79.86-68.14.68ZM478.66,449.51c-1.12-20.6-21.63-37.28-41.75-37.31l-65.61-.09-.28,80.09,68.19-.08c14.22-.02,40.92-15.72,39.46-42.61Z"/>
+    <path d="M237.72,403l-69.76,68.58,114.86,135.59c-26.29,1.89-49.19,1.46-72.91.69l-83.2-96.31-35.42,34.36-.44,62.3-62.56.13v-243.13h62v109.33l76.99-73.42,37.9-36.09c20.74,1.24,39.7,1.51,60.03.31,3.68-.22,6.83-.1,8.94,2.21l-36.43,35.45Z"/>
+    <path d="M1556.36,556.2h-126.18s-23.19,52-23.19,52l-64.72-.39,119.14-242.61,62.85-.64c3.87,4.12,6.51,9.56,9.23,15.03l113.71,228.61-66.09.27-24.74-52.27ZM1535.58,512.02l-21.86-47.35-20.37-42.45-42.04,89.98,84.28-.18Z"/>
+    <path d="M767.15,556.2l-118.81-.39c-3.17-.01-8.24,3.58-9.34,6.06l-20.49,46.33-63.4-.2,12.84-28.55,101.51-208.13c1.97-4.03,6.76-7.12,10.7-7.13l48.19-.14c9.51-.03,10.63,4.36,14.37,11.87l114.96,230.8-65.88,1.17-24.65-51.7ZM746.85,512.09l-17.58-37.3-25.04-53.01-41.28,90.43,83.9-.11Z"/>
+    <rect x="884.29" y="364.2" width="64" height="244"/>
+    <path d="M1114.81,840.35l-31.94-41.12-46.72.11-1.04,39.86c-5.01,2.21-12.32,2.15-19.76.63l-.09-130.6,73.89.36c12.43.06,26.87,7.72,34.77,16.35,10.33,11.29,12.91,26.88,8.69,40.99-3.74,12.48-13.8,21.71-29.63,28.27l33.7,44.07c-7.29,1.89-15.42,2.28-21.86,1.07ZM1114.63,750.9c-4.48-34.78-52.53-24.07-78.28-25.62l-.3,57.81c18.26.4,34.2,1.18,50.98-.54,16.05-1.65,29.75-14.91,27.6-31.66Z"/>
+    <path d="M1882.63,781.23l-74.67.58c-.62,15.82-.61,28.8.42,43.42l84.26.18c5.21,1,5.38,15.81-.22,15.82l-105.06.16-.1-132.16,104.71-.09c2.28,3.34,2.24,9.41,1.05,15.09l-84.66.05.12,40.95,73.73.35c3.25,3.12,3.46,11.31.43,15.65Z"/>
+    <path d="M907.99,781.23l-73.64.33-.19,43.67,86.85.22c3.69,3.24,3.6,12.53-.13,15.78l-100.84.19c-1.54,0-6.12-1.45-6.62-2.83-.62-1.73-.06-4.62-.06-7.7l-.13-121.66,102.9-.09c2.09,3.41,2.16,9.56,1.06,15.09l-79.84.19c-2.28,0-4.85,4.43-4.72,6.6.66,10.95.39,21.28.03,34.21l72.73.52c2.87,3.44,3.72,9.23,2.61,15.48Z"/>
+    <path d="M117.32,807.23l-79.6-.22-16.82,31.85c-3.58,3.68-15.24,2.73-20.9.12l64.94-128.84c5.45-4.31,17.99-4.43,23.55-.37l66.7,129.19c-6.86,2.54-14.8,2.61-20.84,1.18l-17.02-32.91ZM47.82,792.75c22.81.45,39.1,1.02,61.27-1.21l-29.21-58.96c-.44-.89-3.36-3.3-3.67-2.81s-1.67,2.18-2.03,2.9l-26.16,52.62c-1.02,2.05-1.98,7.42-.2,7.46Z"/>
+    <path d="M703.11,833.48c-26.04,15.24-74.49,12.35-98.02-8.89,2.6-4.55,5.37-8.62,8.97-13.15,22.11,20.34,84.88,23.06,85.34-5.11.09-5.34-5.69-14.7-12.47-16.43l-50.78-13c-13.63-3.49-24.59-13.34-26.64-24.92-2.76-15.57,2.91-28.58,16.35-36.37,20.99-12.16,64.24-11.72,84.25,1.78,4.23,2.85-1.22,14.55-5.96,14.94-18.75-12.43-75.63-16.14-74.84,11.92.21,7.33,6.75,14.25,14.73,16.4l51.7,13.9c13.56,3.65,22.18,14.57,23.58,26.24,1.6,13.4-4.17,25.62-16.23,32.68Z"/>
+    <path d="M1587.65,800.34c21.19,31.69,64.63,34.38,92.19,10.87,5.26-.82,13.03,6.27,13.36,12.03-30.74,27.01-78.7,26.56-110.2.81-28.36-23.19-31.02-63.1-7.69-90.81,28.16-33.44,89.08-35,118.56-5.85-4.14,4.91-8.6,8.82-14.17,11.78-27.71-25.23-72.67-20.69-92.58,11.54-8.6,13.92-9.07,35.29.52,49.63Z"/>
+    <path d="M1338.56,710.93c5.27-2.87,14.33-2.37,21.91-.47l-64.25,129.65c-6.82,1.81-14.68,1.79-21.46.09l-63.76-130.25c8.48-.73,14.41-.77,21.96-.29l52.88,108,52.72-106.72Z"/>
+    <path d="M338.84,825.82c3.84.6,3.3,12.49-.34,15.41l-94.78-.12c-4.36,0-2.36-9.14-2.37-12.33l-.14-116.12c5.75-1.26,11.25-1.33,20.14-.87l.45,113.44,77.04.59Z"/>
+    <path d="M527.9,825.6c3.89,1.64,3.25,12.08.03,15.64l-98.58.19-.31-130.86,20.31-.45.35,115.11,78.2.36Z"/>
+    <rect x="1443.36" y="709.24" width="21.98" height="132"/>
+  </g>
+</svg></div>
+      <div>
+        <p class="logo-card-name">Ordmärke — utan symbol</p>
+        <p class="logo-card-label">Offerter, avtal, dokumenthuvud, fakturamallar.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 03 – FRIZON -->
+<section>
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <h2 class="section-title">Frizon &amp;<br>Minsta storlek</h2>
+  </div>
+
+  <div class="clearspace-demo">
+    <div class="clearspace-guide"></div>
+    <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3700.08 927.13">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path d="M865.31,184.52c-21.71-46.3-46.37-85.3-83.13-117.73-28.44-27.62-60.92-47.93-97.35-64.64,3.07-3.99,7.09-1.22,11.19-1.21l169.98.13-.69,183.46Z"/>
+    <path d="M2982.54,262.29c-59.45,27.38-141.18,18.4-186.61-31.09-41.97-45.72-41.59-114.34.01-160.39,47.92-53.05,142.47-59.42,201.54-23.57,35.95,21.82,58.56,58.02,59.78,100.54,1.44,50.2-28.65,93.29-74.72,114.51ZM2955.15,216.89c30.17-17.36,44.37-50.85,36.56-83.95-7.3-30.92-33.66-54.52-67.25-58.58-21.92-2.65-44.68,1.27-63.81,13.95-25.55,16.94-37.41,48.8-30.93,79.28,5.88,27.62,28.19,50.89,57.96,57.91,22.87,5.39,46.24,3.62,67.47-8.6Z"/>
+    <path d="M2272.31,170.94l-124.31.46.24,55.54,145.76.16-.34,45.84-201.22.1c-1.47,0-6.2-1.37-6.42-2.79-.28-1.78-.02-4.48-.02-7.78l.14-233.53,201.86.1-.14,45.9-139.86.17.29,51.83,123.71.27.31,43.73Z"/>
+    <path d="M1999.22,187.18c-16.45,8.57-33.92,14.45-52.18,14.76l-76.04,1.28-.52,69.72-62.48-.2-.03-243.8,137.26.8c22.72.13,43.65,8.7,62.13,19.53,17.48,11.87,27.53,28.37,32.16,48.56,8.25,35.94-6.33,71.65-40.32,89.35ZM1970.48,139.24c12.35-15.93,9.48-38.85-5.29-51.08-8.85-7.33-21.78-12.18-33.41-12.22l-61.78-.19.05,81.13c31.76-1.59,79.98,8.73,100.43-17.64Z"/>
+    <path d="M2666,75.4l-.26,196.54-61.74.5-.12-196.5-85.88-.9.46-46.1h232.6c-.85,14.41-.95,26.24.44,37.68.25,2.03-1.99,8.31-4.12,8.32l-81.38.46Z"/>
+    <path d="M2536,225.24l.16,35.56c.01,2.95,1.59,12.13-3.12,12.14l-193.04.1-.04-243.1,62.04-.46-.04,195.46,134.04.3Z"/>
+    <path d="M3423.55,277l-33.77-25.94c-44.63,33.99-129.24,36.68-174.12.51-25.49-20.54-28.94-56.09-8.84-81.77,11.62-14.85,26.34-23.71,44.6-32.76l-13.24-16.31c-10.77-13.27-15.3-30.8-10.72-48.6,3.4-13.23,13.61-27.75,29.04-35.17,44.11-21.21,122.04-15.41,131.18,34.05,6.87,37.19-19.88,53.45-50.51,72.25l47.62,40.61c8.78-10.67,12.13-22.45,16.26-37.59l48.02,12.73c-3.23,21.51-13.38,37.42-24.39,55.81l32.55,27.79-33.67,34.4ZM3330.63,96.94c9.25-8.94,6.6-22.79-3.3-29.38-11.02-7.34-26.17-5.92-36.77,1.93-8.78,6.49-11.96,18.97-4.51,27.85,5.1,6.08,10.38,11.24,16.55,17.38,10.06-4.75,19.68-9.71,28.03-17.78ZM3351.85,218.94l-64.3-52.95c-17.02,6.88-39.82,26.51-29.93,45.62,16.15,31.21,69.71,26.76,94.23,7.33Z"/>
+    <path d="M3037,632.94v-142.03l-78.85,115.19c-8.52,1.38-22.43,2.88-30.58-.14-29.22-35.74-48.94-76.8-78.57-112.77v138.75h-61v-242.06c35.67,5.21,48.29-9.92,60.88,8.8l93.74,139.45,92.12-140.15c3.41-5.18,7.09-8.04,13.26-9.16l46.99,1.25v242.86h-58Z"/>
+    <path d="M3700.08,631.94h-52.04l-133.04-145.19v145.19l-63,.33.06-242.73c19.97-.95,34.43-1.1,54,.08l127.47,141.14c1.59,1.77,4.47-1.22,4.47-2.54v-138.1c21.01-1.62,39.72-1.79,62-.69l.08,242.5Z"/>
+    <path d="M2258.14,632.63l-50.3-69.68-50.49-.2c-2.27,0-7.34,3.46-7.34,5.92l-.14,64.28-61.86-.73.03-243.27,121.05.45c29.89.11,58.9,5.17,82.46,23.8,17.4,13.29,27.02,31.41,29.63,53.02,4.57,37.83-15.48,71.5-53.83,85.87l58.94,79.86-68.14.68ZM2258.37,474.25c-1.12-20.6-21.63-37.28-41.75-37.31l-65.61-.09-.28,80.09,68.19-.08c14.22-.02,40.92-15.72,39.46-42.61Z"/>
+    <path d="M2017.43,427.74l-69.76,68.58,114.86,135.59c-26.29,1.89-49.19,1.46-72.91.69l-83.2-96.31-35.42,34.36-.44,62.3-62.56.13v-243.13h62v109.33l76.99-73.42,37.9-36.09c20.74,1.24,39.7,1.51,60.03.31,3.68-.22,6.83-.1,8.94,2.21l-36.43,35.45Z"/>
+    <path d="M3336.07,580.94h-126.18s-23.19,52-23.19,52l-64.72-.39,119.14-242.61,62.85-.64c3.87,4.12,6.51,9.56,9.23,15.03l113.71,228.61-66.09.27-24.74-52.27ZM3315.29,536.76l-21.86-47.35-20.37-42.45-42.04,89.98,84.28-.18Z"/>
+    <path d="M2546.86,580.94l-118.81-.39c-3.17-.01-8.24,3.58-9.34,6.06l-20.49,46.33-63.4-.2,12.84-28.55,101.51-208.13c1.97-4.03,6.76-7.12,10.7-7.13l48.19-.14c9.51-.03,10.63,4.36,14.37,11.87l114.96,230.8-65.88,1.17-24.65-51.7ZM2526.56,536.83l-17.58-37.3-25.04-53.01-41.28,90.43,83.9-.11Z"/>
+    <rect x="2664" y="388.94" width="64" height="244"/>
+    <g>
+      <path d="M834.24,336.85c-12.26,158.08-118.54,245.06-264.61,282.02-39.39,7.66-77.44,14.94-118.13,15.07l-226.5.74-.17,282.26-224.83-.08L.04.94l447.61-.1c56.68-.01,110.07,7.58,163.51,24.59,52.74,15.02,99.67,40.72,139.59,78.45,61.96,58.56,90.04,148.65,83.5,232.97ZM576.44,414.3c31.95-36.5,40.85-84.41,32.7-130.75-6.51-36.99-25.81-68.6-57.6-88.54-33.58-21.06-71.49-30.86-111.56-30.61l-20.36-1.46h-195.62s-.08,306-.08,306l217.56-.86c43.08-.17,104.16-18.58,134.97-53.78Z"/>
+      <path d="M911.29,625.37l-45.29,44.19.02,247.39-224.02-.09.18-269.97c53.87-20.29,100.1-47.55,140.87-84.73,45.9-44.16,77.31-98.07,93.65-159.34l40.14-39.16,62.01-59.99,65.03-62.9,51-49.08,51.99-50.03,69.99-67.95,47.99-45.93,21.96-20.82,256.65.11c-12.49,14.97-23.65,24.44-35.6,36l-62.02,59.99-79.95,77.95-90.12,88.1-138.85,135.51,99.25,118.05,107.46,128.65,222.1,265.63-267.72.4-307.54-367.8-79.17,75.82Z"/>
+    </g>
+    <path d="M2915.46,924.06l-31.94-41.12-46.72.11-1.04,39.86c-5.01,2.21-12.32,2.15-19.76.63l-.09-130.6,73.89.36c12.43.06,26.87,7.72,34.77,16.35,10.33,11.29,12.91,26.88,8.69,40.99-3.74,12.48-13.8,21.71-29.63,28.27l33.7,44.07c-7.29,1.89-15.42,2.28-21.86,1.07ZM2915.28,834.6c-4.48-34.78-52.53-24.07-78.28-25.62l-.3,57.81c18.26.4,34.2,1.18,50.98-.54,16.05-1.65,29.75-14.91,27.6-31.66Z"/>
+    <path d="M3683.28,864.94l-74.67.58c-.62,15.82-.61,28.8.42,43.42l84.26.18c5.21,1,5.38,15.81-.22,15.82l-105.06.16-.1-132.16,104.71-.09c2.28,3.34,2.24,9.41,1.05,15.09l-84.66.05.12,40.95,73.73.35c3.25,3.12,3.46,11.31.43,15.65Z"/>
+    <path d="M2708.64,864.94l-73.64.33-.19,43.67,86.85.22c3.69,3.24,3.6,12.53-.13,15.78l-100.84.19c-1.54,0-6.12-1.45-6.62-2.83-.62-1.73-.06-4.62-.06-7.7l-.13-121.66,102.9-.09c2.09,3.41,2.16,9.56,1.06,15.09l-79.84.19c-2.28,0-4.85,4.43-4.72,6.6.66,10.95.39,21.28.03,34.21l72.73.52c2.87,3.44,3.72,9.23,2.61,15.48Z"/>
+    <path d="M1917.97,890.94l-79.6-.22-16.82,31.85c-3.58,3.68-15.24,2.73-20.9.12l64.94-128.84c5.45-4.31,17.99-4.43,23.55-.37l66.7,129.19c-6.86,2.54-14.8,2.61-20.84,1.18l-17.02-32.91ZM1848.46,876.45c22.81.45,39.1,1.02,61.27-1.21l-29.21-58.96c-.44-.89-3.36-3.3-3.67-2.81s-1.67,2.18-2.03,2.9l-26.16,52.62c-1.02,2.05-1.98,7.42-.2,7.46Z"/>
+    <path d="M2503.76,917.18c-26.04,15.24-74.49,12.35-98.02-8.89,2.6-4.55,5.37-8.62,8.97-13.15,22.11,20.34,84.88,23.06,85.34-5.11.09-5.34-5.69-14.7-12.47-16.43l-50.78-13c-13.63-3.49-24.59-13.34-26.64-24.92-2.76-15.57,2.91-28.58,16.35-36.37,20.99-12.16,64.24-11.72,84.25,1.78,4.23,2.85-1.22,14.55-5.96,14.94-18.75-12.43-75.63-16.14-74.84,11.92.21,7.33,6.75,14.25,14.73,16.4l51.7,13.9c13.56,3.65,22.18,14.57,23.58,26.24,1.6,13.4-4.17,25.62-16.23,32.68Z"/>
+    <path d="M3388.3,884.05c21.19,31.69,64.63,34.38,92.19,10.87,5.26-.82,13.03,6.27,13.36,12.03-30.74,27.01-78.7,26.56-110.2.81-28.36-23.19-31.02-63.1-7.69-90.81,28.16-33.44,89.08-35,118.56-5.85-4.14,4.91-8.6,8.82-14.17,11.78-27.71-25.23-72.67-20.69-92.58,11.54-8.6,13.92-9.07,35.29.52,49.63Z"/>
+    <path d="M3139.21,794.64c5.27-2.87,14.33-2.37,21.91-.47l-64.25,129.65c-6.82,1.81-14.68,1.79-21.46.09l-63.76-130.25c8.48-.73,14.41-.77,21.96-.29l52.88,108,52.72-106.72Z"/>
+    <path d="M2139.49,909.53c3.84.6,3.3,12.49-.34,15.41l-94.78-.12c-4.36,0-2.36-9.14-2.37-12.33l-.14-116.12c5.75-1.26,11.25-1.33,20.14-.87l.45,113.44,77.04.59Z"/>
+    <path d="M2328.55,909.3c3.89,1.64,3.25,12.08.03,15.64l-98.58.19-.31-130.86,20.31-.45.35,115.11,78.2.36Z"/>
+    <rect x="3244.01" y="792.94" width="21.98" height="132"/>
+  </g>
+</svg>
+  </div>
+  <p class="clearspace-label">Fryzonen = höjden på "P". Gäller på alla fyra sidor.</p>
+
+  <div class="minsize-demo">
+    <div class="minsize-item">
+      <div style="width:210px;"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3700.08 927.13">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path d="M865.31,184.52c-21.71-46.3-46.37-85.3-83.13-117.73-28.44-27.62-60.92-47.93-97.35-64.64,3.07-3.99,7.09-1.22,11.19-1.21l169.98.13-.69,183.46Z"/>
+    <path d="M2982.54,262.29c-59.45,27.38-141.18,18.4-186.61-31.09-41.97-45.72-41.59-114.34.01-160.39,47.92-53.05,142.47-59.42,201.54-23.57,35.95,21.82,58.56,58.02,59.78,100.54,1.44,50.2-28.65,93.29-74.72,114.51ZM2955.15,216.89c30.17-17.36,44.37-50.85,36.56-83.95-7.3-30.92-33.66-54.52-67.25-58.58-21.92-2.65-44.68,1.27-63.81,13.95-25.55,16.94-37.41,48.8-30.93,79.28,5.88,27.62,28.19,50.89,57.96,57.91,22.87,5.39,46.24,3.62,67.47-8.6Z"/>
+    <path d="M2272.31,170.94l-124.31.46.24,55.54,145.76.16-.34,45.84-201.22.1c-1.47,0-6.2-1.37-6.42-2.79-.28-1.78-.02-4.48-.02-7.78l.14-233.53,201.86.1-.14,45.9-139.86.17.29,51.83,123.71.27.31,43.73Z"/>
+    <path d="M1999.22,187.18c-16.45,8.57-33.92,14.45-52.18,14.76l-76.04,1.28-.52,69.72-62.48-.2-.03-243.8,137.26.8c22.72.13,43.65,8.7,62.13,19.53,17.48,11.87,27.53,28.37,32.16,48.56,8.25,35.94-6.33,71.65-40.32,89.35ZM1970.48,139.24c12.35-15.93,9.48-38.85-5.29-51.08-8.85-7.33-21.78-12.18-33.41-12.22l-61.78-.19.05,81.13c31.76-1.59,79.98,8.73,100.43-17.64Z"/>
+    <path d="M2666,75.4l-.26,196.54-61.74.5-.12-196.5-85.88-.9.46-46.1h232.6c-.85,14.41-.95,26.24.44,37.68.25,2.03-1.99,8.31-4.12,8.32l-81.38.46Z"/>
+    <path d="M2536,225.24l.16,35.56c.01,2.95,1.59,12.13-3.12,12.14l-193.04.1-.04-243.1,62.04-.46-.04,195.46,134.04.3Z"/>
+    <path d="M3423.55,277l-33.77-25.94c-44.63,33.99-129.24,36.68-174.12.51-25.49-20.54-28.94-56.09-8.84-81.77,11.62-14.85,26.34-23.71,44.6-32.76l-13.24-16.31c-10.77-13.27-15.3-30.8-10.72-48.6,3.4-13.23,13.61-27.75,29.04-35.17,44.11-21.21,122.04-15.41,131.18,34.05,6.87,37.19-19.88,53.45-50.51,72.25l47.62,40.61c8.78-10.67,12.13-22.45,16.26-37.59l48.02,12.73c-3.23,21.51-13.38,37.42-24.39,55.81l32.55,27.79-33.67,34.4ZM3330.63,96.94c9.25-8.94,6.6-22.79-3.3-29.38-11.02-7.34-26.17-5.92-36.77,1.93-8.78,6.49-11.96,18.97-4.51,27.85,5.1,6.08,10.38,11.24,16.55,17.38,10.06-4.75,19.68-9.71,28.03-17.78ZM3351.85,218.94l-64.3-52.95c-17.02,6.88-39.82,26.51-29.93,45.62,16.15,31.21,69.71,26.76,94.23,7.33Z"/>
+    <path d="M3037,632.94v-142.03l-78.85,115.19c-8.52,1.38-22.43,2.88-30.58-.14-29.22-35.74-48.94-76.8-78.57-112.77v138.75h-61v-242.06c35.67,5.21,48.29-9.92,60.88,8.8l93.74,139.45,92.12-140.15c3.41-5.18,7.09-8.04,13.26-9.16l46.99,1.25v242.86h-58Z"/>
+    <path d="M3700.08,631.94h-52.04l-133.04-145.19v145.19l-63,.33.06-242.73c19.97-.95,34.43-1.1,54,.08l127.47,141.14c1.59,1.77,4.47-1.22,4.47-2.54v-138.1c21.01-1.62,39.72-1.79,62-.69l.08,242.5Z"/>
+    <path d="M2258.14,632.63l-50.3-69.68-50.49-.2c-2.27,0-7.34,3.46-7.34,5.92l-.14,64.28-61.86-.73.03-243.27,121.05.45c29.89.11,58.9,5.17,82.46,23.8,17.4,13.29,27.02,31.41,29.63,53.02,4.57,37.83-15.48,71.5-53.83,85.87l58.94,79.86-68.14.68ZM2258.37,474.25c-1.12-20.6-21.63-37.28-41.75-37.31l-65.61-.09-.28,80.09,68.19-.08c14.22-.02,40.92-15.72,39.46-42.61Z"/>
+    <path d="M2017.43,427.74l-69.76,68.58,114.86,135.59c-26.29,1.89-49.19,1.46-72.91.69l-83.2-96.31-35.42,34.36-.44,62.3-62.56.13v-243.13h62v109.33l76.99-73.42,37.9-36.09c20.74,1.24,39.7,1.51,60.03.31,3.68-.22,6.83-.1,8.94,2.21l-36.43,35.45Z"/>
+    <path d="M3336.07,580.94h-126.18s-23.19,52-23.19,52l-64.72-.39,119.14-242.61,62.85-.64c3.87,4.12,6.51,9.56,9.23,15.03l113.71,228.61-66.09.27-24.74-52.27ZM3315.29,536.76l-21.86-47.35-20.37-42.45-42.04,89.98,84.28-.18Z"/>
+    <path d="M2546.86,580.94l-118.81-.39c-3.17-.01-8.24,3.58-9.34,6.06l-20.49,46.33-63.4-.2,12.84-28.55,101.51-208.13c1.97-4.03,6.76-7.12,10.7-7.13l48.19-.14c9.51-.03,10.63,4.36,14.37,11.87l114.96,230.8-65.88,1.17-24.65-51.7ZM2526.56,536.83l-17.58-37.3-25.04-53.01-41.28,90.43,83.9-.11Z"/>
+    <rect x="2664" y="388.94" width="64" height="244"/>
+    <g>
+      <path d="M834.24,336.85c-12.26,158.08-118.54,245.06-264.61,282.02-39.39,7.66-77.44,14.94-118.13,15.07l-226.5.74-.17,282.26-224.83-.08L.04.94l447.61-.1c56.68-.01,110.07,7.58,163.51,24.59,52.74,15.02,99.67,40.72,139.59,78.45,61.96,58.56,90.04,148.65,83.5,232.97ZM576.44,414.3c31.95-36.5,40.85-84.41,32.7-130.75-6.51-36.99-25.81-68.6-57.6-88.54-33.58-21.06-71.49-30.86-111.56-30.61l-20.36-1.46h-195.62s-.08,306-.08,306l217.56-.86c43.08-.17,104.16-18.58,134.97-53.78Z"/>
+      <path d="M911.29,625.37l-45.29,44.19.02,247.39-224.02-.09.18-269.97c53.87-20.29,100.1-47.55,140.87-84.73,45.9-44.16,77.31-98.07,93.65-159.34l40.14-39.16,62.01-59.99,65.03-62.9,51-49.08,51.99-50.03,69.99-67.95,47.99-45.93,21.96-20.82,256.65.11c-12.49,14.97-23.65,24.44-35.6,36l-62.02,59.99-79.95,77.95-90.12,88.1-138.85,135.51,99.25,118.05,107.46,128.65,222.1,265.63-267.72.4-307.54-367.8-79.17,75.82Z"/>
+    </g>
+    <path d="M2915.46,924.06l-31.94-41.12-46.72.11-1.04,39.86c-5.01,2.21-12.32,2.15-19.76.63l-.09-130.6,73.89.36c12.43.06,26.87,7.72,34.77,16.35,10.33,11.29,12.91,26.88,8.69,40.99-3.74,12.48-13.8,21.71-29.63,28.27l33.7,44.07c-7.29,1.89-15.42,2.28-21.86,1.07ZM2915.28,834.6c-4.48-34.78-52.53-24.07-78.28-25.62l-.3,57.81c18.26.4,34.2,1.18,50.98-.54,16.05-1.65,29.75-14.91,27.6-31.66Z"/>
+    <path d="M3683.28,864.94l-74.67.58c-.62,15.82-.61,28.8.42,43.42l84.26.18c5.21,1,5.38,15.81-.22,15.82l-105.06.16-.1-132.16,104.71-.09c2.28,3.34,2.24,9.41,1.05,15.09l-84.66.05.12,40.95,73.73.35c3.25,3.12,3.46,11.31.43,15.65Z"/>
+    <path d="M2708.64,864.94l-73.64.33-.19,43.67,86.85.22c3.69,3.24,3.6,12.53-.13,15.78l-100.84.19c-1.54,0-6.12-1.45-6.62-2.83-.62-1.73-.06-4.62-.06-7.7l-.13-121.66,102.9-.09c2.09,3.41,2.16,9.56,1.06,15.09l-79.84.19c-2.28,0-4.85,4.43-4.72,6.6.66,10.95.39,21.28.03,34.21l72.73.52c2.87,3.44,3.72,9.23,2.61,15.48Z"/>
+    <path d="M1917.97,890.94l-79.6-.22-16.82,31.85c-3.58,3.68-15.24,2.73-20.9.12l64.94-128.84c5.45-4.31,17.99-4.43,23.55-.37l66.7,129.19c-6.86,2.54-14.8,2.61-20.84,1.18l-17.02-32.91ZM1848.46,876.45c22.81.45,39.1,1.02,61.27-1.21l-29.21-58.96c-.44-.89-3.36-3.3-3.67-2.81s-1.67,2.18-2.03,2.9l-26.16,52.62c-1.02,2.05-1.98,7.42-.2,7.46Z"/>
+    <path d="M2503.76,917.18c-26.04,15.24-74.49,12.35-98.02-8.89,2.6-4.55,5.37-8.62,8.97-13.15,22.11,20.34,84.88,23.06,85.34-5.11.09-5.34-5.69-14.7-12.47-16.43l-50.78-13c-13.63-3.49-24.59-13.34-26.64-24.92-2.76-15.57,2.91-28.58,16.35-36.37,20.99-12.16,64.24-11.72,84.25,1.78,4.23,2.85-1.22,14.55-5.96,14.94-18.75-12.43-75.63-16.14-74.84,11.92.21,7.33,6.75,14.25,14.73,16.4l51.7,13.9c13.56,3.65,22.18,14.57,23.58,26.24,1.6,13.4-4.17,25.62-16.23,32.68Z"/>
+    <path d="M3388.3,884.05c21.19,31.69,64.63,34.38,92.19,10.87,5.26-.82,13.03,6.27,13.36,12.03-30.74,27.01-78.7,26.56-110.2.81-28.36-23.19-31.02-63.1-7.69-90.81,28.16-33.44,89.08-35,118.56-5.85-4.14,4.91-8.6,8.82-14.17,11.78-27.71-25.23-72.67-20.69-92.58,11.54-8.6,13.92-9.07,35.29.52,49.63Z"/>
+    <path d="M3139.21,794.64c5.27-2.87,14.33-2.37,21.91-.47l-64.25,129.65c-6.82,1.81-14.68,1.79-21.46.09l-63.76-130.25c8.48-.73,14.41-.77,21.96-.29l52.88,108,52.72-106.72Z"/>
+    <path d="M2139.49,909.53c3.84.6,3.3,12.49-.34,15.41l-94.78-.12c-4.36,0-2.36-9.14-2.37-12.33l-.14-116.12c5.75-1.26,11.25-1.33,20.14-.87l.45,113.44,77.04.59Z"/>
+    <path d="M2328.55,909.3c3.89,1.64,3.25,12.08.03,15.64l-98.58.19-.31-130.86,20.31-.45.35,115.11,78.2.36Z"/>
+    <rect x="3244.01" y="792.94" width="21.98" height="132"/>
+  </g>
+</svg></div>
+      <div class="minsize-ruler">210 px / 55 mm — Tryck</div>
+    </div>
+    <div class="minsize-item">
+      <div style="width:140px;"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3700.08 927.13">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path d="M865.31,184.52c-21.71-46.3-46.37-85.3-83.13-117.73-28.44-27.62-60.92-47.93-97.35-64.64,3.07-3.99,7.09-1.22,11.19-1.21l169.98.13-.69,183.46Z"/>
+    <path d="M2982.54,262.29c-59.45,27.38-141.18,18.4-186.61-31.09-41.97-45.72-41.59-114.34.01-160.39,47.92-53.05,142.47-59.42,201.54-23.57,35.95,21.82,58.56,58.02,59.78,100.54,1.44,50.2-28.65,93.29-74.72,114.51ZM2955.15,216.89c30.17-17.36,44.37-50.85,36.56-83.95-7.3-30.92-33.66-54.52-67.25-58.58-21.92-2.65-44.68,1.27-63.81,13.95-25.55,16.94-37.41,48.8-30.93,79.28,5.88,27.62,28.19,50.89,57.96,57.91,22.87,5.39,46.24,3.62,67.47-8.6Z"/>
+    <path d="M2272.31,170.94l-124.31.46.24,55.54,145.76.16-.34,45.84-201.22.1c-1.47,0-6.2-1.37-6.42-2.79-.28-1.78-.02-4.48-.02-7.78l.14-233.53,201.86.1-.14,45.9-139.86.17.29,51.83,123.71.27.31,43.73Z"/>
+    <path d="M1999.22,187.18c-16.45,8.57-33.92,14.45-52.18,14.76l-76.04,1.28-.52,69.72-62.48-.2-.03-243.8,137.26.8c22.72.13,43.65,8.7,62.13,19.53,17.48,11.87,27.53,28.37,32.16,48.56,8.25,35.94-6.33,71.65-40.32,89.35ZM1970.48,139.24c12.35-15.93,9.48-38.85-5.29-51.08-8.85-7.33-21.78-12.18-33.41-12.22l-61.78-.19.05,81.13c31.76-1.59,79.98,8.73,100.43-17.64Z"/>
+    <path d="M2666,75.4l-.26,196.54-61.74.5-.12-196.5-85.88-.9.46-46.1h232.6c-.85,14.41-.95,26.24.44,37.68.25,2.03-1.99,8.31-4.12,8.32l-81.38.46Z"/>
+    <path d="M2536,225.24l.16,35.56c.01,2.95,1.59,12.13-3.12,12.14l-193.04.1-.04-243.1,62.04-.46-.04,195.46,134.04.3Z"/>
+    <path d="M3423.55,277l-33.77-25.94c-44.63,33.99-129.24,36.68-174.12.51-25.49-20.54-28.94-56.09-8.84-81.77,11.62-14.85,26.34-23.71,44.6-32.76l-13.24-16.31c-10.77-13.27-15.3-30.8-10.72-48.6,3.4-13.23,13.61-27.75,29.04-35.17,44.11-21.21,122.04-15.41,131.18,34.05,6.87,37.19-19.88,53.45-50.51,72.25l47.62,40.61c8.78-10.67,12.13-22.45,16.26-37.59l48.02,12.73c-3.23,21.51-13.38,37.42-24.39,55.81l32.55,27.79-33.67,34.4ZM3330.63,96.94c9.25-8.94,6.6-22.79-3.3-29.38-11.02-7.34-26.17-5.92-36.77,1.93-8.78,6.49-11.96,18.97-4.51,27.85,5.1,6.08,10.38,11.24,16.55,17.38,10.06-4.75,19.68-9.71,28.03-17.78ZM3351.85,218.94l-64.3-52.95c-17.02,6.88-39.82,26.51-29.93,45.62,16.15,31.21,69.71,26.76,94.23,7.33Z"/>
+    <path d="M3037,632.94v-142.03l-78.85,115.19c-8.52,1.38-22.43,2.88-30.58-.14-29.22-35.74-48.94-76.8-78.57-112.77v138.75h-61v-242.06c35.67,5.21,48.29-9.92,60.88,8.8l93.74,139.45,92.12-140.15c3.41-5.18,7.09-8.04,13.26-9.16l46.99,1.25v242.86h-58Z"/>
+    <path d="M3700.08,631.94h-52.04l-133.04-145.19v145.19l-63,.33.06-242.73c19.97-.95,34.43-1.1,54,.08l127.47,141.14c1.59,1.77,4.47-1.22,4.47-2.54v-138.1c21.01-1.62,39.72-1.79,62-.69l.08,242.5Z"/>
+    <path d="M2258.14,632.63l-50.3-69.68-50.49-.2c-2.27,0-7.34,3.46-7.34,5.92l-.14,64.28-61.86-.73.03-243.27,121.05.45c29.89.11,58.9,5.17,82.46,23.8,17.4,13.29,27.02,31.41,29.63,53.02,4.57,37.83-15.48,71.5-53.83,85.87l58.94,79.86-68.14.68ZM2258.37,474.25c-1.12-20.6-21.63-37.28-41.75-37.31l-65.61-.09-.28,80.09,68.19-.08c14.22-.02,40.92-15.72,39.46-42.61Z"/>
+    <path d="M2017.43,427.74l-69.76,68.58,114.86,135.59c-26.29,1.89-49.19,1.46-72.91.69l-83.2-96.31-35.42,34.36-.44,62.3-62.56.13v-243.13h62v109.33l76.99-73.42,37.9-36.09c20.74,1.24,39.7,1.51,60.03.31,3.68-.22,6.83-.1,8.94,2.21l-36.43,35.45Z"/>
+    <path d="M3336.07,580.94h-126.18s-23.19,52-23.19,52l-64.72-.39,119.14-242.61,62.85-.64c3.87,4.12,6.51,9.56,9.23,15.03l113.71,228.61-66.09.27-24.74-52.27ZM3315.29,536.76l-21.86-47.35-20.37-42.45-42.04,89.98,84.28-.18Z"/>
+    <path d="M2546.86,580.94l-118.81-.39c-3.17-.01-8.24,3.58-9.34,6.06l-20.49,46.33-63.4-.2,12.84-28.55,101.51-208.13c1.97-4.03,6.76-7.12,10.7-7.13l48.19-.14c9.51-.03,10.63,4.36,14.37,11.87l114.96,230.8-65.88,1.17-24.65-51.7ZM2526.56,536.83l-17.58-37.3-25.04-53.01-41.28,90.43,83.9-.11Z"/>
+    <rect x="2664" y="388.94" width="64" height="244"/>
+    <g>
+      <path d="M834.24,336.85c-12.26,158.08-118.54,245.06-264.61,282.02-39.39,7.66-77.44,14.94-118.13,15.07l-226.5.74-.17,282.26-224.83-.08L.04.94l447.61-.1c56.68-.01,110.07,7.58,163.51,24.59,52.74,15.02,99.67,40.72,139.59,78.45,61.96,58.56,90.04,148.65,83.5,232.97ZM576.44,414.3c31.95-36.5,40.85-84.41,32.7-130.75-6.51-36.99-25.81-68.6-57.6-88.54-33.58-21.06-71.49-30.86-111.56-30.61l-20.36-1.46h-195.62s-.08,306-.08,306l217.56-.86c43.08-.17,104.16-18.58,134.97-53.78Z"/>
+      <path d="M911.29,625.37l-45.29,44.19.02,247.39-224.02-.09.18-269.97c53.87-20.29,100.1-47.55,140.87-84.73,45.9-44.16,77.31-98.07,93.65-159.34l40.14-39.16,62.01-59.99,65.03-62.9,51-49.08,51.99-50.03,69.99-67.95,47.99-45.93,21.96-20.82,256.65.11c-12.49,14.97-23.65,24.44-35.6,36l-62.02,59.99-79.95,77.95-90.12,88.1-138.85,135.51,99.25,118.05,107.46,128.65,222.1,265.63-267.72.4-307.54-367.8-79.17,75.82Z"/>
+    </g>
+    <path d="M2915.46,924.06l-31.94-41.12-46.72.11-1.04,39.86c-5.01,2.21-12.32,2.15-19.76.63l-.09-130.6,73.89.36c12.43.06,26.87,7.72,34.77,16.35,10.33,11.29,12.91,26.88,8.69,40.99-3.74,12.48-13.8,21.71-29.63,28.27l33.7,44.07c-7.29,1.89-15.42,2.28-21.86,1.07ZM2915.28,834.6c-4.48-34.78-52.53-24.07-78.28-25.62l-.3,57.81c18.26.4,34.2,1.18,50.98-.54,16.05-1.65,29.75-14.91,27.6-31.66Z"/>
+    <path d="M3683.28,864.94l-74.67.58c-.62,15.82-.61,28.8.42,43.42l84.26.18c5.21,1,5.38,15.81-.22,15.82l-105.06.16-.1-132.16,104.71-.09c2.28,3.34,2.24,9.41,1.05,15.09l-84.66.05.12,40.95,73.73.35c3.25,3.12,3.46,11.31.43,15.65Z"/>
+    <path d="M2708.64,864.94l-73.64.33-.19,43.67,86.85.22c3.69,3.24,3.6,12.53-.13,15.78l-100.84.19c-1.54,0-6.12-1.45-6.62-2.83-.62-1.73-.06-4.62-.06-7.7l-.13-121.66,102.9-.09c2.09,3.41,2.16,9.56,1.06,15.09l-79.84.19c-2.28,0-4.85,4.43-4.72,6.6.66,10.95.39,21.28.03,34.21l72.73.52c2.87,3.44,3.72,9.23,2.61,15.48Z"/>
+    <path d="M1917.97,890.94l-79.6-.22-16.82,31.85c-3.58,3.68-15.24,2.73-20.9.12l64.94-128.84c5.45-4.31,17.99-4.43,23.55-.37l66.7,129.19c-6.86,2.54-14.8,2.61-20.84,1.18l-17.02-32.91ZM1848.46,876.45c22.81.45,39.1,1.02,61.27-1.21l-29.21-58.96c-.44-.89-3.36-3.3-3.67-2.81s-1.67,2.18-2.03,2.9l-26.16,52.62c-1.02,2.05-1.98,7.42-.2,7.46Z"/>
+    <path d="M2503.76,917.18c-26.04,15.24-74.49,12.35-98.02-8.89,2.6-4.55,5.37-8.62,8.97-13.15,22.11,20.34,84.88,23.06,85.34-5.11.09-5.34-5.69-14.7-12.47-16.43l-50.78-13c-13.63-3.49-24.59-13.34-26.64-24.92-2.76-15.57,2.91-28.58,16.35-36.37,20.99-12.16,64.24-11.72,84.25,1.78,4.23,2.85-1.22,14.55-5.96,14.94-18.75-12.43-75.63-16.14-74.84,11.92.21,7.33,6.75,14.25,14.73,16.4l51.7,13.9c13.56,3.65,22.18,14.57,23.58,26.24,1.6,13.4-4.17,25.62-16.23,32.68Z"/>
+    <path d="M3388.3,884.05c21.19,31.69,64.63,34.38,92.19,10.87,5.26-.82,13.03,6.27,13.36,12.03-30.74,27.01-78.7,26.56-110.2.81-28.36-23.19-31.02-63.1-7.69-90.81,28.16-33.44,89.08-35,118.56-5.85-4.14,4.91-8.6,8.82-14.17,11.78-27.71-25.23-72.67-20.69-92.58,11.54-8.6,13.92-9.07,35.29.52,49.63Z"/>
+    <path d="M3139.21,794.64c5.27-2.87,14.33-2.37,21.91-.47l-64.25,129.65c-6.82,1.81-14.68,1.79-21.46.09l-63.76-130.25c8.48-.73,14.41-.77,21.96-.29l52.88,108,52.72-106.72Z"/>
+    <path d="M2139.49,909.53c3.84.6,3.3,12.49-.34,15.41l-94.78-.12c-4.36,0-2.36-9.14-2.37-12.33l-.14-116.12c5.75-1.26,11.25-1.33,20.14-.87l.45,113.44,77.04.59Z"/>
+    <path d="M2328.55,909.3c3.89,1.64,3.25,12.08.03,15.64l-98.58.19-.31-130.86,20.31-.45.35,115.11,78.2.36Z"/>
+    <rect x="3244.01" y="792.94" width="21.98" height="132"/>
+  </g>
+</svg></div>
+      <div class="minsize-ruler">140 px — Digital</div>
+    </div>
+    <div class="minsize-item">
+      <div style="width:48px;"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1565.73 917.34">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path d="M865.31,184.52c-21.71-46.3-46.37-85.3-83.13-117.73-28.44-27.62-60.92-47.93-97.35-64.64,3.07-3.99,7.09-1.22,11.19-1.21l169.98.13-.69,183.46Z"/>
+    <g>
+      <path d="M834.24,336.85c-12.26,158.08-118.54,245.06-264.61,282.02-39.39,7.66-77.44,14.94-118.13,15.07l-226.5.74-.17,282.26-224.83-.08L.04.94l447.61-.1c56.68-.01,110.07,7.58,163.51,24.59,52.74,15.02,99.67,40.72,139.59,78.45,61.96,58.56,90.04,148.65,83.5,232.97ZM576.44,414.3c31.95-36.5,40.85-84.41,32.7-130.75-6.51-36.99-25.81-68.6-57.6-88.54-33.58-21.06-71.49-30.86-111.56-30.61l-20.36-1.46h-195.62s-.08,306-.08,306l217.56-.86c43.08-.17,104.16-18.58,134.97-53.78Z"/>
+      <path d="M911.29,625.37l-45.29,44.19.02,247.39-224.02-.09.18-269.97c53.87-20.29,100.1-47.55,140.87-84.73,45.9-44.16,77.31-98.07,93.65-159.34l40.14-39.16,62.01-59.99,65.03-62.9,51-49.08,51.99-50.03,69.99-67.95,47.99-45.93,21.96-20.82,256.65.11c-12.49,14.97-23.65,24.44-35.6,36l-62.02,59.99-79.95,77.95-90.12,88.1-138.85,135.51,99.25,118.05,107.46,128.65,222.1,265.63-267.72.4-307.54-367.8-79.17,75.82Z"/>
+    </g>
+  </g>
+</svg></div>
+      <div class="minsize-ruler">48 px — Symbol</div>
+    </div>
+    <div class="minsize-item" style="background:var(--orange);padding:14px;">
+      <div style="width:48px;filter:invert(1);"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1565.73 917.34">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path d="M865.31,184.52c-21.71-46.3-46.37-85.3-83.13-117.73-28.44-27.62-60.92-47.93-97.35-64.64,3.07-3.99,7.09-1.22,11.19-1.21l169.98.13-.69,183.46Z"/>
+    <g>
+      <path d="M834.24,336.85c-12.26,158.08-118.54,245.06-264.61,282.02-39.39,7.66-77.44,14.94-118.13,15.07l-226.5.74-.17,282.26-224.83-.08L.04.94l447.61-.1c56.68-.01,110.07,7.58,163.51,24.59,52.74,15.02,99.67,40.72,139.59,78.45,61.96,58.56,90.04,148.65,83.5,232.97ZM576.44,414.3c31.95-36.5,40.85-84.41,32.7-130.75-6.51-36.99-25.81-68.6-57.6-88.54-33.58-21.06-71.49-30.86-111.56-30.61l-20.36-1.46h-195.62s-.08,306-.08,306l217.56-.86c43.08-.17,104.16-18.58,134.97-53.78Z"/>
+      <path d="M911.29,625.37l-45.29,44.19.02,247.39-224.02-.09.18-269.97c53.87-20.29,100.1-47.55,140.87-84.73,45.9-44.16,77.31-98.07,93.65-159.34l40.14-39.16,62.01-59.99,65.03-62.9,51-49.08,51.99-50.03,69.99-67.95,47.99-45.93,21.96-20.82,256.65.11c-12.49,14.97-23.65,24.44-35.6,36l-62.02,59.99-79.95,77.95-90.12,88.1-138.85,135.51,99.25,118.05,107.46,128.65,222.1,265.63-267.72.4-307.54-367.8-79.17,75.82Z"/>
+    </g>
+  </g>
+</svg></div>
+      <div class="minsize-ruler" style="border-top-color:#B84E10;color:#B84E10;">Orange variant</div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 – FÄRG -->
+<section>
+  <div class="section-header">
+    <span class="section-number">04</span>
+    <h2 class="section-title">Färgpalett</h2>
+  </div>
+
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#D95C14;"></div>
+      <div class="swatch-info" style="background:#FBF0E8;">
+        <p class="swatch-name">PK Orange</p>
+        <p class="swatch-hex">#D95C14 · RGB 217/92/20<br>CMYK 0/58/91/15<br>Pantone 166 C</p>
+        <p class="swatch-role">Accent — byggskyltar, knappar, detaljer</p>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#111009;"></div>
+      <div class="swatch-info">
+        <p class="swatch-name">PK Svart</p>
+        <p class="swatch-hex">#111009 · RGB 17/16/9<br>CMYK 0/0/0/96</p>
+        <p class="swatch-role">Primär — logotyp, text, bakgrund</p>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#F8F5F0;border:1px solid #DDD8CF;"></div>
+      <div class="swatch-info">
+        <p class="swatch-name">PK Vit</p>
+        <p class="swatch-hex">#F8F5F0 · RGB 248/245/240<br>CMYK 0/1/3/3</p>
+        <p class="swatch-role">Primär — bakgrund, dokument</p>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#EDEAE4;"></div>
+      <div class="swatch-info">
+        <p class="swatch-name">PK Sand</p>
+        <p class="swatch-hex">#EDEAE4 · RGB 237/234/228<br>CMYK 0/1/4/7</p>
+        <p class="swatch-role">Sekundär — sektionsbakgrunder</p>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#A8A198;"></div>
+      <div class="swatch-info">
+        <p class="swatch-name">PK Mellangr&aring;</p>
+        <p class="swatch-hex">#A8A198 · RGB 168/161/152<br>CMYK 0/4/10/34</p>
+        <p class="swatch-role">Stödfärg — etiketter, undertext</p>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#3A3428;"></div>
+      <div class="swatch-info">
+        <p class="swatch-name">PK Antracit</p>
+        <p class="swatch-hex">#3A3428 · RGB 58/52/40<br>CMYK 0/10/31/77</p>
+        <p class="swatch-role">Stödfärg — brödtext</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="color-usage">
+    <div class="color-usage-box" style="background:var(--orange);">
+      <p class="color-usage-label" style="color:rgba(255,255,255,.6);">Orange används för</p>
+      <ul class="color-usage-list">
+        <li style="color:white;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          CTA-knappar &amp; call-to-action
+        </li>
+        <li style="color:white;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          Byggskyltar &amp; marknadsföring
+        </li>
+        <li style="color:white;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          Accentlinjer &amp; sektionsdelare
+        </li>
+        <li style="color:white;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          Profilerad utrustning &amp; kläder
+        </li>
+      </ul>
+    </div>
+    <div class="color-usage-box" style="background:var(--warm-gray);">
+      <p class="color-usage-label" style="color:var(--mid-gray);">Orange används ej för</p>
+      <ul class="color-usage-list">
+        <li style="color:var(--mid-gray);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C08080" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Brödtext eller löpande text
+        </li>
+        <li style="color:var(--mid-gray);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C08080" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Bakgrund på stora ytor (&gt;30 %)
+        </li>
+        <li style="color:var(--mid-gray);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C08080" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Kombinerat med rött eller gult
+        </li>
+        <li style="color:var(--mid-gray);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C08080" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Logotypens eget fylfärg
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 05 – TYPOGRAFI -->
+<section>
+  <div class="section-header">
+    <span class="section-number">05</span>
+    <h2 class="section-title">Typografi</h2>
+  </div>
+
+  <div>
+    <div class="type-row">
+      <div class="type-meta">
+        <p class="type-label">Display</p>
+        <p class="type-spec">DM Serif Display<br>Regular / Italic<br>Kampanjtext, rubriker</p>
+      </div>
+      <div>
+        <p class="type-display">Pelto &amp;<br>Kraiman</p>
+        <p class="type-display-italic">Allservice</p>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <p class="type-label">Rubrik</p>
+        <p class="type-spec">DM Sans Bold 700<br>Tracking –0.02em<br>Sektionsrubriker</p>
+      </div>
+      <div>
+        <p class="type-heading">Vi fixar det — <span style="color:var(--orange);">ordentligt.</span></p>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <p class="type-label">Etikett</p>
+        <p class="type-spec">DM Sans Medium 500<br>Tracking 0.22em, All-caps</p>
+      </div>
+      <div>
+        <p class="type-subheading">Snickeri &nbsp;·&nbsp; Renovering &nbsp;·&nbsp; Fastighetsservice</p>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <p class="type-label">Brödtext</p>
+        <p class="type-spec">DM Sans Regular<br>15px / lh 1.72<br>Offerter, hemsida, avtal</p>
+      </div>
+      <div>
+        <p class="type-body">Pelto &amp; Kraiman Allservice utför professionella hantverkstjänster med fokus på kvalitet och rätt pris. Vi är din lokala partner för allt från akuta serviceuppdrag till större renoveringar — med tydliga avtal och inga dolda kostnader.</p>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <p class="type-label">Bildtext</p>
+        <p class="type-spec">DM Sans Regular<br>11px / tracking 0.12em</p>
+      </div>
+      <div>
+        <p class="type-caption">Pelto &amp; Kraiman Allservice &nbsp;—&nbsp; Stockholm, Sverige &nbsp;·&nbsp; Org.nr 556XXX-XXXX</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 – GÖR & GÖR INTE -->
+<section>
+  <div class="section-header">
+    <span class="section-number">06</span>
+    <h2 class="section-title">Gör &amp;<br>Gör inte</h2>
+  </div>
+
+  <div class="usage-grid">
+    <div class="usage-card">
+      <span class="usage-badge badge-do">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Gör
+      </span>
+      <div class="usage-preview">
+        <div style="width:195px;"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3700.08 927.13">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path d="M865.31,184.52c-21.71-46.3-46.37-85.3-83.13-117.73-28.44-27.62-60.92-47.93-97.35-64.64,3.07-3.99,7.09-1.22,11.19-1.21l169.98.13-.69,183.46Z"/>
+    <path d="M2982.54,262.29c-59.45,27.38-141.18,18.4-186.61-31.09-41.97-45.72-41.59-114.34.01-160.39,47.92-53.05,142.47-59.42,201.54-23.57,35.95,21.82,58.56,58.02,59.78,100.54,1.44,50.2-28.65,93.29-74.72,114.51ZM2955.15,216.89c30.17-17.36,44.37-50.85,36.56-83.95-7.3-30.92-33.66-54.52-67.25-58.58-21.92-2.65-44.68,1.27-63.81,13.95-25.55,16.94-37.41,48.8-30.93,79.28,5.88,27.62,28.19,50.89,57.96,57.91,22.87,5.39,46.24,3.62,67.47-8.6Z"/>
+    <path d="M2272.31,170.94l-124.31.46.24,55.54,145.76.16-.34,45.84-201.22.1c-1.47,0-6.2-1.37-6.42-2.79-.28-1.78-.02-4.48-.02-7.78l.14-233.53,201.86.1-.14,45.9-139.86.17.29,51.83,123.71.27.31,43.73Z"/>
+    <path d="M1999.22,187.18c-16.45,8.57-33.92,14.45-52.18,14.76l-76.04,1.28-.52,69.72-62.48-.2-.03-243.8,137.26.8c22.72.13,43.65,8.7,62.13,19.53,17.48,11.87,27.53,28.37,32.16,48.56,8.25,35.94-6.33,71.65-40.32,89.35ZM1970.48,139.24c12.35-15.93,9.48-38.85-5.29-51.08-8.85-7.33-21.78-12.18-33.41-12.22l-61.78-.19.05,81.13c31.76-1.59,79.98,8.73,100.43-17.64Z"/>
+    <path d="M2666,75.4l-.26,196.54-61.74.5-.12-196.5-85.88-.9.46-46.1h232.6c-.85,14.41-.95,26.24.44,37.68.25,2.03-1.99,8.31-4.12,8.32l-81.38.46Z"/>
+    <path d="M2536,225.24l.16,35.56c.01,2.95,1.59,12.13-3.12,12.14l-193.04.1-.04-243.1,62.04-.46-.04,195.46,134.04.3Z"/>
+    <path d="M3423.55,277l-33.77-25.94c-44.63,33.99-129.24,36.68-174.12.51-25.49-20.54-28.94-56.09-8.84-81.77,11.62-14.85,26.34-23.71,44.6-32.76l-13.24-16.31c-10.77-13.27-15.3-30.8-10.72-48.6,3.4-13.23,13.61-27.75,29.04-35.17,44.11-21.21,122.04-15.41,131.18,34.05,6.87,37.19-19.88,53.45-50.51,72.25l47.62,40.61c8.78-10.67,12.13-22.45,16.26-37.59l48.02,12.73c-3.23,21.51-13.38,37.42-24.39,55.81l32.55,27.79-33.67,34.4ZM3330.63,96.94c9.25-8.94,6.6-22.79-3.3-29.38-11.02-7.34-26.17-5.92-36.77,1.93-8.78,6.49-11.96,18.97-4.51,27.85,5.1,6.08,10.38,11.24,16.55,17.38,10.06-4.75,19.68-9.71,28.03-17.78ZM3351.85,218.94l-64.3-52.95c-17.02,6.88-39.82,26.51-29.93,45.62,16.15,31.21,69.71,26.76,94.23,7.33Z"/>
+    <path d="M3037,632.94v-142.03l-78.85,115.19c-8.52,1.38-22.43,2.88-30.58-.14-29.22-35.74-48.94-76.8-78.57-112.77v138.75h-61v-242.06c35.67,5.21,48.29-9.92,60.88,8.8l93.74,139.45,92.12-140.15c3.41-5.18,7.09-8.04,13.26-9.16l46.99,1.25v242.86h-58Z"/>
+    <path d="M3700.08,631.94h-52.04l-133.04-145.19v145.19l-63,.33.06-242.73c19.97-.95,34.43-1.1,54,.08l127.47,141.14c1.59,1.77,4.47-1.22,4.47-2.54v-138.1c21.01-1.62,39.72-1.79,62-.69l.08,242.5Z"/>
+    <path d="M2258.14,632.63l-50.3-69.68-50.49-.2c-2.27,0-7.34,3.46-7.34,5.92l-.14,64.28-61.86-.73.03-243.27,121.05.45c29.89.11,58.9,5.17,82.46,23.8,17.4,13.29,27.02,31.41,29.63,53.02,4.57,37.83-15.48,71.5-53.83,85.87l58.94,79.86-68.14.68ZM2258.37,474.25c-1.12-20.6-21.63-37.28-41.75-37.31l-65.61-.09-.28,80.09,68.19-.08c14.22-.02,40.92-15.72,39.46-42.61Z"/>
+    <path d="M2017.43,427.74l-69.76,68.58,114.86,135.59c-26.29,1.89-49.19,1.46-72.91.69l-83.2-96.31-35.42,34.36-.44,62.3-62.56.13v-243.13h62v109.33l76.99-73.42,37.9-36.09c20.74,1.24,39.7,1.51,60.03.31,3.68-.22,6.83-.1,8.94,2.21l-36.43,35.45Z"/>
+    <path d="M3336.07,580.94h-126.18s-23.19,52-23.19,52l-64.72-.39,119.14-242.61,62.85-.64c3.87,4.12,6.51,9.56,9.23,15.03l113.71,228.61-66.09.27-24.74-52.27ZM3315.29,536.76l-21.86-47.35-20.37-42.45-42.04,89.98,84.28-.18Z"/>
+    <path d="M2546.86,580.94l-118.81-.39c-3.17-.01-8.24,3.58-9.34,6.06l-20.49,46.33-63.4-.2,12.84-28.55,101.51-208.13c1.97-4.03,6.76-7.12,10.7-7.13l48.19-.14c9.51-.03,10.63,4.36,14.37,11.87l114.96,230.8-65.88,1.17-24.65-51.7ZM2526.56,536.83l-17.58-37.3-25.04-53.01-41.28,90.43,83.9-.11Z"/>
+    <rect x="2664" y="388.94" width="64" height="244"/>
+    <g>
+      <path d="M834.24,336.85c-12.26,158.08-118.54,245.06-264.61,282.02-39.39,7.66-77.44,14.94-118.13,15.07l-226.5.74-.17,282.26-224.83-.08L.04.94l447.61-.1c56.68-.01,110.07,7.58,163.51,24.59,52.74,15.02,99.67,40.72,139.59,78.45,61.96,58.56,90.04,148.65,83.5,232.97ZM576.44,414.3c31.95-36.5,40.85-84.41,32.7-130.75-6.51-36.99-25.81-68.6-57.6-88.54-33.58-21.06-71.49-30.86-111.56-30.61l-20.36-1.46h-195.62s-.08,306-.08,306l217.56-.86c43.08-.17,104.16-18.58,134.97-53.78Z"/>
+      <path d="M911.29,625.37l-45.29,44.19.02,247.39-224.02-.09.18-269.97c53.87-20.29,100.1-47.55,140.87-84.73,45.9-44.16,77.31-98.07,93.65-159.34l40.14-39.16,62.01-59.99,65.03-62.9,51-49.08,51.99-50.03,69.99-67.95,47.99-45.93,21.96-20.82,256.65.11c-12.49,14.97-23.65,24.44-35.6,36l-62.02,59.99-79.95,77.95-90.12,88.1-138.85,135.51,99.25,118.05,107.46,128.65,222.1,265.63-267.72.4-307.54-367.8-79.17,75.82Z"/>
+    </g>
+    <path d="M2915.46,924.06l-31.94-41.12-46.72.11-1.04,39.86c-5.01,2.21-12.32,2.15-19.76.63l-.09-130.6,73.89.36c12.43.06,26.87,7.72,34.77,16.35,10.33,11.29,12.91,26.88,8.69,40.99-3.74,12.48-13.8,21.71-29.63,28.27l33.7,44.07c-7.29,1.89-15.42,2.28-21.86,1.07ZM2915.28,834.6c-4.48-34.78-52.53-24.07-78.28-25.62l-.3,57.81c18.26.4,34.2,1.18,50.98-.54,16.05-1.65,29.75-14.91,27.6-31.66Z"/>
+    <path d="M3683.28,864.94l-74.67.58c-.62,15.82-.61,28.8.42,43.42l84.26.18c5.21,1,5.38,15.81-.22,15.82l-105.06.16-.1-132.16,104.71-.09c2.28,3.34,2.24,9.41,1.05,15.09l-84.66.05.12,40.95,73.73.35c3.25,3.12,3.46,11.31.43,15.65Z"/>
+    <path d="M2708.64,864.94l-73.64.33-.19,43.67,86.85.22c3.69,3.24,3.6,12.53-.13,15.78l-100.84.19c-1.54,0-6.12-1.45-6.62-2.83-.62-1.73-.06-4.62-.06-7.7l-.13-121.66,102.9-.09c2.09,3.41,2.16,9.56,1.06,15.09l-79.84.19c-2.28,0-4.85,4.43-4.72,6.6.66,10.95.39,21.28.03,34.21l72.73.52c2.87,3.44,3.72,9.23,2.61,15.48Z"/>
+    <path d="M1917.97,890.94l-79.6-.22-16.82,31.85c-3.58,3.68-15.24,2.73-20.9.12l64.94-128.84c5.45-4.31,17.99-4.43,23.55-.37l66.7,129.19c-6.86,2.54-14.8,2.61-20.84,1.18l-17.02-32.91ZM1848.46,876.45c22.81.45,39.1,1.02,61.27-1.21l-29.21-58.96c-.44-.89-3.36-3.3-3.67-2.81s-1.67,2.18-2.03,2.9l-26.16,52.62c-1.02,2.05-1.98,7.42-.2,7.46Z"/>
+    <path d="M2503.76,917.18c-26.04,15.24-74.49,12.35-98.02-8.89,2.6-4.55,5.37-8.62,8.97-13.15,22.11,20.34,84.88,23.06,85.34-5.11.09-5.34-5.69-14.7-12.47-16.43l-50.78-13c-13.63-3.49-24.59-13.34-26.64-24.92-2.76-15.57,2.91-28.58,16.35-36.37,20.99-12.16,64.24-11.72,84.25,1.78,4.23,2.85-1.22,14.55-5.96,14.94-18.75-12.43-75.63-16.14-74.84,11.92.21,7.33,6.75,14.25,14.73,16.4l51.7,13.9c13.56,3.65,22.18,14.57,23.58,26.24,1.6,13.4-4.17,25.62-16.23,32.68Z"/>
+    <path d="M3388.3,884.05c21.19,31.69,64.63,34.38,92.19,10.87,5.26-.82,13.03,6.27,13.36,12.03-30.74,27.01-78.7,26.56-110.2.81-28.36-23.19-31.02-63.1-7.69-90.81,28.16-33.44,89.08-35,118.56-5.85-4.14,4.91-8.6,8.82-14.17,11.78-27.71-25.23-72.67-20.69-92.58,11.54-8.6,13.92-9.07,35.29.52,49.63Z"/>
+    <path d="M3139.21,794.64c5.27-2.87,14.33-2.37,21.91-.47l-64.25,129.65c-6.82,1.81-14.68,1.79-21.46.09l-63.76-130.25c8.48-.73,14.41-.77,21.96-.29l52.88,108,52.72-106.72Z"/>
+    <path d="M2139.49,909.53c3.84.6,3.3,12.49-.34,15.41l-94.78-.12c-4.36,0-2.36-9.14-2.37-12.33l-.14-116.12c5.75-1.26,11.25-1.33,20.14-.87l.45,113.44,77.04.59Z"/>
+    <path d="M2328.55,909.3c3.89,1.64,3.25,12.08.03,15.64l-98.58.19-.31-130.86,20.31-.45.35,115.11,78.2.36Z"/>
+    <rect x="3244.01" y="792.94" width="21.98" height="132"/>
+  </g>
+</svg></div>
+      </div>
+      <p class="usage-desc">Svart logotyp på vit eller ljus bakgrund — alltid maximal kontrast.</p>
+    </div>
+
+    <div class="usage-card">
+      <span class="usage-badge badge-do">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Gör
+      </span>
+      <div class="usage-preview dark">
+        <div style="width:195px;filter:invert(1);"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3700.08 927.13">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path d="M865.31,184.52c-21.71-46.3-46.37-85.3-83.13-117.73-28.44-27.62-60.92-47.93-97.35-64.64,3.07-3.99,7.09-1.22,11.19-1.21l169.98.13-.69,183.46Z"/>
+    <path d="M2982.54,262.29c-59.45,27.38-141.18,18.4-186.61-31.09-41.97-45.72-41.59-114.34.01-160.39,47.92-53.05,142.47-59.42,201.54-23.57,35.95,21.82,58.56,58.02,59.78,100.54,1.44,50.2-28.65,93.29-74.72,114.51ZM2955.15,216.89c30.17-17.36,44.37-50.85,36.56-83.95-7.3-30.92-33.66-54.52-67.25-58.58-21.92-2.65-44.68,1.27-63.81,13.95-25.55,16.94-37.41,48.8-30.93,79.28,5.88,27.62,28.19,50.89,57.96,57.91,22.87,5.39,46.24,3.62,67.47-8.6Z"/>
+    <path d="M2272.31,170.94l-124.31.46.24,55.54,145.76.16-.34,45.84-201.22.1c-1.47,0-6.2-1.37-6.42-2.79-.28-1.78-.02-4.48-.02-7.78l.14-233.53,201.86.1-.14,45.9-139.86.17.29,51.83,123.71.27.31,43.73Z"/>
+    <path d="M1999.22,187.18c-16.45,8.57-33.92,14.45-52.18,14.76l-76.04,1.28-.52,69.72-62.48-.2-.03-243.8,137.26.8c22.72.13,43.65,8.7,62.13,19.53,17.48,11.87,27.53,28.37,32.16,48.56,8.25,35.94-6.33,71.65-40.32,89.35ZM1970.48,139.24c12.35-15.93,9.48-38.85-5.29-51.08-8.85-7.33-21.78-12.18-33.41-12.22l-61.78-.19.05,81.13c31.76-1.59,79.98,8.73,100.43-17.64Z"/>
+    <path d="M2666,75.4l-.26,196.54-61.74.5-.12-196.5-85.88-.9.46-46.1h232.6c-.85,14.41-.95,26.24.44,37.68.25,2.03-1.99,8.31-4.12,8.32l-81.38.46Z"/>
+    <path d="M2536,225.24l.16,35.56c.01,2.95,1.59,12.13-3.12,12.14l-193.04.1-.04-243.1,62.04-.46-.04,195.46,134.04.3Z"/>
+    <path d="M3423.55,277l-33.77-25.94c-44.63,33.99-129.24,36.68-174.12.51-25.49-20.54-28.94-56.09-8.84-81.77,11.62-14.85,26.34-23.71,44.6-32.76l-13.24-16.31c-10.77-13.27-15.3-30.8-10.72-48.6,3.4-13.23,13.61-27.75,29.04-35.17,44.11-21.21,122.04-15.41,131.18,34.05,6.87,37.19-19.88,53.45-50.51,72.25l47.62,40.61c8.78-10.67,12.13-22.45,16.26-37.59l48.02,12.73c-3.23,21.51-13.38,37.42-24.39,55.81l32.55,27.79-33.67,34.4ZM3330.63,96.94c9.25-8.94,6.6-22.79-3.3-29.38-11.02-7.34-26.17-5.92-36.77,1.93-8.78,6.49-11.96,18.97-4.51,27.85,5.1,6.08,10.38,11.24,16.55,17.38,10.06-4.75,19.68-9.71,28.03-17.78ZM3351.85,218.94l-64.3-52.95c-17.02,6.88-39.82,26.51-29.93,45.62,16.15,31.21,69.71,26.76,94.23,7.33Z"/>
+    <path d="M3037,632.94v-142.03l-78.85,115.19c-8.52,1.38-22.43,2.88-30.58-.14-29.22-35.74-48.94-76.8-78.57-112.77v138.75h-61v-242.06c35.67,5.21,48.29-9.92,60.88,8.8l93.74,139.45,92.12-140.15c3.41-5.18,7.09-8.04,13.26-9.16l46.99,1.25v242.86h-58Z"/>
+    <path d="M3700.08,631.94h-52.04l-133.04-145.19v145.19l-63,.33.06-242.73c19.97-.95,34.43-1.1,54,.08l127.47,141.14c1.59,1.77,4.47-1.22,4.47-2.54v-138.1c21.01-1.62,39.72-1.79,62-.69l.08,242.5Z"/>
+    <path d="M2258.14,632.63l-50.3-69.68-50.49-.2c-2.27,0-7.34,3.46-7.34,5.92l-.14,64.28-61.86-.73.03-243.27,121.05.45c29.89.11,58.9,5.17,82.46,23.8,17.4,13.29,27.02,31.41,29.63,53.02,4.57,37.83-15.48,71.5-53.83,85.87l58.94,79.86-68.14.68ZM2258.37,474.25c-1.12-20.6-21.63-37.28-41.75-37.31l-65.61-.09-.28,80.09,68.19-.08c14.22-.02,40.92-15.72,39.46-42.61Z"/>
+    <path d="M2017.43,427.74l-69.76,68.58,114.86,135.59c-26.29,1.89-49.19,1.46-72.91.69l-83.2-96.31-35.42,34.36-.44,62.3-62.56.13v-243.13h62v109.33l76.99-73.42,37.9-36.09c20.74,1.24,39.7,1.51,60.03.31,3.68-.22,6.83-.1,8.94,2.21l-36.43,35.45Z"/>
+    <path d="M3336.07,580.94h-126.18s-23.19,52-23.19,52l-64.72-.39,119.14-242.61,62.85-.64c3.87,4.12,6.51,9.56,9.23,15.03l113.71,228.61-66.09.27-24.74-52.27ZM3315.29,536.76l-21.86-47.35-20.37-42.45-42.04,89.98,84.28-.18Z"/>
+    <path d="M2546.86,580.94l-118.81-.39c-3.17-.01-8.24,3.58-9.34,6.06l-20.49,46.33-63.4-.2,12.84-28.55,101.51-208.13c1.97-4.03,6.76-7.12,10.7-7.13l48.19-.14c9.51-.03,10.63,4.36,14.37,11.87l114.96,230.8-65.88,1.17-24.65-51.7ZM2526.56,536.83l-17.58-37.3-25.04-53.01-41.28,90.43,83.9-.11Z"/>
+    <rect x="2664" y="388.94" width="64" height="244"/>
+    <g>
+      <path d="M834.24,336.85c-12.26,158.08-118.54,245.06-264.61,282.02-39.39,7.66-77.44,14.94-118.13,15.07l-226.5.74-.17,282.26-224.83-.08L.04.94l447.61-.1c56.68-.01,110.07,7.58,163.51,24.59,52.74,15.02,99.67,40.72,139.59,78.45,61.96,58.56,90.04,148.65,83.5,232.97ZM576.44,414.3c31.95-36.5,40.85-84.41,32.7-130.75-6.51-36.99-25.81-68.6-57.6-88.54-33.58-21.06-71.49-30.86-111.56-30.61l-20.36-1.46h-195.62s-.08,306-.08,306l217.56-.86c43.08-.17,104.16-18.58,134.97-53.78Z"/>
+      <path d="M911.29,625.37l-45.29,44.19.02,247.39-224.02-.09.18-269.97c53.87-20.29,100.1-47.55,140.87-84.73,45.9-44.16,77.31-98.07,93.65-159.34l40.14-39.16,62.01-59.99,65.03-62.9,51-49.08,51.99-50.03,69.99-67.95,47.99-45.93,21.96-20.82,256.65.11c-12.49,14.97-23.65,24.44-35.6,36l-62.02,59.99-79.95,77.95-90.12,88.1-138.85,135.51,99.25,118.05,107.46,128.65,222.1,265.63-267.72.4-307.54-367.8-79.17,75.82Z"/>
+    </g>
+    <path d="M2915.46,924.06l-31.94-41.12-46.72.11-1.04,39.86c-5.01,2.21-12.32,2.15-19.76.63l-.09-130.6,73.89.36c12.43.06,26.87,7.72,34.77,16.35,10.33,11.29,12.91,26.88,8.69,40.99-3.74,12.48-13.8,21.71-29.63,28.27l33.7,44.07c-7.29,1.89-15.42,2.28-21.86,1.07ZM2915.28,834.6c-4.48-34.78-52.53-24.07-78.28-25.62l-.3,57.81c18.26.4,34.2,1.18,50.98-.54,16.05-1.65,29.75-14.91,27.6-31.66Z"/>
+    <path d="M3683.28,864.94l-74.67.58c-.62,15.82-.61,28.8.42,43.42l84.26.18c5.21,1,5.38,15.81-.22,15.82l-105.06.16-.1-132.16,104.71-.09c2.28,3.34,2.24,9.41,1.05,15.09l-84.66.05.12,40.95,73.73.35c3.25,3.12,3.46,11.31.43,15.65Z"/>
+    <path d="M2708.64,864.94l-73.64.33-.19,43.67,86.85.22c3.69,3.24,3.6,12.53-.13,15.78l-100.84.19c-1.54,0-6.12-1.45-6.62-2.83-.62-1.73-.06-4.62-.06-7.7l-.13-121.66,102.9-.09c2.09,3.41,2.16,9.56,1.06,15.09l-79.84.19c-2.28,0-4.85,4.43-4.72,6.6.66,10.95.39,21.28.03,34.21l72.73.52c2.87,3.44,3.72,9.23,2.61,15.48Z"/>
+    <path d="M1917.97,890.94l-79.6-.22-16.82,31.85c-3.58,3.68-15.24,2.73-20.9.12l64.94-128.84c5.45-4.31,17.99-4.43,23.55-.37l66.7,129.19c-6.86,2.54-14.8,2.61-20.84,1.18l-17.02-32.91ZM1848.46,876.45c22.81.45,39.1,1.02,61.27-1.21l-29.21-58.96c-.44-.89-3.36-3.3-3.67-2.81s-1.67,2.18-2.03,2.9l-26.16,52.62c-1.02,2.05-1.98,7.42-.2,7.46Z"/>
+    <path d="M2503.76,917.18c-26.04,15.24-74.49,12.35-98.02-8.89,2.6-4.55,5.37-8.62,8.97-13.15,22.11,20.34,84.88,23.06,85.34-5.11.09-5.34-5.69-14.7-12.47-16.43l-50.78-13c-13.63-3.49-24.59-13.34-26.64-24.92-2.76-15.57,2.91-28.58,16.35-36.37,20.99-12.16,64.24-11.72,84.25,1.78,4.23,2.85-1.22,14.55-5.96,14.94-18.75-12.43-75.63-16.14-74.84,11.92.21,7.33,6.75,14.25,14.73,16.4l51.7,13.9c13.56,3.65,22.18,14.57,23.58,26.24,1.6,13.4-4.17,25.62-16.23,32.68Z"/>
+    <path d="M3388.3,884.05c21.19,31.69,64.63,34.38,92.19,10.87,5.26-.82,13.03,6.27,13.36,12.03-30.74,27.01-78.7,26.56-110.2.81-28.36-23.19-31.02-63.1-7.69-90.81,28.16-33.44,89.08-35,118.56-5.85-4.14,4.91-8.6,8.82-14.17,11.78-27.71-25.23-72.67-20.69-92.58,11.54-8.6,13.92-9.07,35.29.52,49.63Z"/>
+    <path d="M3139.21,794.64c5.27-2.87,14.33-2.37,21.91-.47l-64.25,129.65c-6.82,1.81-14.68,1.79-21.46.09l-63.76-130.25c8.48-.73,14.41-.77,21.96-.29l52.88,108,52.72-106.72Z"/>
+    <path d="M2139.49,909.53c3.84.6,3.3,12.49-.34,15.41l-94.78-.12c-4.36,0-2.36-9.14-2.37-12.33l-.14-116.12c5.75-1.26,11.25-1.33,20.14-.87l.45,113.44,77.04.59Z"/>
+    <path d="M2328.55,909.3c3.89,1.64,3.25,12.08.03,15.64l-98.58.19-.31-130.86,20.31-.45.35,115.11,78.2.36Z"/>
+    <rect x="3244.01" y="792.94" width="21.98" height="132"/>
+  </g>
+</svg></div>
+      </div>
+      <p class="usage-desc">Vit logotyp på svart — exempelvis byggskyltar och fordon.</p>
+    </div>
+
+    <div class="usage-card">
+      <span class="usage-badge badge-do">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Gör
+      </span>
+      <div class="usage-preview orange">
+        <div style="width:110px;filter:invert(1);"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1565.73 917.34">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path d="M865.31,184.52c-21.71-46.3-46.37-85.3-83.13-117.73-28.44-27.62-60.92-47.93-97.35-64.64,3.07-3.99,7.09-1.22,11.19-1.21l169.98.13-.69,183.46Z"/>
+    <g>
+      <path d="M834.24,336.85c-12.26,158.08-118.54,245.06-264.61,282.02-39.39,7.66-77.44,14.94-118.13,15.07l-226.5.74-.17,282.26-224.83-.08L.04.94l447.61-.1c56.68-.01,110.07,7.58,163.51,24.59,52.74,15.02,99.67,40.72,139.59,78.45,61.96,58.56,90.04,148.65,83.5,232.97ZM576.44,414.3c31.95-36.5,40.85-84.41,32.7-130.75-6.51-36.99-25.81-68.6-57.6-88.54-33.58-21.06-71.49-30.86-111.56-30.61l-20.36-1.46h-195.62s-.08,306-.08,306l217.56-.86c43.08-.17,104.16-18.58,134.97-53.78Z"/>
+      <path d="M911.29,625.37l-45.29,44.19.02,247.39-224.02-.09.18-269.97c53.87-20.29,100.1-47.55,140.87-84.73,45.9-44.16,77.31-98.07,93.65-159.34l40.14-39.16,62.01-59.99,65.03-62.9,51-49.08,51.99-50.03,69.99-67.95,47.99-45.93,21.96-20.82,256.65.11c-12.49,14.97-23.65,24.44-35.6,36l-62.02,59.99-79.95,77.95-90.12,88.1-138.85,135.51,99.25,118.05,107.46,128.65,222.1,265.63-267.72.4-307.54-367.8-79.17,75.82Z"/>
+    </g>
+  </g>
+</svg></div>
+      </div>
+      <p class="usage-desc">PK-symbolen i vitt på orange — varselkläder och profilerat material.</p>
+    </div>
+
+    <div class="usage-card dont usage-dont-overlay">
+      <span class="usage-badge badge-dont">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#6E2A22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        Gör inte
+      </span>
+      <div class="usage-preview" style="background:#c8c8c8;border:none;">
+        <div style="width:195px;"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3700.08 927.13">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path d="M865.31,184.52c-21.71-46.3-46.37-85.3-83.13-117.73-28.44-27.62-60.92-47.93-97.35-64.64,3.07-3.99,7.09-1.22,11.19-1.21l169.98.13-.69,183.46Z"/>
+    <path d="M2982.54,262.29c-59.45,27.38-141.18,18.4-186.61-31.09-41.97-45.72-41.59-114.34.01-160.39,47.92-53.05,142.47-59.42,201.54-23.57,35.95,21.82,58.56,58.02,59.78,100.54,1.44,50.2-28.65,93.29-74.72,114.51ZM2955.15,216.89c30.17-17.36,44.37-50.85,36.56-83.95-7.3-30.92-33.66-54.52-67.25-58.58-21.92-2.65-44.68,1.27-63.81,13.95-25.55,16.94-37.41,48.8-30.93,79.28,5.88,27.62,28.19,50.89,57.96,57.91,22.87,5.39,46.24,3.62,67.47-8.6Z"/>
+    <path d="M2272.31,170.94l-124.31.46.24,55.54,145.76.16-.34,45.84-201.22.1c-1.47,0-6.2-1.37-6.42-2.79-.28-1.78-.02-4.48-.02-7.78l.14-233.53,201.86.1-.14,45.9-139.86.17.29,51.83,123.71.27.31,43.73Z"/>
+    <path d="M1999.22,187.18c-16.45,8.57-33.92,14.45-52.18,14.76l-76.04,1.28-.52,69.72-62.48-.2-.03-243.8,137.26.8c22.72.13,43.65,8.7,62.13,19.53,17.48,11.87,27.53,28.37,32.16,48.56,8.25,35.94-6.33,71.65-40.32,89.35ZM1970.48,139.24c12.35-15.93,9.48-38.85-5.29-51.08-8.85-7.33-21.78-12.18-33.41-12.22l-61.78-.19.05,81.13c31.76-1.59,79.98,8.73,100.43-17.64Z"/>
+    <path d="M2666,75.4l-.26,196.54-61.74.5-.12-196.5-85.88-.9.46-46.1h232.6c-.85,14.41-.95,26.24.44,37.68.25,2.03-1.99,8.31-4.12,8.32l-81.38.46Z"/>
+    <path d="M2536,225.24l.16,35.56c.01,2.95,1.59,12.13-3.12,12.14l-193.04.1-.04-243.1,62.04-.46-.04,195.46,134.04.3Z"/>
+    <path d="M3423.55,277l-33.77-25.94c-44.63,33.99-129.24,36.68-174.12.51-25.49-20.54-28.94-56.09-8.84-81.77,11.62-14.85,26.34-23.71,44.6-32.76l-13.24-16.31c-10.77-13.27-15.3-30.8-10.72-48.6,3.4-13.23,13.61-27.75,29.04-35.17,44.11-21.21,122.04-15.41,131.18,34.05,6.87,37.19-19.88,53.45-50.51,72.25l47.62,40.61c8.78-10.67,12.13-22.45,16.26-37.59l48.02,12.73c-3.23,21.51-13.38,37.42-24.39,55.81l32.55,27.79-33.67,34.4ZM3330.63,96.94c9.25-8.94,6.6-22.79-3.3-29.38-11.02-7.34-26.17-5.92-36.77,1.93-8.78,6.49-11.96,18.97-4.51,27.85,5.1,6.08,10.38,11.24,16.55,17.38,10.06-4.75,19.68-9.71,28.03-17.78ZM3351.85,218.94l-64.3-52.95c-17.02,6.88-39.82,26.51-29.93,45.62,16.15,31.21,69.71,26.76,94.23,7.33Z"/>
+    <path d="M3037,632.94v-142.03l-78.85,115.19c-8.52,1.38-22.43,2.88-30.58-.14-29.22-35.74-48.94-76.8-78.57-112.77v138.75h-61v-242.06c35.67,5.21,48.29-9.92,60.88,8.8l93.74,139.45,92.12-140.15c3.41-5.18,7.09-8.04,13.26-9.16l46.99,1.25v242.86h-58Z"/>
+    <path d="M3700.08,631.94h-52.04l-133.04-145.19v145.19l-63,.33.06-242.73c19.97-.95,34.43-1.1,54,.08l127.47,141.14c1.59,1.77,4.47-1.22,4.47-2.54v-138.1c21.01-1.62,39.72-1.79,62-.69l.08,242.5Z"/>
+    <path d="M2258.14,632.63l-50.3-69.68-50.49-.2c-2.27,0-7.34,3.46-7.34,5.92l-.14,64.28-61.86-.73.03-243.27,121.05.45c29.89.11,58.9,5.17,82.46,23.8,17.4,13.29,27.02,31.41,29.63,53.02,4.57,37.83-15.48,71.5-53.83,85.87l58.94,79.86-68.14.68ZM2258.37,474.25c-1.12-20.6-21.63-37.28-41.75-37.31l-65.61-.09-.28,80.09,68.19-.08c14.22-.02,40.92-15.72,39.46-42.61Z"/>
+    <path d="M2017.43,427.74l-69.76,68.58,114.86,135.59c-26.29,1.89-49.19,1.46-72.91.69l-83.2-96.31-35.42,34.36-.44,62.3-62.56.13v-243.13h62v109.33l76.99-73.42,37.9-36.09c20.74,1.24,39.7,1.51,60.03.31,3.68-.22,6.83-.1,8.94,2.21l-36.43,35.45Z"/>
+    <path d="M3336.07,580.94h-126.18s-23.19,52-23.19,52l-64.72-.39,119.14-242.61,62.85-.64c3.87,4.12,6.51,9.56,9.23,15.03l113.71,228.61-66.09.27-24.74-52.27ZM3315.29,536.76l-21.86-47.35-20.37-42.45-42.04,89.98,84.28-.18Z"/>
+    <path d="M2546.86,580.94l-118.81-.39c-3.17-.01-8.24,3.58-9.34,6.06l-20.49,46.33-63.4-.2,12.84-28.55,101.51-208.13c1.97-4.03,6.76-7.12,10.7-7.13l48.19-.14c9.51-.03,10.63,4.36,14.37,11.87l114.96,230.8-65.88,1.17-24.65-51.7ZM2526.56,536.83l-17.58-37.3-25.04-53.01-41.28,90.43,83.9-.11Z"/>
+    <rect x="2664" y="388.94" width="64" height="244"/>
+    <g>
+      <path d="M834.24,336.85c-12.26,158.08-118.54,245.06-264.61,282.02-39.39,7.66-77.44,14.94-118.13,15.07l-226.5.74-.17,282.26-224.83-.08L.04.94l447.61-.1c56.68-.01,110.07,7.58,163.51,24.59,52.74,15.02,99.67,40.72,139.59,78.45,61.96,58.56,90.04,148.65,83.5,232.97ZM576.44,414.3c31.95-36.5,40.85-84.41,32.7-130.75-6.51-36.99-25.81-68.6-57.6-88.54-33.58-21.06-71.49-30.86-111.56-30.61l-20.36-1.46h-195.62s-.08,306-.08,306l217.56-.86c43.08-.17,104.16-18.58,134.97-53.78Z"/>
+      <path d="M911.29,625.37l-45.29,44.19.02,247.39-224.02-.09.18-269.97c53.87-20.29,100.1-47.55,140.87-84.73,45.9-44.16,77.31-98.07,93.65-159.34l40.14-39.16,62.01-59.99,65.03-62.9,51-49.08,51.99-50.03,69.99-67.95,47.99-45.93,21.96-20.82,256.65.11c-12.49,14.97-23.65,24.44-35.6,36l-62.02,59.99-79.95,77.95-90.12,88.1-138.85,135.51,99.25,118.05,107.46,128.65,222.1,265.63-267.72.4-307.54-367.8-79.17,75.82Z"/>
+    </g>
+    <path d="M2915.46,924.06l-31.94-41.12-46.72.11-1.04,39.86c-5.01,2.21-12.32,2.15-19.76.63l-.09-130.6,73.89.36c12.43.06,26.87,7.72,34.77,16.35,10.33,11.29,12.91,26.88,8.69,40.99-3.74,12.48-13.8,21.71-29.63,28.27l33.7,44.07c-7.29,1.89-15.42,2.28-21.86,1.07ZM2915.28,834.6c-4.48-34.78-52.53-24.07-78.28-25.62l-.3,57.81c18.26.4,34.2,1.18,50.98-.54,16.05-1.65,29.75-14.91,27.6-31.66Z"/>
+    <path d="M3683.28,864.94l-74.67.58c-.62,15.82-.61,28.8.42,43.42l84.26.18c5.21,1,5.38,15.81-.22,15.82l-105.06.16-.1-132.16,104.71-.09c2.28,3.34,2.24,9.41,1.05,15.09l-84.66.05.12,40.95,73.73.35c3.25,3.12,3.46,11.31.43,15.65Z"/>
+    <path d="M2708.64,864.94l-73.64.33-.19,43.67,86.85.22c3.69,3.24,3.6,12.53-.13,15.78l-100.84.19c-1.54,0-6.12-1.45-6.62-2.83-.62-1.73-.06-4.62-.06-7.7l-.13-121.66,102.9-.09c2.09,3.41,2.16,9.56,1.06,15.09l-79.84.19c-2.28,0-4.85,4.43-4.72,6.6.66,10.95.39,21.28.03,34.21l72.73.52c2.87,3.44,3.72,9.23,2.61,15.48Z"/>
+    <path d="M1917.97,890.94l-79.6-.22-16.82,31.85c-3.58,3.68-15.24,2.73-20.9.12l64.94-128.84c5.45-4.31,17.99-4.43,23.55-.37l66.7,129.19c-6.86,2.54-14.8,2.61-20.84,1.18l-17.02-32.91ZM1848.46,876.45c22.81.45,39.1,1.02,61.27-1.21l-29.21-58.96c-.44-.89-3.36-3.3-3.67-2.81s-1.67,2.18-2.03,2.9l-26.16,52.62c-1.02,2.05-1.98,7.42-.2,7.46Z"/>
+    <path d="M2503.76,917.18c-26.04,15.24-74.49,12.35-98.02-8.89,2.6-4.55,5.37-8.62,8.97-13.15,22.11,20.34,84.88,23.06,85.34-5.11.09-5.34-5.69-14.7-12.47-16.43l-50.78-13c-13.63-3.49-24.59-13.34-26.64-24.92-2.76-15.57,2.91-28.58,16.35-36.37,20.99-12.16,64.24-11.72,84.25,1.78,4.23,2.85-1.22,14.55-5.96,14.94-18.75-12.43-75.63-16.14-74.84,11.92.21,7.33,6.75,14.25,14.73,16.4l51.7,13.9c13.56,3.65,22.18,14.57,23.58,26.24,1.6,13.4-4.17,25.62-16.23,32.68Z"/>
+    <path d="M3388.3,884.05c21.19,31.69,64.63,34.38,92.19,10.87,5.26-.82,13.03,6.27,13.36,12.03-30.74,27.01-78.7,26.56-110.2.81-28.36-23.19-31.02-63.1-7.69-90.81,28.16-33.44,89.08-35,118.56-5.85-4.14,4.91-8.6,8.82-14.17,11.78-27.71-25.23-72.67-20.69-92.58,11.54-8.6,13.92-9.07,35.29.52,49.63Z"/>
+    <path d="M3139.21,794.64c5.27-2.87,14.33-2.37,21.91-.47l-64.25,129.65c-6.82,1.81-14.68,1.79-21.46.09l-63.76-130.25c8.48-.73,14.41-.77,21.96-.29l52.88,108,52.72-106.72Z"/>
+    <path d="M2139.49,909.53c3.84.6,3.3,12.49-.34,15.41l-94.78-.12c-4.36,0-2.36-9.14-2.37-12.33l-.14-116.12c5.75-1.26,11.25-1.33,20.14-.87l.45,113.44,77.04.59Z"/>
+    <path d="M2328.55,909.3c3.89,1.64,3.25,12.08.03,15.64l-98.58.19-.31-130.86,20.31-.45.35,115.11,78.2.36Z"/>
+    <rect x="3244.01" y="792.94" width="21.98" height="132"/>
+  </g>
+</svg></div>
+      </div>
+      <p class="usage-desc">Logotypen på bakgrund med liknande ton — otillräcklig kontrast.</p>
+    </div>
+
+    <div class="usage-card dont usage-dont-overlay">
+      <span class="usage-badge badge-dont">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#6E2A22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        Gör inte
+      </span>
+      <div class="usage-preview">
+        <div style="width:195px;transform:scaleX(1.3);transform-origin:center;"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3700.08 927.13">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path d="M865.31,184.52c-21.71-46.3-46.37-85.3-83.13-117.73-28.44-27.62-60.92-47.93-97.35-64.64,3.07-3.99,7.09-1.22,11.19-1.21l169.98.13-.69,183.46Z"/>
+    <path d="M2982.54,262.29c-59.45,27.38-141.18,18.4-186.61-31.09-41.97-45.72-41.59-114.34.01-160.39,47.92-53.05,142.47-59.42,201.54-23.57,35.95,21.82,58.56,58.02,59.78,100.54,1.44,50.2-28.65,93.29-74.72,114.51ZM2955.15,216.89c30.17-17.36,44.37-50.85,36.56-83.95-7.3-30.92-33.66-54.52-67.25-58.58-21.92-2.65-44.68,1.27-63.81,13.95-25.55,16.94-37.41,48.8-30.93,79.28,5.88,27.62,28.19,50.89,57.96,57.91,22.87,5.39,46.24,3.62,67.47-8.6Z"/>
+    <path d="M2272.31,170.94l-124.31.46.24,55.54,145.76.16-.34,45.84-201.22.1c-1.47,0-6.2-1.37-6.42-2.79-.28-1.78-.02-4.48-.02-7.78l.14-233.53,201.86.1-.14,45.9-139.86.17.29,51.83,123.71.27.31,43.73Z"/>
+    <path d="M1999.22,187.18c-16.45,8.57-33.92,14.45-52.18,14.76l-76.04,1.28-.52,69.72-62.48-.2-.03-243.8,137.26.8c22.72.13,43.65,8.7,62.13,19.53,17.48,11.87,27.53,28.37,32.16,48.56,8.25,35.94-6.33,71.65-40.32,89.35ZM1970.48,139.24c12.35-15.93,9.48-38.85-5.29-51.08-8.85-7.33-21.78-12.18-33.41-12.22l-61.78-.19.05,81.13c31.76-1.59,79.98,8.73,100.43-17.64Z"/>
+    <path d="M2666,75.4l-.26,196.54-61.74.5-.12-196.5-85.88-.9.46-46.1h232.6c-.85,14.41-.95,26.24.44,37.68.25,2.03-1.99,8.31-4.12,8.32l-81.38.46Z"/>
+    <path d="M2536,225.24l.16,35.56c.01,2.95,1.59,12.13-3.12,12.14l-193.04.1-.04-243.1,62.04-.46-.04,195.46,134.04.3Z"/>
+    <path d="M3423.55,277l-33.77-25.94c-44.63,33.99-129.24,36.68-174.12.51-25.49-20.54-28.94-56.09-8.84-81.77,11.62-14.85,26.34-23.71,44.6-32.76l-13.24-16.31c-10.77-13.27-15.3-30.8-10.72-48.6,3.4-13.23,13.61-27.75,29.04-35.17,44.11-21.21,122.04-15.41,131.18,34.05,6.87,37.19-19.88,53.45-50.51,72.25l47.62,40.61c8.78-10.67,12.13-22.45,16.26-37.59l48.02,12.73c-3.23,21.51-13.38,37.42-24.39,55.81l32.55,27.79-33.67,34.4ZM3330.63,96.94c9.25-8.94,6.6-22.79-3.3-29.38-11.02-7.34-26.17-5.92-36.77,1.93-8.78,6.49-11.96,18.97-4.51,27.85,5.1,6.08,10.38,11.24,16.55,17.38,10.06-4.75,19.68-9.71,28.03-17.78ZM3351.85,218.94l-64.3-52.95c-17.02,6.88-39.82,26.51-29.93,45.62,16.15,31.21,69.71,26.76,94.23,7.33Z"/>
+    <path d="M3037,632.94v-142.03l-78.85,115.19c-8.52,1.38-22.43,2.88-30.58-.14-29.22-35.74-48.94-76.8-78.57-112.77v138.75h-61v-242.06c35.67,5.21,48.29-9.92,60.88,8.8l93.74,139.45,92.12-140.15c3.41-5.18,7.09-8.04,13.26-9.16l46.99,1.25v242.86h-58Z"/>
+    <path d="M3700.08,631.94h-52.04l-133.04-145.19v145.19l-63,.33.06-242.73c19.97-.95,34.43-1.1,54,.08l127.47,141.14c1.59,1.77,4.47-1.22,4.47-2.54v-138.1c21.01-1.62,39.72-1.79,62-.69l.08,242.5Z"/>
+    <path d="M2258.14,632.63l-50.3-69.68-50.49-.2c-2.27,0-7.34,3.46-7.34,5.92l-.14,64.28-61.86-.73.03-243.27,121.05.45c29.89.11,58.9,5.17,82.46,23.8,17.4,13.29,27.02,31.41,29.63,53.02,4.57,37.83-15.48,71.5-53.83,85.87l58.94,79.86-68.14.68ZM2258.37,474.25c-1.12-20.6-21.63-37.28-41.75-37.31l-65.61-.09-.28,80.09,68.19-.08c14.22-.02,40.92-15.72,39.46-42.61Z"/>
+    <path d="M2017.43,427.74l-69.76,68.58,114.86,135.59c-26.29,1.89-49.19,1.46-72.91.69l-83.2-96.31-35.42,34.36-.44,62.3-62.56.13v-243.13h62v109.33l76.99-73.42,37.9-36.09c20.74,1.24,39.7,1.51,60.03.31,3.68-.22,6.83-.1,8.94,2.21l-36.43,35.45Z"/>
+    <path d="M3336.07,580.94h-126.18s-23.19,52-23.19,52l-64.72-.39,119.14-242.61,62.85-.64c3.87,4.12,6.51,9.56,9.23,15.03l113.71,228.61-66.09.27-24.74-52.27ZM3315.29,536.76l-21.86-47.35-20.37-42.45-42.04,89.98,84.28-.18Z"/>
+    <path d="M2546.86,580.94l-118.81-.39c-3.17-.01-8.24,3.58-9.34,6.06l-20.49,46.33-63.4-.2,12.84-28.55,101.51-208.13c1.97-4.03,6.76-7.12,10.7-7.13l48.19-.14c9.51-.03,10.63,4.36,14.37,11.87l114.96,230.8-65.88,1.17-24.65-51.7ZM2526.56,536.83l-17.58-37.3-25.04-53.01-41.28,90.43,83.9-.11Z"/>
+    <rect x="2664" y="388.94" width="64" height="244"/>
+    <g>
+      <path d="M834.24,336.85c-12.26,158.08-118.54,245.06-264.61,282.02-39.39,7.66-77.44,14.94-118.13,15.07l-226.5.74-.17,282.26-224.83-.08L.04.94l447.61-.1c56.68-.01,110.07,7.58,163.51,24.59,52.74,15.02,99.67,40.72,139.59,78.45,61.96,58.56,90.04,148.65,83.5,232.97ZM576.44,414.3c31.95-36.5,40.85-84.41,32.7-130.75-6.51-36.99-25.81-68.6-57.6-88.54-33.58-21.06-71.49-30.86-111.56-30.61l-20.36-1.46h-195.62s-.08,306-.08,306l217.56-.86c43.08-.17,104.16-18.58,134.97-53.78Z"/>
+      <path d="M911.29,625.37l-45.29,44.19.02,247.39-224.02-.09.18-269.97c53.87-20.29,100.1-47.55,140.87-84.73,45.9-44.16,77.31-98.07,93.65-159.34l40.14-39.16,62.01-59.99,65.03-62.9,51-49.08,51.99-50.03,69.99-67.95,47.99-45.93,21.96-20.82,256.65.11c-12.49,14.97-23.65,24.44-35.6,36l-62.02,59.99-79.95,77.95-90.12,88.1-138.85,135.51,99.25,118.05,107.46,128.65,222.1,265.63-267.72.4-307.54-367.8-79.17,75.82Z"/>
+    </g>
+    <path d="M2915.46,924.06l-31.94-41.12-46.72.11-1.04,39.86c-5.01,2.21-12.32,2.15-19.76.63l-.09-130.6,73.89.36c12.43.06,26.87,7.72,34.77,16.35,10.33,11.29,12.91,26.88,8.69,40.99-3.74,12.48-13.8,21.71-29.63,28.27l33.7,44.07c-7.29,1.89-15.42,2.28-21.86,1.07ZM2915.28,834.6c-4.48-34.78-52.53-24.07-78.28-25.62l-.3,57.81c18.26.4,34.2,1.18,50.98-.54,16.05-1.65,29.75-14.91,27.6-31.66Z"/>
+    <path d="M3683.28,864.94l-74.67.58c-.62,15.82-.61,28.8.42,43.42l84.26.18c5.21,1,5.38,15.81-.22,15.82l-105.06.16-.1-132.16,104.71-.09c2.28,3.34,2.24,9.41,1.05,15.09l-84.66.05.12,40.95,73.73.35c3.25,3.12,3.46,11.31.43,15.65Z"/>
+    <path d="M2708.64,864.94l-73.64.33-.19,43.67,86.85.22c3.69,3.24,3.6,12.53-.13,15.78l-100.84.19c-1.54,0-6.12-1.45-6.62-2.83-.62-1.73-.06-4.62-.06-7.7l-.13-121.66,102.9-.09c2.09,3.41,2.16,9.56,1.06,15.09l-79.84.19c-2.28,0-4.85,4.43-4.72,6.6.66,10.95.39,21.28.03,34.21l72.73.52c2.87,3.44,3.72,9.23,2.61,15.48Z"/>
+    <path d="M1917.97,890.94l-79.6-.22-16.82,31.85c-3.58,3.68-15.24,2.73-20.9.12l64.94-128.84c5.45-4.31,17.99-4.43,23.55-.37l66.7,129.19c-6.86,2.54-14.8,2.61-20.84,1.18l-17.02-32.91ZM1848.46,876.45c22.81.45,39.1,1.02,61.27-1.21l-29.21-58.96c-.44-.89-3.36-3.3-3.67-2.81s-1.67,2.18-2.03,2.9l-26.16,52.62c-1.02,2.05-1.98,7.42-.2,7.46Z"/>
+    <path d="M2503.76,917.18c-26.04,15.24-74.49,12.35-98.02-8.89,2.6-4.55,5.37-8.62,8.97-13.15,22.11,20.34,84.88,23.06,85.34-5.11.09-5.34-5.69-14.7-12.47-16.43l-50.78-13c-13.63-3.49-24.59-13.34-26.64-24.92-2.76-15.57,2.91-28.58,16.35-36.37,20.99-12.16,64.24-11.72,84.25,1.78,4.23,2.85-1.22,14.55-5.96,14.94-18.75-12.43-75.63-16.14-74.84,11.92.21,7.33,6.75,14.25,14.73,16.4l51.7,13.9c13.56,3.65,22.18,14.57,23.58,26.24,1.6,13.4-4.17,25.62-16.23,32.68Z"/>
+    <path d="M3388.3,884.05c21.19,31.69,64.63,34.38,92.19,10.87,5.26-.82,13.03,6.27,13.36,12.03-30.74,27.01-78.7,26.56-110.2.81-28.36-23.19-31.02-63.1-7.69-90.81,28.16-33.44,89.08-35,118.56-5.85-4.14,4.91-8.6,8.82-14.17,11.78-27.71-25.23-72.67-20.69-92.58,11.54-8.6,13.92-9.07,35.29.52,49.63Z"/>
+    <path d="M3139.21,794.64c5.27-2.87,14.33-2.37,21.91-.47l-64.25,129.65c-6.82,1.81-14.68,1.79-21.46.09l-63.76-130.25c8.48-.73,14.41-.77,21.96-.29l52.88,108,52.72-106.72Z"/>
+    <path d="M2139.49,909.53c3.84.6,3.3,12.49-.34,15.41l-94.78-.12c-4.36,0-2.36-9.14-2.37-12.33l-.14-116.12c5.75-1.26,11.25-1.33,20.14-.87l.45,113.44,77.04.59Z"/>
+    <path d="M2328.55,909.3c3.89,1.64,3.25,12.08.03,15.64l-98.58.19-.31-130.86,20.31-.45.35,115.11,78.2.36Z"/>
+    <rect x="3244.01" y="792.94" width="21.98" height="132"/>
+  </g>
+</svg></div>
+      </div>
+      <p class="usage-desc">Sträck, deformera eller ändra aldrig logotypens proportioner.</p>
+    </div>
+
+    <div class="usage-card dont usage-dont-overlay">
+      <span class="usage-badge badge-dont">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#6E2A22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        Gör inte
+      </span>
+      <div class="usage-preview">
+        <div style="width:195px;filter:hue-rotate(160deg) saturate(4);"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3700.08 927.13">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path d="M865.31,184.52c-21.71-46.3-46.37-85.3-83.13-117.73-28.44-27.62-60.92-47.93-97.35-64.64,3.07-3.99,7.09-1.22,11.19-1.21l169.98.13-.69,183.46Z"/>
+    <path d="M2982.54,262.29c-59.45,27.38-141.18,18.4-186.61-31.09-41.97-45.72-41.59-114.34.01-160.39,47.92-53.05,142.47-59.42,201.54-23.57,35.95,21.82,58.56,58.02,59.78,100.54,1.44,50.2-28.65,93.29-74.72,114.51ZM2955.15,216.89c30.17-17.36,44.37-50.85,36.56-83.95-7.3-30.92-33.66-54.52-67.25-58.58-21.92-2.65-44.68,1.27-63.81,13.95-25.55,16.94-37.41,48.8-30.93,79.28,5.88,27.62,28.19,50.89,57.96,57.91,22.87,5.39,46.24,3.62,67.47-8.6Z"/>
+    <path d="M2272.31,170.94l-124.31.46.24,55.54,145.76.16-.34,45.84-201.22.1c-1.47,0-6.2-1.37-6.42-2.79-.28-1.78-.02-4.48-.02-7.78l.14-233.53,201.86.1-.14,45.9-139.86.17.29,51.83,123.71.27.31,43.73Z"/>
+    <path d="M1999.22,187.18c-16.45,8.57-33.92,14.45-52.18,14.76l-76.04,1.28-.52,69.72-62.48-.2-.03-243.8,137.26.8c22.72.13,43.65,8.7,62.13,19.53,17.48,11.87,27.53,28.37,32.16,48.56,8.25,35.94-6.33,71.65-40.32,89.35ZM1970.48,139.24c12.35-15.93,9.48-38.85-5.29-51.08-8.85-7.33-21.78-12.18-33.41-12.22l-61.78-.19.05,81.13c31.76-1.59,79.98,8.73,100.43-17.64Z"/>
+    <path d="M2666,75.4l-.26,196.54-61.74.5-.12-196.5-85.88-.9.46-46.1h232.6c-.85,14.41-.95,26.24.44,37.68.25,2.03-1.99,8.31-4.12,8.32l-81.38.46Z"/>
+    <path d="M2536,225.24l.16,35.56c.01,2.95,1.59,12.13-3.12,12.14l-193.04.1-.04-243.1,62.04-.46-.04,195.46,134.04.3Z"/>
+    <path d="M3423.55,277l-33.77-25.94c-44.63,33.99-129.24,36.68-174.12.51-25.49-20.54-28.94-56.09-8.84-81.77,11.62-14.85,26.34-23.71,44.6-32.76l-13.24-16.31c-10.77-13.27-15.3-30.8-10.72-48.6,3.4-13.23,13.61-27.75,29.04-35.17,44.11-21.21,122.04-15.41,131.18,34.05,6.87,37.19-19.88,53.45-50.51,72.25l47.62,40.61c8.78-10.67,12.13-22.45,16.26-37.59l48.02,12.73c-3.23,21.51-13.38,37.42-24.39,55.81l32.55,27.79-33.67,34.4ZM3330.63,96.94c9.25-8.94,6.6-22.79-3.3-29.38-11.02-7.34-26.17-5.92-36.77,1.93-8.78,6.49-11.96,18.97-4.51,27.85,5.1,6.08,10.38,11.24,16.55,17.38,10.06-4.75,19.68-9.71,28.03-17.78ZM3351.85,218.94l-64.3-52.95c-17.02,6.88-39.82,26.51-29.93,45.62,16.15,31.21,69.71,26.76,94.23,7.33Z"/>
+    <path d="M3037,632.94v-142.03l-78.85,115.19c-8.52,1.38-22.43,2.88-30.58-.14-29.22-35.74-48.94-76.8-78.57-112.77v138.75h-61v-242.06c35.67,5.21,48.29-9.92,60.88,8.8l93.74,139.45,92.12-140.15c3.41-5.18,7.09-8.04,13.26-9.16l46.99,1.25v242.86h-58Z"/>
+    <path d="M3700.08,631.94h-52.04l-133.04-145.19v145.19l-63,.33.06-242.73c19.97-.95,34.43-1.1,54,.08l127.47,141.14c1.59,1.77,4.47-1.22,4.47-2.54v-138.1c21.01-1.62,39.72-1.79,62-.69l.08,242.5Z"/>
+    <path d="M2258.14,632.63l-50.3-69.68-50.49-.2c-2.27,0-7.34,3.46-7.34,5.92l-.14,64.28-61.86-.73.03-243.27,121.05.45c29.89.11,58.9,5.17,82.46,23.8,17.4,13.29,27.02,31.41,29.63,53.02,4.57,37.83-15.48,71.5-53.83,85.87l58.94,79.86-68.14.68ZM2258.37,474.25c-1.12-20.6-21.63-37.28-41.75-37.31l-65.61-.09-.28,80.09,68.19-.08c14.22-.02,40.92-15.72,39.46-42.61Z"/>
+    <path d="M2017.43,427.74l-69.76,68.58,114.86,135.59c-26.29,1.89-49.19,1.46-72.91.69l-83.2-96.31-35.42,34.36-.44,62.3-62.56.13v-243.13h62v109.33l76.99-73.42,37.9-36.09c20.74,1.24,39.7,1.51,60.03.31,3.68-.22,6.83-.1,8.94,2.21l-36.43,35.45Z"/>
+    <path d="M3336.07,580.94h-126.18s-23.19,52-23.19,52l-64.72-.39,119.14-242.61,62.85-.64c3.87,4.12,6.51,9.56,9.23,15.03l113.71,228.61-66.09.27-24.74-52.27ZM3315.29,536.76l-21.86-47.35-20.37-42.45-42.04,89.98,84.28-.18Z"/>
+    <path d="M2546.86,580.94l-118.81-.39c-3.17-.01-8.24,3.58-9.34,6.06l-20.49,46.33-63.4-.2,12.84-28.55,101.51-208.13c1.97-4.03,6.76-7.12,10.7-7.13l48.19-.14c9.51-.03,10.63,4.36,14.37,11.87l114.96,230.8-65.88,1.17-24.65-51.7ZM2526.56,536.83l-17.58-37.3-25.04-53.01-41.28,90.43,83.9-.11Z"/>
+    <rect x="2664" y="388.94" width="64" height="244"/>
+    <g>
+      <path d="M834.24,336.85c-12.26,158.08-118.54,245.06-264.61,282.02-39.39,7.66-77.44,14.94-118.13,15.07l-226.5.74-.17,282.26-224.83-.08L.04.94l447.61-.1c56.68-.01,110.07,7.58,163.51,24.59,52.74,15.02,99.67,40.72,139.59,78.45,61.96,58.56,90.04,148.65,83.5,232.97ZM576.44,414.3c31.95-36.5,40.85-84.41,32.7-130.75-6.51-36.99-25.81-68.6-57.6-88.54-33.58-21.06-71.49-30.86-111.56-30.61l-20.36-1.46h-195.62s-.08,306-.08,306l217.56-.86c43.08-.17,104.16-18.58,134.97-53.78Z"/>
+      <path d="M911.29,625.37l-45.29,44.19.02,247.39-224.02-.09.18-269.97c53.87-20.29,100.1-47.55,140.87-84.73,45.9-44.16,77.31-98.07,93.65-159.34l40.14-39.16,62.01-59.99,65.03-62.9,51-49.08,51.99-50.03,69.99-67.95,47.99-45.93,21.96-20.82,256.65.11c-12.49,14.97-23.65,24.44-35.6,36l-62.02,59.99-79.95,77.95-90.12,88.1-138.85,135.51,99.25,118.05,107.46,128.65,222.1,265.63-267.72.4-307.54-367.8-79.17,75.82Z"/>
+    </g>
+    <path d="M2915.46,924.06l-31.94-41.12-46.72.11-1.04,39.86c-5.01,2.21-12.32,2.15-19.76.63l-.09-130.6,73.89.36c12.43.06,26.87,7.72,34.77,16.35,10.33,11.29,12.91,26.88,8.69,40.99-3.74,12.48-13.8,21.71-29.63,28.27l33.7,44.07c-7.29,1.89-15.42,2.28-21.86,1.07ZM2915.28,834.6c-4.48-34.78-52.53-24.07-78.28-25.62l-.3,57.81c18.26.4,34.2,1.18,50.98-.54,16.05-1.65,29.75-14.91,27.6-31.66Z"/>
+    <path d="M3683.28,864.94l-74.67.58c-.62,15.82-.61,28.8.42,43.42l84.26.18c5.21,1,5.38,15.81-.22,15.82l-105.06.16-.1-132.16,104.71-.09c2.28,3.34,2.24,9.41,1.05,15.09l-84.66.05.12,40.95,73.73.35c3.25,3.12,3.46,11.31.43,15.65Z"/>
+    <path d="M2708.64,864.94l-73.64.33-.19,43.67,86.85.22c3.69,3.24,3.6,12.53-.13,15.78l-100.84.19c-1.54,0-6.12-1.45-6.62-2.83-.62-1.73-.06-4.62-.06-7.7l-.13-121.66,102.9-.09c2.09,3.41,2.16,9.56,1.06,15.09l-79.84.19c-2.28,0-4.85,4.43-4.72,6.6.66,10.95.39,21.28.03,34.21l72.73.52c2.87,3.44,3.72,9.23,2.61,15.48Z"/>
+    <path d="M1917.97,890.94l-79.6-.22-16.82,31.85c-3.58,3.68-15.24,2.73-20.9.12l64.94-128.84c5.45-4.31,17.99-4.43,23.55-.37l66.7,129.19c-6.86,2.54-14.8,2.61-20.84,1.18l-17.02-32.91ZM1848.46,876.45c22.81.45,39.1,1.02,61.27-1.21l-29.21-58.96c-.44-.89-3.36-3.3-3.67-2.81s-1.67,2.18-2.03,2.9l-26.16,52.62c-1.02,2.05-1.98,7.42-.2,7.46Z"/>
+    <path d="M2503.76,917.18c-26.04,15.24-74.49,12.35-98.02-8.89,2.6-4.55,5.37-8.62,8.97-13.15,22.11,20.34,84.88,23.06,85.34-5.11.09-5.34-5.69-14.7-12.47-16.43l-50.78-13c-13.63-3.49-24.59-13.34-26.64-24.92-2.76-15.57,2.91-28.58,16.35-36.37,20.99-12.16,64.24-11.72,84.25,1.78,4.23,2.85-1.22,14.55-5.96,14.94-18.75-12.43-75.63-16.14-74.84,11.92.21,7.33,6.75,14.25,14.73,16.4l51.7,13.9c13.56,3.65,22.18,14.57,23.58,26.24,1.6,13.4-4.17,25.62-16.23,32.68Z"/>
+    <path d="M3388.3,884.05c21.19,31.69,64.63,34.38,92.19,10.87,5.26-.82,13.03,6.27,13.36,12.03-30.74,27.01-78.7,26.56-110.2.81-28.36-23.19-31.02-63.1-7.69-90.81,28.16-33.44,89.08-35,118.56-5.85-4.14,4.91-8.6,8.82-14.17,11.78-27.71-25.23-72.67-20.69-92.58,11.54-8.6,13.92-9.07,35.29.52,49.63Z"/>
+    <path d="M3139.21,794.64c5.27-2.87,14.33-2.37,21.91-.47l-64.25,129.65c-6.82,1.81-14.68,1.79-21.46.09l-63.76-130.25c8.48-.73,14.41-.77,21.96-.29l52.88,108,52.72-106.72Z"/>
+    <path d="M2139.49,909.53c3.84.6,3.3,12.49-.34,15.41l-94.78-.12c-4.36,0-2.36-9.14-2.37-12.33l-.14-116.12c5.75-1.26,11.25-1.33,20.14-.87l.45,113.44,77.04.59Z"/>
+    <path d="M2328.55,909.3c3.89,1.64,3.25,12.08.03,15.64l-98.58.19-.31-130.86,20.31-.45.35,115.11,78.2.36Z"/>
+    <rect x="3244.01" y="792.94" width="21.98" height="132"/>
+  </g>
+</svg></div>
+      </div>
+      <p class="usage-desc">Lägg aldrig till färg, gradient eller filter på logotypen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 – TON & RÖST -->
+<div class="tone-section">
+  <div class="section-header">
+    <span class="section-number" style="color:var(--orange);">07</span>
+    <h2 class="section-title" style="color:var(--white);">Röst &amp;<br>Ton</h2>
+  </div>
+
+  <p class="tone-headline">Vi löser det — <em>ordentligt,<br>i tid och utan krångel.</em></p>
+  <p class="tone-note">Pelto &amp; Kraiman kommunicerar som en erfaren hantverkare pratar med kunden: direkt, ärlig och utan floskler. Vi lovar det vi kan hålla och levererar det vi lovar.</p>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 3 2.5 2.5"/><path d="M13 3l-1 1"/><path d="m3 13 1-1"/><path d="m5.5 5.5 7.793 7.793"/><path d="m10 14.5 4-4"/><path d="m14.5 10 4.5 4.5-7 7L7.5 17"/></svg></div>
+      <p class="pillar-title">Kompetent</p>
+      <p class="pillar-desc">Vi vet vad vi gör — och det märks i resultatet.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></div>
+      <p class="pillar-title">Pålitlig</p>
+      <p class="pillar-desc">Vi dyker upp. Vi håller tider. Vi fixar det vi lovar.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <p class="pillar-title">Lokal</p>
+      <p class="pillar-desc">Vi känner området. Vi är grannen med verktygslådan.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
+      <p class="pillar-title">Tydlig</p>
+      <p class="pillar-desc">Klara offerter. Rena avtal. Inga dolda kostnader.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="page-footer">
+  <div style="width:80px;filter:invert(1);opacity:0.5;"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1565.73 917.34">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path d="M865.31,184.52c-21.71-46.3-46.37-85.3-83.13-117.73-28.44-27.62-60.92-47.93-97.35-64.64,3.07-3.99,7.09-1.22,11.19-1.21l169.98.13-.69,183.46Z"/>
+    <g>
+      <path d="M834.24,336.85c-12.26,158.08-118.54,245.06-264.61,282.02-39.39,7.66-77.44,14.94-118.13,15.07l-226.5.74-.17,282.26-224.83-.08L.04.94l447.61-.1c56.68-.01,110.07,7.58,163.51,24.59,52.74,15.02,99.67,40.72,139.59,78.45,61.96,58.56,90.04,148.65,83.5,232.97ZM576.44,414.3c31.95-36.5,40.85-84.41,32.7-130.75-6.51-36.99-25.81-68.6-57.6-88.54-33.58-21.06-71.49-30.86-111.56-30.61l-20.36-1.46h-195.62s-.08,306-.08,306l217.56-.86c43.08-.17,104.16-18.58,134.97-53.78Z"/>
+      <path d="M911.29,625.37l-45.29,44.19.02,247.39-224.02-.09.18-269.97c53.87-20.29,100.1-47.55,140.87-84.73,45.9-44.16,77.31-98.07,93.65-159.34l40.14-39.16,62.01-59.99,65.03-62.9,51-49.08,51.99-50.03,69.99-67.95,47.99-45.93,21.96-20.82,256.65.11c-12.49,14.97-23.65,24.44-35.6,36l-62.02,59.99-79.95,77.95-90.12,88.1-138.85,135.51,99.25,118.05,107.46,128.65,222.1,265.63-267.72.4-307.54-367.8-79.17,75.82Z"/>
+    </g>
+  </g>
+</svg></div>
+  <div style="display:flex;flex-direction:column;gap:5px;align-items:flex-end;">
+    <p style="font-size:11px;color:var(--orange);letter-spacing:.18em;font-weight:700;">PELTO &amp; KRAIMAN ALLSERVICE</p>
+    <p style="font-size:11px;color:#444;letter-spacing:.08em;">Brand Guidelines v1.0 &nbsp;·&nbsp; Konfidentiellt dokument</p>
+  </div>
+</div>
+
+</body>
+</html>
