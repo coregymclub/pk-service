@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 118" width="440" height="118">
+  <rect width="440" height="118" fill="white"/>
+
+  <!-- ── PK Monogram ── -->
+
+  <!-- P: full-height stem + upper bowl, with rectangular counter (even-odd hole) -->
+  <path fill="#2b4778" fill-rule="evenodd" d="
+    M 10,108 V 10 H 72 V 57 H 27 V 108 Z
+    M 28,22 H 61 V 46 H 28 Z
+  "/>
+
+  <!-- K: upper diagonal arm — originates near bottom of P bowl -->
+  <polygon fill="#2b4778" points="27,52 27,65 92,10 78,10"/>
+
+  <!-- K: lower diagonal arm -->
+  <polygon fill="#2b4778" points="27,52 27,65 92,108 78,108"/>
+
+  <!-- ── Wordmark ── -->
+
+  <!-- Line 1: PELTO & -->
+  <text
+    x="112" y="52"
+    font-family="'Arial Black', 'Arial Bold', Arial, sans-serif"
+    font-weight="900"
+    font-size="30"
+    fill="#2b4778"
+    letter-spacing="0.5">PELTO &amp;</text>
+
+  <!-- Line 2: KRAIMAN -->
+  <text
+    x="112" y="83"
+    font-family="'Arial Black', 'Arial Bold', Arial, sans-serif"
+    font-weight="900"
+    font-size="30"
+    fill="#2b4778"
+    letter-spacing="0.5">KRAIMAN</text>
+
+  <!-- Line 3: ALLSERVICE — lighter, wider tracking -->
+  <text
+    x="114" y="102"
+    font-family="Arial, Helvetica, sans-serif"
+    font-weight="400"
+    font-size="13.5"
+    fill="#2b4778"
+    letter-spacing="4.8">ALLSERVICE</text>
+</svg>
