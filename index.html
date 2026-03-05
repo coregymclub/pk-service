@@ -11,14 +11,16 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #0f1114;
-      --bg-card: #1a1d23;
-      --bg-card-hover: #22262e;
-      --text: #f0f0f0;
-      --text-muted: #9ca3af;
-      --accent: #3b82f6;
-      --accent-hover: #2563eb;
-      --border: #2a2d35;
+      --bg: #ffffff;
+      --bg-card: #f8f9fb;
+      --bg-card-hover: #eef1f6;
+      --bg-dark: #0a1e3d;
+      --text: #0a1e3d;
+      --text-muted: #4a5e7a;
+      --accent: #0a2e5c;
+      --accent-hover: #0d3a73;
+      --border: #d8dee8;
+      --success: #16a34a;
     }
 
     html { scroll-behavior: smooth; }
@@ -36,7 +38,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(15, 17, 20, 0.85);
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
@@ -86,7 +88,7 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+      background: radial-gradient(circle at 50% 50%, rgba(10, 46, 92, 0.05) 0%, transparent 50%);
       animation: pulse 8s ease-in-out infinite;
     }
 
@@ -132,7 +134,7 @@
     .btn:hover {
       background: var(--accent-hover);
       transform: translateY(-1px);
-      box-shadow: 0 8px 30px rgba(59, 130, 246, 0.3);
+      box-shadow: 0 8px 30px rgba(10, 46, 92, 0.25);
     }
 
     .btn-outline {
@@ -145,6 +147,16 @@
       background: var(--bg-card);
       border-color: var(--accent);
       box-shadow: none;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--accent);
+    }
+
+    .btn-white:hover {
+      background: #f0f0f0;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
     }
 
     .hero-buttons {
@@ -186,6 +198,15 @@
       max-width: 500px;
     }
 
+    .section-center {
+      text-align: center;
+    }
+
+    .section-center .section-subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     /* SERVICES */
     .services-grid {
       display: grid;
@@ -210,7 +231,7 @@
     .service-icon {
       width: 48px;
       height: 48px;
-      background: rgba(59, 130, 246, 0.12);
+      background: rgba(10, 46, 92, 0.08);
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -277,6 +298,441 @@
       margin-top: 0.25rem;
     }
 
+    /* PROCESS */
+    .process-section {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      max-width: 100%;
+      padding: 5rem 2rem;
+    }
+
+    .process-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .process-step {
+      text-align: center;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin: 0 auto 1rem;
+    }
+
+    .process-step h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .process-step p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* DETAIL GRID */
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .detail-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: border-color 0.3s;
+    }
+
+    .detail-card:hover {
+      border-color: var(--accent);
+    }
+
+    .detail-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .detail-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .detail-card ul li {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      padding: 0.35rem 0;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    .detail-card ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.7rem;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    /* WHY GRID */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .why-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .why-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(10, 46, 92, 0.06);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+    }
+
+    .why-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .why-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .why-card p {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+    }
+
+    /* AREAS */
+    .areas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .area-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .area-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--accent);
+    }
+
+    .area-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .area-card .area-desc {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .area-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .area-tag {
+      background: rgba(10, 46, 92, 0.08);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+    }
+
+    /* CLIENTS */
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .client-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .client-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .client-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(10, 46, 92, 0.08);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+
+    .client-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .client-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .client-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* CTA BANNER */
+    .cta-banner {
+      background: var(--bg-dark);
+      color: white;
+      max-width: 100%;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .cta-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-banner h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .cta-banner p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* AGREEMENTS */
+    .agreements-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .agreement-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .agreement-card.featured {
+      border-color: var(--accent);
+      box-shadow: 0 4px 20px rgba(10, 46, 92, 0.1);
+    }
+
+    .agreement-badge {
+      position: absolute;
+      top: -10px;
+      right: 1.5rem;
+      background: var(--accent);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+    }
+
+    .agreement-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .agreement-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.25rem;
+      min-height: 2.5rem;
+    }
+
+    .agreement-features {
+      list-style: none;
+      padding: 0;
+    }
+
+    .agreement-features li {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      padding: 0.4rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .agreement-features li svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--success);
+      fill: none;
+      stroke-width: 2.5;
+      flex-shrink: 0;
+    }
+
+    /* QUALITY */
+    .quality-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .quality-item {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .quality-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .quality-label {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 700px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 0;
+    }
+
+    .faq-item:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-question {
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-answer {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* EMERGENCY */
+    .emergency-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .emergency-icon {
+      width: 64px;
+      height: 64px;
+      background: rgba(10, 46, 92, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .emergency-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .emergency-text h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .emergency-text p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
     /* CONTACT */
     .contact-section {
       background: var(--bg-card);
@@ -321,7 +777,7 @@
     .contact-icon {
       width: 44px;
       height: 44px;
-      background: rgba(59, 130, 246, 0.15);
+      background: rgba(10, 46, 92, 0.1);
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -351,7 +807,17 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .about-content { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .areas-grid { grid-template-columns: 1fr; }
+      .clients-grid { grid-template-columns: 1fr; }
+      .agreements-grid { grid-template-columns: 1fr; }
+      .quality-grid { grid-template-columns: 1fr 1fr; }
+      .emergency-section { flex-direction: column; text-align: center; }
       section { padding: 3rem 1.5rem; }
+      .process-section { padding: 3rem 1.5rem; }
+      .cta-banner { padding: 3rem 1.5rem; }
       .contact-section { padding: 2rem 1.5rem; }
       .contact-info { flex-direction: column; align-items: center; }
     }
@@ -363,11 +829,14 @@
     <div class="logo">PK <span>Service</span></div>
     <div class="nav-links">
       <a href="#tjanster">Tjänster</a>
+      <a href="#process">Så jobbar vi</a>
+      <a href="#omraden">Områden</a>
       <a href="#om-oss">Om oss</a>
       <a href="#kontakt">Kontakt</a>
     </div>
   </nav>
 
+  <!-- HERO -->
   <section class="hero">
     <h1>Byggnation &<br>Förvaltning</h1>
     <p>PK Service erbjuder byggnation, projektledning, fastighetsskötsel och teknisk förvaltning i Stockholm och Åre.</p>
@@ -376,10 +845,7 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
         Ring oss
       </a>
-      <a href="mailto:info@pkservice.se" class="btn btn-outline">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-        Maila oss
-      </a>
+      <a href="#offert" class="btn btn-outline">Begär offert</a>
     </div>
     <div class="location-tag">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -387,6 +853,7 @@
     </div>
   </section>
 
+  <!-- 1. TJÄNSTER (original) -->
   <section id="tjanster">
     <h2 class="section-title">Våra tjänster</h2>
     <p class="section-subtitle">Helhetslösningar från byggnation till löpande förvaltning.</p>
@@ -422,13 +889,238 @@
     </div>
   </section>
 
+  <!-- 2. SÅ HÄR JOBBAR VI (NY) -->
+  <div class="process-section" id="process">
+    <div class="process-inner">
+      <h2 class="section-title" style="text-align:center">Så här jobbar vi</h2>
+      <p class="section-subtitle" style="text-align:center;margin-left:auto;margin-right:auto">Från första kontakt till färdigt projekt — transparent och strukturerat.</p>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h3>Kontakt & besök</h3>
+          <p>Vi kommer ut, tittar på platsen och lyssnar på dina behov. Kostnadsfritt.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h3>Offert & planering</h3>
+          <p>Du får en tydlig offert med fast pris, tidplan och materialspecifikation.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h3>Genomförande</h3>
+          <p>Vi kör igång med eget team. Du får löpande uppdateringar genom hela projektet.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h3>Slutbesiktning</h3>
+          <p>Projektet godkänns tillsammans. Vi står kvar för garanti och uppföljning.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. DETALJERADE TJÄNSTER (NY) -->
+  <section id="detaljer">
+    <h2 class="section-title">Vad vi gör — i detalj</h2>
+    <p class="section-subtitle">Några exempel på vad vi hanterar inom varje område.</p>
+    <div class="detail-grid">
+      <div class="detail-card">
+        <h3>Byggnation & renovering</h3>
+        <ul>
+          <li>Totalentreprenader</li>
+          <li>Badrumsrenoveringar</li>
+          <li>Köksrenoveringar</li>
+          <li>Tillbyggnader & attefallshus</li>
+          <li>Fasadarbeten</li>
+        </ul>
+      </div>
+      <div class="detail-card">
+        <h3>Projektledning</h3>
+        <ul>
+          <li>Byggprojektledning</li>
+          <li>Upphandling av underentreprenörer</li>
+          <li>Budget- och tidplansstyrning</li>
+          <li>Besiktning och kvalitetskontroll</li>
+          <li>Kontakt med myndigheter</li>
+        </ul>
+      </div>
+      <div class="detail-card">
+        <h3>Fastighetsskötsel</h3>
+        <ul>
+          <li>Mark- och trädgårdsskötsel</li>
+          <li>Snöröjning & sandning</li>
+          <li>Trapphus- och gemensam ytskötsel</li>
+          <li>Avfallshantering</li>
+          <li>Rondering och tillsyn</li>
+        </ul>
+      </div>
+      <div class="detail-card">
+        <h3>Teknisk förvaltning</h3>
+        <ul>
+          <li>VVS-drift och underhåll</li>
+          <li>El- och belysningssystem</li>
+          <li>Ventilation & klimat</li>
+          <li>Lås & säkerhetssystem</li>
+          <li>Energioptimering</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. VARFÖR OSS (NY) -->
+  <section>
+    <h2 class="section-title" style="text-align:center">Varför PK Service?</h2>
+    <p class="section-subtitle" style="text-align:center;margin-left:auto;margin-right:auto">Det som skiljer oss från mängden.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </div>
+        <h3>En kontakt — allt fixat</h3>
+        <p>Du slipper koordinera flera firmor. Vi tar helhetsansvar från start till mål.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+        </div>
+        <h3>Snabb responstid</h3>
+        <p>Vi svarar inom 24 timmar och kan ofta vara på plats samma vecka.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        </div>
+        <h3>Fasta priser</h3>
+        <p>Inga överraskningar. Du vet vad det kostar innan vi börjar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. GEOGRAFISKA OMRÅDEN (NY) -->
+  <section id="omraden">
+    <h2 class="section-title">Var vi jobbar</h2>
+    <p class="section-subtitle">Två regioner, samma kvalitet.</p>
+    <div class="areas-grid">
+      <div class="area-card">
+        <h3>Stockholm</h3>
+        <p class="area-desc">Huvudkontor. Vi täcker hela Storstockholm — från innerstad till söder och norrort.</p>
+        <div class="area-tags">
+          <span class="area-tag">Söderort</span>
+          <span class="area-tag">Haninge</span>
+          <span class="area-tag">Nynäshamn</span>
+          <span class="area-tag">Huddinge</span>
+          <span class="area-tag">Södermalm</span>
+          <span class="area-tag">Hela Sthlm</span>
+        </div>
+      </div>
+      <div class="area-card">
+        <h3>Åre</h3>
+        <p class="area-desc">Fjällregionen. Byggprojekt, fastighetsskötsel och förvaltning i Åre med omnejd.</p>
+        <div class="area-tags">
+          <span class="area-tag">Åre by</span>
+          <span class="area-tag">Duved</span>
+          <span class="area-tag">Tegefjäll</span>
+          <span class="area-tag">Björnänge</span>
+          <span class="area-tag">Östersund</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. VILKA VI JOBBAR MED (NY) -->
+  <section>
+    <h2 class="section-title" style="text-align:center">Vilka vi jobbar med</h2>
+    <p class="section-subtitle" style="text-align:center;margin-left:auto;margin-right:auto">Vi hjälper både privatpersoner och företag.</p>
+    <div class="clients-grid">
+      <div class="client-card">
+        <div class="client-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        </div>
+        <h3>Villaägare</h3>
+        <p>Renovering, tillbyggnad, trädgård och löpande underhåll av ditt hem.</p>
+      </div>
+      <div class="client-card">
+        <div class="client-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </div>
+        <h3>BRF & fastighetsbolag</h3>
+        <p>Förvaltningsavtal, stambyte, fasadrenovering och löpande skötsel.</p>
+      </div>
+      <div class="client-card">
+        <div class="client-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+        </div>
+        <h3>Företag & lokaler</h3>
+        <p>Kontorsanpassningar, butiksinredningar och teknisk drift av lokaler.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CTA-BANNER (NY) -->
+  <div class="cta-banner" id="offert">
+    <div class="cta-inner">
+      <h2>Behöver du hjälp med din fastighet?</h2>
+      <p>Beskriv ditt projekt så återkommer vi med en kostnadsfri offert — oftast inom 24 timmar.</p>
+      <div class="cta-buttons">
+        <a href="tel:+46739542966" class="btn btn-white">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          073-954 29 66
+        </a>
+        <a href="mailto:info@pkservice.se" class="btn" style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3)">
+          info@pkservice.se
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. SERVICEAVTAL (NY) -->
+  <section>
+    <h2 class="section-title" style="text-align:center">Serviceavtal</h2>
+    <p class="section-subtitle" style="text-align:center;margin-left:auto;margin-right:auto">Löpande förvaltning utan krångel. Välj den nivå som passar.</p>
+    <div class="agreements-grid">
+      <div class="agreement-card">
+        <h3>Bas</h3>
+        <p class="agreement-desc">För dig som vill ha grundläggande tillsyn.</p>
+        <ul class="agreement-features">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Kvartalsvis rondering</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Felanmälan & uppföljning</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Årlig statusrapport</li>
+        </ul>
+      </div>
+      <div class="agreement-card featured">
+        <div class="agreement-badge">Populärt</div>
+        <h3>Standard</h3>
+        <p class="agreement-desc">För BRF:er och fastighetsägare med löpande behov.</p>
+        <ul class="agreement-features">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Månadsvis rondering</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Felavhjälpning inom 48h</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Mark- & trädgårdsskötsel</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Snöröjning (vinter)</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Fast månadspris</li>
+        </ul>
+      </div>
+      <div class="agreement-card">
+        <h3>Premium</h3>
+        <p class="agreement-desc">Totallösning för krävande fastigheter.</p>
+        <ul class="agreement-features">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Allt i Standard</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Teknisk förvaltning</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Energiuppföljning</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Prioriterad jour</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Dedikerad kontaktperson</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORIGINAL: Om oss -->
   <section id="om-oss">
     <h2 class="section-title">Om PK Service</h2>
     <p class="section-subtitle">Kvalitet och pålitlighet i varje projekt.</p>
     <div class="about-content">
       <div class="about-text">
-        <p>PK Service erbjuder helhetslösningar inom byggnation och fastighetsförvaltning. Vi arbetar i Stockholm och Åre med allt från nybyggnation och projektledning till löpande fastighetsskötsel och teknisk förvaltning.</p>
-        <p>Vi tror på långsiktiga relationer och levererar alltid med kvalitet, oavsett projektets storlek. Vårt mål är att vara den partner du kan lita på.</p>
+        <p>PK Service — Pelto och Kraimans Service AB — erbjuder helhetslösningar inom byggnation och fastighetsförvaltning. Vi arbetar i Stockholm och Åre med allt från nybyggnation och projektledning till löpande fastighetsskötsel och teknisk förvaltning.</p>
+        <p>Vi tror på långsiktiga relationer och levererar alltid med kvalitet, oavsett projektets storlek. Vårt mål är att vara den partner du kan lita på — från första besök till slutbesiktning och därutöver.</p>
       </div>
       <div class="about-stats">
         <div class="stat">
@@ -451,6 +1143,73 @@
     </div>
   </section>
 
+  <!-- 9. KVALITET & GARANTIER (NY) -->
+  <section>
+    <h2 class="section-title" style="text-align:center">Kvalitet du kan lita på</h2>
+    <p class="section-subtitle" style="text-align:center;margin-left:auto;margin-right:auto">Vi går i god för vårt arbete.</p>
+    <div class="quality-grid">
+      <div class="quality-item">
+        <div class="quality-number">F-skatt</div>
+        <div class="quality-label">Registrerat företag</div>
+      </div>
+      <div class="quality-item">
+        <div class="quality-number">Försäkrat</div>
+        <div class="quality-label">Ansvars- & byggförsäkring</div>
+      </div>
+      <div class="quality-item">
+        <div class="quality-number">Garanti</div>
+        <div class="quality-label">På allt vi bygger</div>
+      </div>
+      <div class="quality-item">
+        <div class="quality-number">ROT</div>
+        <div class="quality-label">Vi hanterar avdraget</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. FAQ (NY) -->
+  <section>
+    <h2 class="section-title">Vanliga frågor</h2>
+    <p class="section-subtitle">Svar på det vi får höra oftast.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">Hur snabbt kan ni komma igång?</div>
+        <div class="faq-answer">Vi kan oftast göra ett första besök inom en vecka. För enklare jobb kan vi ibland starta samma vecka som offerten godkänns.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Jobbar ni med fasta priser?</div>
+        <div class="faq-answer">Ja, vi ger alltid en fast offert så du vet exakt vad det kostar. Inga dolda avgifter eller överraskningar i slutfakturan.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Kan jag använda ROT-avdrag?</div>
+        <div class="faq-answer">Absolut. Vi är godkända för ROT och hanterar hela avdraget åt dig — du betalar bara din del direkt.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Tar ni små jobb också?</div>
+        <div class="faq-answer">Ja. Vi gör allt från att byta ett lås till att bygga om hela fastigheten. Inget projekt är för litet.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Hur fungerar era serviceavtal?</div>
+        <div class="faq-answer">Vi skräddarsyr ett avtal efter din fastighets behov. Du får en fast månadskostnad och vi sköter resten — rondering, skötsel, felavhjälpning.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. AKUT/JOUR (NY) -->
+  <section>
+    <div class="emergency-section">
+      <div class="emergency-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      </div>
+      <div class="emergency-text">
+        <h3>Akut fastighetsservice?</h3>
+        <p>Vattenläcka, elfel eller inbrott? Ring oss direkt så prioriterar vi ditt ärende. Vi har beredskap för avtalskunder.</p>
+        <a href="tel:+46739542966" class="btn">Ring 073-954 29 66</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT (original) -->
   <section id="kontakt">
     <div class="contact-section">
       <h2 class="section-title">Kontakta oss</h2>
