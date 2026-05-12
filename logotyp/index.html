@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PK Service — Logotyp-varianter</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/pk-brand-logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=DM+Serif+Display&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #1A1810;
+      --white: #FAF8F4;
+      --warm-gray: #F2EEE7;
+      --mid-gray: #8A8276;
+      --dark-gray: #3A3428;
+      --orange: #E8621A;
+      --orange-lt: #FDF0E8;
+      --border: #E2DDD5;
+      --sans: 'DM Sans', sans-serif;
+      --serif: 'DM Serif Display', serif;
+      --mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    html { font-size: 16px; }
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    .header {
+      background: var(--black);
+      padding: 48px 32px;
+      text-align: center;
+    }
+    .header-logo {
+      width: min(260px, 60vw);
+      filter: invert(1);
+      margin-bottom: 24px;
+    }
+    .header h1 {
+      font-family: var(--sans);
+      font-size: clamp(28px, 5vw, 44px);
+      color: var(--white);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+    .header p {
+      color: var(--mid-gray);
+      font-size: 14px;
+      margin-top: 8px;
+      letter-spacing: 0.05em;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 64px 32px 96px;
+    }
+
+    .section-title {
+      font-family: var(--sans);
+      font-size: clamp(24px, 3.5vw, 32px);
+      margin-bottom: 12px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+    .section-desc {
+      color: var(--dark-gray);
+      font-size: 15px;
+      margin-bottom: 40px;
+      max-width: 680px;
+    }
+    .section-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .block { margin-top: 80px; }
+    .block:first-of-type { margin-top: 0; }
+
+    .logo-grid {
+      display: grid;
+      gap: 20px;
+    }
+    .logo-grid.landscape {
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    }
+    .logo-grid.portrait {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .logo-card {
+      border: 1px solid var(--border);
+      overflow: hidden;
+      background: white;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .logo-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .logo-preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: var(--white);
+    }
+    .logo-preview img {
+      max-width: 100%;
+      max-height: 320px;
+      height: auto;
+      display: block;
+    }
+    .logo-grid.portrait .logo-preview img {
+      max-height: 380px;
+    }
+
+    .logo-info {
+      padding: 16px 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .logo-info .label {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .logo-info .format {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--mid-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      border-radius: 999px;
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-download:hover { background: var(--dark-gray); }
+    .btn-download svg { width: 12px; height: 12px; }
+
+    .disclaimer {
+      background: var(--orange-lt);
+      border: 1px solid #f0d5be;
+      padding: 20px 24px;
+      margin-bottom: 48px;
+      font-size: 14px;
+      color: var(--dark-gray);
+      line-height: 1.6;
+    }
+    .disclaimer strong { color: var(--orange); }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--dark-gray);
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--orange); }
+
+    @media (max-width: 600px) {
+      .header { padding: 36px 20px; }
+      .content { padding: 40px 20px 64px; }
+      .logo-grid.landscape, .logo-grid.portrait { grid-template-columns: 1fr; }
+      .logo-info { flex-direction: column; gap: 12px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="/assets/pk-brand-logo.svg" alt="PK Service" class="header-logo">
+    <h1>Logotyp — varianter.</h1>
+    <p>AI-genererade tolkningar att vektorisera vidare. Två spår: <strong style="color:#fff;">PELTO &amp; KRAIMAN SERVICE</strong> (klassisk lockup) och <strong style="color:#fff;">PK SERVICE</strong> (kortare wordmark som Johan tänker sig).</p>
+  </div>
+
+  <div class="content">
+    <a href="/" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Tillbaka till pkservice.se
+    </a>
+
+    <div class="disclaimer">
+      <strong>OBS:</strong> AI-modellerna klantar bokstäver ibland — kolla efter dubbletter, saknade tecken och hittepåord. Tanken är att fånga formerna och lockup-idéerna; texten ritar du om i Figma/AI när du vektoriserar. Tre engines på besök: <strong>Gemini</strong> (originalsetet), <strong>OpenAI</strong> (gpt-image-2) och <strong>Grok</strong> (imagine-image).
+    </div>
+
+    <!-- PK SERVICE — OPENAI -->
+    <div class="block">
+      <span class="section-eyebrow">PK SERVICE · OpenAI · gpt-image-2</span>
+      <h2 class="section-title">PK Service, kortform.</h2>
+      <p class="section-desc">Bara PK + SERVICE. Tre varianter med olika typografi-vinkel.</p>
+
+      <div class="logo-grid landscape">
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/ai/openai-pk-service-1.png" alt="OpenAI PK Service — variant 1"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">OpenAI · PK Service · 1</div>
+              <div class="format">PNG · medium</div>
+            </div>
+            <a href="/assets/logotyper/ai/openai-pk-service-1.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/ai/openai-pk-service-2.png" alt="OpenAI PK Service — variant 2"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">OpenAI · PK Service · 2</div>
+              <div class="format">PNG · medium</div>
+            </div>
+            <a href="/assets/logotyper/ai/openai-pk-service-2.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/ai/openai-pk-service-3.png" alt="OpenAI PK Service — variant 3"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">OpenAI · PK Service · 3</div>
+              <div class="format">PNG · medium</div>
+            </div>
+            <a href="/assets/logotyper/ai/openai-pk-service-3.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PK SERVICE — GROK -->
+    <div class="block">
+      <span class="section-eyebrow">PK SERVICE · Grok · imagine-image</span>
+      <h2 class="section-title">PK Service, Grok-tolkning.</h2>
+      <p class="section-desc">Samma kortform, men kört genom xAI:s bildmodell.</p>
+
+      <div class="logo-grid landscape">
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/ai/grok-pk-service-1.png" alt="Grok PK Service — variant 1"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">Grok · PK Service · 1</div>
+              <div class="format">PNG</div>
+            </div>
+            <a href="/assets/logotyper/ai/grok-pk-service-1.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/ai/grok-pk-service-2.png" alt="Grok PK Service — variant 2"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">Grok · PK Service · 2</div>
+              <div class="format">PNG</div>
+            </div>
+            <a href="/assets/logotyper/ai/grok-pk-service-2.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/ai/grok-pk-service-3.png" alt="Grok PK Service — variant 3"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">Grok · PK Service · 3</div>
+              <div class="format">PNG</div>
+            </div>
+            <a href="/assets/logotyper/ai/grok-pk-service-3.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KLASSISK — OPENAI -->
+    <div class="block">
+      <span class="section-eyebrow">PELTO &amp; KRAIMAN SERVICE · OpenAI · gpt-image-2</span>
+      <h2 class="section-title">Klassisk, OpenAI-tolkning.</h2>
+      <p class="section-desc">Den fulla lockup:en (PK-monogram + PELTO &amp; KRAIMAN / SERVICE), genererad med Gemini-klassiska som referensbild.</p>
+
+      <div class="logo-grid landscape">
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/ai/openai-klassisk-1.png" alt="OpenAI klassisk — variant 1"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">OpenAI · Klassisk · 1</div>
+              <div class="format">PNG · medium</div>
+            </div>
+            <a href="/assets/logotyper/ai/openai-klassisk-1.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/ai/openai-klassisk-2.png" alt="OpenAI klassisk — variant 2"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">OpenAI · Klassisk · 2</div>
+              <div class="format">PNG · medium</div>
+            </div>
+            <a href="/assets/logotyper/ai/openai-klassisk-2.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/ai/openai-klassisk-3.png" alt="OpenAI klassisk — variant 3"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">OpenAI · Klassisk · 3</div>
+              <div class="format">PNG · medium</div>
+            </div>
+            <a href="/assets/logotyper/ai/openai-klassisk-3.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KLASSISK — GROK -->
+    <div class="block">
+      <span class="section-eyebrow">PELTO &amp; KRAIMAN SERVICE · Grok · imagine-image</span>
+      <h2 class="section-title">Klassisk, Grok-tolkning.</h2>
+      <p class="section-desc">Samma referens, men kört genom xAI:s bildmodell — brukar ge en lite skarpare, mer kontrastrik look.</p>
+
+      <div class="logo-grid landscape">
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/ai/grok-klassisk-1.png" alt="Grok klassisk — variant 1"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">Grok · Klassisk · 1</div>
+              <div class="format">PNG</div>
+            </div>
+            <a href="/assets/logotyper/ai/grok-klassisk-1.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/ai/grok-klassisk-2.png" alt="Grok klassisk — variant 2"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">Grok · Klassisk · 2</div>
+              <div class="format">PNG</div>
+            </div>
+            <a href="/assets/logotyper/ai/grok-klassisk-2.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/ai/grok-klassisk-3.png" alt="Grok klassisk — variant 3"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">Grok · Klassisk · 3</div>
+              <div class="format">PNG</div>
+            </div>
+            <a href="/assets/logotyper/ai/grok-klassisk-3.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GEMINI — ORIGINAL -->
+    <div class="block">
+      <span class="section-eyebrow">Gemini · 2.5 Flash Image</span>
+      <h2 class="section-title">Originalsetet — liggande.</h2>
+      <p class="section-desc">Horisontella lockups — typ skyltar, brevhuvuden, fordonsdekaler.</p>
+
+      <div class="logo-grid landscape">
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/logo-1-liggande-klassisk.png" alt="Variant 1 — klassisk"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">1 — Klassisk</div>
+              <div class="format">16:9 · PNG</div>
+            </div>
+            <a href="/assets/logotyper/logo-1-liggande-klassisk.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/logo-2-liggande-elegant.png" alt="Variant 2 — elegant"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">2 — Elegant</div>
+              <div class="format">21:9 · PNG</div>
+            </div>
+            <a href="/assets/logotyper/logo-2-liggande-elegant.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/logo-3-liggande-industriell.png" alt="Variant 3 — industriell"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">3 — Industriell</div>
+              <div class="format">3:2 · PNG</div>
+            </div>
+            <a href="/assets/logotyper/logo-3-liggande-industriell.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/logo-7-liggande-monogram.png" alt="Variant 7 — stort monogram"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">7 — Monogram-tungt</div>
+              <div class="format">3:2 · PNG</div>
+            </div>
+            <a href="/assets/logotyper/logo-7-liggande-monogram.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2 class="section-title">Originalsetet — stående.</h2>
+      <p class="section-desc">Vertikala lockups — typ Instagram-feed, profilbilder, märken.</p>
+
+      <div class="logo-grid portrait">
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/logo-4-staende-kompakt.png" alt="Variant 4 — kompakt"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">4 — Kompakt</div>
+              <div class="format">4:5 · PNG</div>
+            </div>
+            <a href="/assets/logotyper/logo-4-staende-kompakt.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/logo-5-staende-emblem.png" alt="Variant 5 — emblem"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">5 — Emblem</div>
+              <div class="format">9:16 · PNG</div>
+            </div>
+            <a href="/assets/logotyper/logo-5-staende-emblem.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/logo-6-staende-modern.png" alt="Variant 6 — modern"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">6 — Modern</div>
+              <div class="format">2:3 · PNG</div>
+            </div>
+            <a href="/assets/logotyper/logo-6-staende-modern.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/logo-8-staende-stamp.png" alt="Variant 8 — stämpel"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">8 — Stämpel</div>
+              <div class="format">3:4 · PNG</div>
+            </div>
+            <a href="/assets/logotyper/logo-8-staende-stamp.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2 class="section-title">Merch — Pat &amp; Mat.</h2>
+      <p class="section-desc">Två tjeckiska lergubbar i overaller som mekar ihop saker. Klockren PK Service-vibe. Mockups för t-shirt, för att se om idén bär.</p>
+
+      <div class="logo-grid landscape">
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/tshirt-natur.png" alt="T-shirt natur — Pat &amp; Mat"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">T-shirt — natur</div>
+              <div class="format">Mockup · PNG</div>
+            </div>
+            <a href="/assets/logotyper/tshirt-natur.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/tshirt-svart.png" alt="T-shirt svart — Pat &amp; Mat"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">T-shirt — svart</div>
+              <div class="format">Mockup · PNG</div>
+            </div>
+            <a href="/assets/logotyper/tshirt-svart.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <div class="logo-preview"><img src="/assets/logotyper/tshirt-livsstil.png" alt="T-shirt livsstil — Pat &amp; Mat"></div>
+          <div class="logo-info">
+            <div>
+              <div class="label">T-shirt — livsstil</div>
+              <div class="format">Lookbook · PNG</div>
+            </div>
+            <a href="/assets/logotyper/tshirt-livsstil.png" download class="btn-download">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0L5 7m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PNG
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
