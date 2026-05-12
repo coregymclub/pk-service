@@ -648,12 +648,51 @@
 
     /* MOBILE */
     @media (max-width: 900px) {
-      .nav { padding: 0.85rem 1.25rem; }
+      .nav { padding: 0.75rem 1.25rem; }
       .nav-links { display: none; }
-      .hero { padding: 2.5rem 1.25rem 4rem; }
-      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; min-height: auto; }
-      .hero h1 { font-size: clamp(2.8rem, 12vw, 4.5rem); }
-      .portrait-wrap { max-height: 480px; }
+      .nav-phone { font-size: 12px; }
+
+      .hero { padding: 2rem 1.25rem 3.5rem; }
+      .hero-grid { grid-template-columns: 1fr; gap: 2rem; min-height: auto; }
+      .hero-text { gap: 1.1rem; }
+      .hero-eyebrow { gap: 0.6rem; }
+      .hero-eyebrow::before { width: 20px; }
+      .hero h1 {
+        font-size: clamp(2.6rem, 11vw, 4rem);
+        line-height: 0.95;
+        letter-spacing: -0.035em;
+      }
+      .hero h1 .accent::after {
+        height: 10px;
+        bottom: 4px;
+        right: -4px;
+      }
+      .hero-desc { font-size: 1.05rem; max-width: 100%; }
+      .hero-buttons { gap: 0.5rem; }
+      .hero-buttons .btn {
+        padding: 0.85rem 1.4rem;
+        font-size: 0.9rem;
+      }
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.1rem 1rem;
+        margin-top: 1.75rem;
+        padding-top: 1.25rem;
+      }
+      .hero-stat-num { font-size: 1.35rem; }
+
+      .portrait-wrap {
+        aspect-ratio: 4 / 5;
+        max-height: 460px;
+        margin-right: 6px;
+      }
+      .portrait-shadow { transform: rotate(-1.5deg) translate(5px, 5px); }
+      .portrait-caption {
+        left: 0.6rem; right: 0.6rem; bottom: 0.6rem;
+        padding: 0.65rem 0.85rem;
+      }
+      .portrait-caption-title { font-size: 0.9rem; }
+
       .section { padding: 4rem 1.25rem; }
       .quote-panel { padding: 4rem 1.25rem; }
       .cta { padding: 4rem 1.25rem; }
@@ -668,6 +707,13 @@
       .areas-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .quality { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
       .footer { padding: 1.5rem 1.25rem; }
+    }
+
+    @media (max-width: 420px) {
+      .hero h1 { font-size: clamp(2.3rem, 12vw, 3rem); }
+      .hero-stat-num { font-size: 1.2rem; }
+      .portrait-wrap { max-height: 380px; }
+      .nav-phone { font-size: 11px; }
     }
   </style>
 </head>
