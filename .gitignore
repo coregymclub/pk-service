@@ -1,1 +1,10 @@
 .wrangler/
+.DS_Store
+**/.DS_Store
+
+# Stora privata filer som inte hör hemma i repot
+assets/tid-cv.jpg
+assets/tida-sc.psd
+
+# Claude Design handoff-bundle (lokal referens, ska inte deployas)
+claude-design/
