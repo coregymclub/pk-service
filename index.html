@@ -7,12 +7,10 @@
   <meta name="description" content="PK Service fixar byggnation, renovering, fastighetsskötsel och förvaltning i Stockholm och Åre. Stort som smått.">
   <meta name="google-site-verification" content="0X607T8AeDkSvmGXDkI_MkYQC8_IRvhGBB-Xvz-Opd4">
 
-  <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/pk-brand-logo.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pkservice.se/">
   <meta property="og:title" content="PK Service — Byggnation, Projektledning & Förvaltning">
@@ -23,1199 +21,1217 @@
   <meta property="og:locale" content="sv_SE">
   <meta property="og:site_name" content="PK Service">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="PK Service — Byggnation, Projektledning & Förvaltning">
   <meta name="twitter:description" content="PK Service fixar byggnation, renovering, fastighetsskötsel och förvaltning i Stockholm och Åre. Stort som smått.">
   <meta name="twitter:image" content="https://pkservice.se/assets/og-image.png">
 
-  <!-- Theme -->
-  <meta name="theme-color" content="#111009">
+  <meta name="theme-color" content="#FAF8F4">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=DM+Serif+Display:ital@0;1&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --black: #111009;
-      --white: #F8F5F0;
-      --warm-gray: #EDEAE4;
-      --mid-gray: #A8A198;
-      --dark-gray: #3A3428;
-      --orange: #D95C14;
-      --orange-lt: #FBF0E8;
-      --border: #DDD8CF;
+      --bg: #FAF8F4;
+      --panel: #F2EEE7;
+      --ink: #1A1810;
+      --body: #3A3428;
+      --mute: #8A8276;
+      --line: #E2DDD5;
+      --line-dk: #C8C0B2;
+      --accent: #E8621A;
+      --accent-soft: #FDF0E8;
       --sans: 'DM Sans', sans-serif;
-      --serif: 'DM Serif Display', serif;
+      --mono: 'Geist Mono', 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     }
 
     html { scroll-behavior: smooth; font-size: 16px; }
 
     body {
       font-family: var(--sans);
-      background: var(--white);
-      color: var(--black);
+      background: var(--bg);
+      color: var(--ink);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
+    a { color: inherit; text-decoration: none; }
+
     /* NAV */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: transparent;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      border-bottom: 1px solid transparent;
-      z-index: 100;
-      padding: 0.9rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.3s, border-color 0.3s, backdrop-filter 0.3s;
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 3rem;
+      background: rgba(250, 248, 244, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
     }
-
-    nav.scrolled {
-      background: rgba(248, 245, 240, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+    .nav-logo { height: 24px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 2.2rem; align-items: center; }
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--body);
+      letter-spacing: -0.005em;
+      transition: color 0.15s;
     }
-
-    .nav-logo {
-      height: 32px;
-      width: auto;
-      display: block;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    nav.scrolled .nav-logo { opacity: 1; }
-
-    nav a {
-      color: var(--dark-gray);
-      text-decoration: none;
-      font-size: 0.95rem;
+    .nav-links a:hover { color: var(--accent); }
+    .nav-phone {
+      font-family: var(--mono);
+      font-size: 11px;
       letter-spacing: 0.08em;
+      color: var(--mute);
       text-transform: uppercase;
-      font-weight: 500;
-      transition: color 0.2s;
+      display: inline-flex; align-items: center; gap: 0.4rem;
     }
-
-    nav a:hover { color: var(--orange); }
-    .nav-links { display: flex; gap: 1.75rem; opacity: 0; transition: opacity 0.3s; }
-    nav.scrolled .nav-links { opacity: 1; }
+    .nav-phone::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent);
+    }
 
     /* HERO */
     .hero {
-      min-height: 100vh;
-      background: var(--black);
-      display: flex;
+      padding: 5rem 3rem 6rem;
+      max-width: 1180px; margin: 0 auto;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 3rem;
       align-items: center;
-      padding: 6rem 4rem 4rem;
-      position: relative;
-      overflow: hidden;
-      max-width: 100%;
+      min-height: 78vh;
     }
-
-    .hero-bg {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url('/assets/johan-pk-service-2-1.avif') center 70%/cover no-repeat;
-      opacity: 0.35;
-    }
-
-    .hero-content {
-      max-width: 600px;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-logo {
-      width: min(280px, 55vw);
-      pointer-events: none;
-    }
-
-    .hero-logo img { width: 100%; height: auto; filter: invert(1); }
-
+    .hero-text { display: flex; flex-direction: column; gap: 1.4rem; }
     .hero-eyebrow {
+      display: flex; align-items: center; gap: 0.8rem;
+      font-family: var(--mono);
       font-size: 11px;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.08em;
+      color: var(--mute);
       text-transform: uppercase;
-      color: var(--mid-gray);
     }
-
+    .hero-eyebrow::before {
+      content: ''; width: 32px; height: 1px; background: var(--line-dk);
+    }
     .hero h1 {
       font-family: var(--sans);
-      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      font-size: clamp(3.2rem, 8vw, 6.8rem);
       font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      color: var(--white);
+      line-height: 0.92;
+      letter-spacing: -0.045em;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
     }
-
-    .hero h1 span { color: var(--orange); }
-
+    .hero h1 .accent {
+      position: relative; display: inline-block; color: var(--accent);
+    }
+    .hero h1 .accent::after {
+      content: '';
+      position: absolute; left: 2px; right: -8px; bottom: 8px;
+      height: 14px; background: var(--accent-soft); z-index: -1;
+    }
     .hero-desc {
-      font-size: 1.05rem;
-      color: var(--mid-gray);
-      max-width: 480px;
-      line-height: 1.7;
+      font-size: 1.18rem;
+      color: var(--body);
+      max-width: 520px;
+      line-height: 1.6;
     }
-
-    .hero-buttons { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-
-    .hero-location {
-      display: flex;
-      align-items: center;
+    .hero-buttons {
+      display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.8rem;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 0.4rem;
-      color: var(--mid-gray);
-      font-size: 0.95rem;
+      margin-top: 2.5rem;
+      border-top: 1px solid var(--line);
+      padding-top: 1.5rem;
+    }
+    .hero-stat-num {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 1.6rem;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .hero-stat-label {
+      font-family: var(--mono);
+      font-size: 11px;
       letter-spacing: 0.08em;
+      color: var(--mute);
       text-transform: uppercase;
-      margin-top: 0.5rem;
+      margin-top: 6px;
     }
 
-    .hero-location svg { width: 14px; height: 14px; stroke: var(--mid-gray); fill: none; stroke-width: 1.5; }
+    /* PORTRAIT CARD */
+    .portrait-wrap {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      max-height: 620px;
+    }
+    .portrait-shadow {
+      position: absolute; inset: 0;
+      background: var(--panel);
+      transform: rotate(-1.5deg) translate(8px, 8px);
+    }
+    .portrait-img {
+      position: absolute; inset: 0;
+      overflow: hidden;
+      box-shadow: 0 30px 60px -30px rgba(0,0,0,0.25);
+    }
+    .portrait-img img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .portrait-caption {
+      position: absolute;
+      left: 1rem; bottom: 1rem; right: 1rem;
+      background: var(--bg);
+      padding: 0.8rem 1rem;
+      display: flex; justify-content: space-between; align-items: center;
+      border-left: 3px solid var(--accent);
+    }
+    .portrait-caption-title {
+      font-weight: 700; font-size: 0.95rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .portrait-caption-sub {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--mute);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .portrait-caption-link {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
 
     /* BUTTONS */
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.75rem;
-      background: var(--orange);
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: 500;
+      gap: 0.55rem;
+      padding: 0.9rem 1.7rem;
+      border-radius: 999px;
+      font-family: inherit;
+      font-weight: 600;
       font-size: 0.95rem;
-      letter-spacing: 0.02em;
-      transition: all 0.2s;
-      border: none;
+      letter-spacing: 0.01em;
       cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 0.15s, opacity 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
     }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-dark { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .btn-dark:hover { background: #2a2418; }
+    .btn-ghost-dark { background: transparent; color: var(--ink); border-color: var(--line-dk); }
+    .btn-ghost-dark:hover { border-color: var(--ink); }
+    .btn-white { background: #fff; color: var(--accent); border-color: #fff; }
+    .btn-white:hover { background: var(--bg); }
+    .btn-ghost-white { background: transparent; color: #fff; border-color: rgba(255,255,255,0.55); }
+    .btn-ghost-white:hover { border-color: #fff; }
+    .btn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-    .btn:hover { opacity: 0.9; transform: translateY(-1px); }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.2);
-      color: var(--white);
+    /* MARQUEE */
+    .marquee {
+      background: var(--ink);
+      color: var(--bg);
+      padding: 0.85rem 0;
+      overflow: hidden;
+      border-top: 4px solid var(--accent);
     }
-
-    .btn-outline:hover { border-color: rgba(255,255,255,0.5); background: transparent; }
-
-    .btn-dark {
-      background: var(--black);
-      color: var(--white);
+    .marquee-track {
+      display: inline-flex;
+      gap: 3rem;
+      white-space: nowrap;
+      animation: marquee 36s linear infinite;
     }
-
-    .btn-white {
-      background: var(--white);
-      color: var(--orange);
+    .marquee-item {
+      font-size: 0.95rem;
+      letter-spacing: 0.22em;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 3rem;
     }
-
-    .btn-white:hover { background: var(--warm-gray); }
+    .marquee-item .star { color: var(--accent); }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
 
     /* SECTIONS */
-    section {
-      padding: 5rem 2rem;
-      max-width: 1000px;
+    .section {
+      padding: 6rem 3rem;
+      max-width: 1180px;
       margin: 0 auto;
     }
+    .section-tight { padding-top: 0; }
+    .section-narrow { max-width: 920px; }
 
-    .section-label {
-      font-size: 11px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--orange);
-      font-weight: 500;
-      margin-bottom: 0.75rem;
+    .section-head {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
     }
-
+    .label-mono {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--mute);
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
     .section-title {
       font-family: var(--sans);
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-size: clamp(2.4rem, 5vw, 4rem);
       font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-bottom: 0.5rem;
+      letter-spacing: -0.035em;
+      line-height: 0.95;
+      color: var(--ink);
     }
-
     .section-desc {
-      color: var(--mid-gray);
-      font-size: 1rem;
-      margin-bottom: 2.5rem;
-      max-width: 480px;
-      line-height: 1.7;
-    }
-
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      max-width: 1000px;
-      margin: 0 auto;
+      color: var(--body);
+      font-size: 1.05rem;
+      max-width: 520px;
+      line-height: 1.65;
+      margin-top: 0.8rem;
     }
 
     /* SERVICES */
-    .services-grid {
+    .services {
+      border-top: 1px solid var(--line-dk);
+    }
+    .service-row {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: var(--border);
+      grid-template-columns: 200px 1fr 280px 60px;
+      gap: 2rem;
+      align-items: center;
+      padding: 2rem 1rem;
+      border-bottom: 1px solid var(--line);
+      cursor: pointer;
+      transition: background 0.2s;
     }
-
-    .service-card {
-      background: var(--white);
-      padding: 2rem;
-    }
-
-    .service-card h3 {
-      font-size: 0.95rem;
+    .service-row:hover { background: var(--panel); }
+    .service-row:hover .service-arrow { transform: translateX(6px); }
+    .service-num { color: var(--accent); }
+    .service-title {
+      font-size: 1.85rem;
       font-weight: 700;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.4rem;
+      line-height: 1.05;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.025em;
     }
-
-    .service-card p {
-      color: var(--dark-gray);
-      font-size: 0.95rem;
-      line-height: 1.65;
-    }
-
-    .service-icon {
-      width: 32px;
-      height: 32px;
-      margin-bottom: 1rem;
-    }
-
-    .service-icon svg {
-      width: 22px;
-      height: 22px;
-      stroke: var(--orange);
-      fill: none;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    /* PROCESS */
-    /* DETAIL GRID */
-    .detail-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-    }
-
-    .detail-card {
-      background: var(--white);
-      padding: 2rem;
-    }
-
-    .detail-card h3 {
+    .service-desc {
+      color: var(--body);
       font-size: 1rem;
+      line-height: 1.55;
+      max-width: 440px;
+    }
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--body);
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+    }
+    .service-arrow {
+      justify-self: end;
+      color: var(--accent);
+      transition: transform 0.25s;
+    }
+    .service-arrow svg {
+      width: 20px; height: 20px; stroke: var(--accent); fill: none;
+      stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* QUOTE / WHY panel */
+    .quote-panel {
+      background: var(--panel);
+      padding: 6rem 3rem;
+    }
+    .quote-inner {
+      max-width: 1180px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+    }
+    .pull-quote {
+      font-family: var(--sans);
+      font-size: clamp(1.8rem, 3.4vw, 2.8rem);
       font-weight: 700;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      color: var(--ink);
+      max-width: 880px;
+      margin-bottom: 3rem;
     }
-
-    .detail-card ul { list-style: none; padding: 0; }
-
-    .detail-card ul li {
-      color: var(--dark-gray);
-      font-size: 0.95rem;
-      padding: 0.3rem 0;
-      padding-left: 1rem;
-      position: relative;
-      line-height: 1.5;
-    }
-
-    .detail-card ul li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0.6rem;
-      width: 4px;
-      height: 4px;
-      background: var(--orange);
-      border-radius: 50%;
-    }
-
-    /* WHY */
+    .pull-quote .accent { color: var(--accent); }
     .why-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      gap: 2.5rem;
     }
-
-    .why-card h3 {
-      font-size: 1rem;
+    .why-num { color: var(--accent); margin-bottom: 0.6rem; }
+    .why-title {
+      font-size: 1.2rem;
       font-weight: 700;
-      margin-bottom: 0.35rem;
-      letter-spacing: -0.01em;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.015em;
     }
-
-    .why-card p {
-      color: var(--dark-gray);
-      font-size: 0.95rem;
+    .why-desc {
+      color: var(--body);
+      font-size: 0.96rem;
       line-height: 1.6;
-    }
-
-    .why-marker {
-      width: 24px;
-      height: 2px;
-      background: var(--orange);
-      margin-bottom: 1rem;
     }
 
     /* AREAS */
     .areas-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
+      gap: 2rem;
     }
-
-    .area-card {
-      background: var(--white);
-      padding: 2rem;
+    .area-img {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      margin-bottom: 1.2rem;
+      background: var(--panel);
     }
-
-    .area-card h3 {
-      font-size: 1rem;
+    .area-img img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .area-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 0.5rem;
+    }
+    .area-name {
+      font-size: 2.4rem;
       font-weight: 700;
-      margin-bottom: 0.35rem;
+      letter-spacing: -0.03em;
+      line-height: 1;
     }
-
-    .area-card .area-desc {
-      color: var(--dark-gray);
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .area-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-
-    .area-tag {
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--orange);
-      padding: 0.25rem 0.6rem;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-    }
-
-    /* CTA */
-    .cta-banner {
-      background: var(--black);
-      color: white;
-      max-width: 100%;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .cta-inner { max-width: 550px; margin: 0 auto; }
-
-    .cta-banner h2 {
-      font-family: var(--serif);
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      font-weight: 400;
-      font-style: italic;
-      margin-bottom: 0.75rem;
-    }
-
-    .cta-banner p {
-      color: var(--mid-gray);
+    .area-num { color: var(--accent); }
+    .area-desc {
+      color: var(--body);
       font-size: 1rem;
-      margin-bottom: 1.75rem;
-      line-height: 1.7;
+      line-height: 1.6;
+      margin-bottom: 1rem;
     }
+    .area-tags {
+      display: flex; flex-wrap: wrap; gap: 0.3rem;
+    }
+    .area-tags .tag { border-radius: 2px; }
 
-    .cta-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
-
-    /* AGREEMENTS */
-    .agreements-grid {
+    /* PLANS */
+    .plans-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
+      gap: 0.6rem;
     }
-
-    .agreement-card {
-      background: var(--white);
+    .plan {
       padding: 2rem;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      display: flex; flex-direction: column; gap: 0.6rem;
+      position: relative;
     }
-
-    .agreement-card.featured {
-      background: var(--black);
-      color: var(--white);
+    .plan.featured {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
     }
-
-    .agreement-badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 0.75rem;
+    .plan-badge {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      color: var(--accent);
     }
-
-    .agreement-card h3 {
-      font-size: 0.95rem;
+    .plan-name {
+      font-size: 2.6rem;
       font-weight: 700;
-      margin-bottom: 0.3rem;
+      letter-spacing: -0.03em;
+      line-height: 1;
     }
-
-    .agreement-desc {
-      color: var(--mid-gray);
+    .plan-blurb {
       font-size: 0.95rem;
-      margin-bottom: 1rem;
-      min-height: 2rem;
-      line-height: 1.6;
+      line-height: 1.55;
+      color: var(--body);
+      min-height: 50px;
     }
-
-    .agreement-features { list-style: none; padding: 0; }
-
-    .agreement-features li {
-      color: var(--dark-gray);
-      font-size: 0.95rem;
-      padding: 0.3rem 0;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
+    .plan.featured .plan-blurb { color: #B8B0A4; }
+    .plan-divider {
+      height: 1px;
+      background: var(--line);
+      margin: 0.4rem 0;
     }
-
-    .agreement-card.featured .agreement-features li { color: var(--mid-gray); }
-
-    .agreement-features li svg {
-      width: 14px;
-      height: 14px;
-      stroke: var(--orange);
-      fill: none;
-      stroke-width: 2;
+    .plan.featured .plan-divider { background: #3A3428; }
+    .plan-feats {
+      list-style: none;
+      padding: 0;
+      display: flex; flex-direction: column;
+      gap: 0.5rem;
+    }
+    .plan-feats li {
+      display: flex; align-items: center;
+      gap: 0.5rem;
+      font-size: 0.94rem;
+      color: var(--body);
+    }
+    .plan.featured .plan-feats li { color: #E2DDD5; }
+    .plan-feats svg {
+      width: 13px; height: 13px;
+      stroke: var(--accent); fill: none;
+      stroke-width: 2.4;
+      stroke-linecap: round; stroke-linejoin: round;
       flex-shrink: 0;
     }
-
-    /* ABOUT */
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    .about-text p {
-      color: var(--dark-gray);
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      line-height: 1.72;
-    }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-    }
-
-    .stat {
-      background: var(--white);
-      padding: 1.25rem;
-      text-align: center;
-    }
-
-    .stat-number {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--orange);
-    }
-
-    .stat-label {
-      color: var(--mid-gray);
-      font-size: 0.82rem;
-      letter-spacing: 0.06em;
+    .plan-cta {
+      margin-top: auto;
+      padding-top: 1.2rem;
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--accent);
       text-transform: uppercase;
-      margin-top: 0.2rem;
+    }
+    .plan-cta svg {
+      width: 13px; height: 13px;
+      stroke: var(--accent); fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round; stroke-linejoin: round;
     }
 
-    /* QUALITY */
-    .quality-grid {
+    /* QUALITY STRIP */
+    .quality {
+      border-top: 1px solid var(--line-dk);
+      border-bottom: 1px solid var(--line-dk);
+      padding: 2rem 0;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--border);
+      gap: 2rem;
     }
-
-    .quality-item {
-      text-align: center;
-      padding: 1.75rem 1rem;
-      background: var(--white);
-    }
-
-    .quality-number {
-      font-size: 1rem;
+    .quality-item { display: flex; flex-direction: column; gap: 4px; }
+    .quality-num {
       font-weight: 700;
-      color: var(--orange);
-      margin-bottom: 0.2rem;
+      color: var(--accent);
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
     }
-
     .quality-label {
-      color: var(--mid-gray);
-      font-size: 0.82rem;
-      letter-spacing: 0.04em;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--body);
       text-transform: uppercase;
     }
 
     /* FAQ */
-    .faq-list { max-width: 600px; }
-
-    .faq-item { border-bottom: 1px solid var(--border); padding: 1.25rem 0; }
-    .faq-item:first-child { border-top: 1px solid var(--border); }
-
-    .faq-question {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 0.35rem;
+    .faq-wrap {
+      margin-left: calc(200px + 3rem);
+      max-width: 640px;
+    }
+    .faq {
+      border-top: 1px solid var(--line);
+    }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-button {
+      width: 100%;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 1rem;
+      padding: 1.1rem 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: inherit;
       letter-spacing: -0.01em;
     }
-
+    .faq-icon {
+      color: var(--accent);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+      display: inline-flex;
+    }
+    .faq-icon svg {
+      width: 18px; height: 18px;
+      stroke: var(--accent); fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
     .faq-answer {
-      color: var(--dark-gray);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.28s ease, padding 0.2s ease;
+      color: var(--body);
       font-size: 0.95rem;
       line-height: 1.65;
+      padding-right: 2rem;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 240px;
+      padding-bottom: 1rem;
     }
 
-    /* EMERGENCY */
-    .emergency-section {
-      border: 1px solid var(--border);
-      padding: 2.5rem;
-      display: flex;
-      align-items: center;
-      gap: 2rem;
+    /* CTA SLAB */
+    .cta {
+      background: var(--accent);
+      color: #fff;
+      padding: 6rem 3rem;
+      text-align: center;
     }
-
-    .emergency-dot {
-      width: 10px;
-      height: 10px;
-      background: var(--orange);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .emergency-text h3 {
-      font-size: 0.95rem;
+    .cta-inner { max-width: 760px; margin: 0 auto; }
+    .cta h2 {
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
       font-weight: 700;
-      margin-bottom: 0.3rem;
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+      margin-bottom: 1rem;
+    }
+    .cta p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.88);
+      margin: 0 auto 2.2rem;
+      line-height: 1.55;
+      max-width: 540px;
+    }
+    .cta-buttons {
+      display: flex; gap: 0.6rem;
+      justify-content: center; flex-wrap: wrap;
+    }
+    .cta-buttons .btn {
+      padding: 1.1rem 2rem;
+      font-size: 1.05rem;
+      font-weight: 700;
     }
 
-    .emergency-text p {
-      color: var(--dark-gray);
-      font-size: 0.95rem;
-      margin-bottom: 0.75rem;
-      line-height: 1.6;
-    }
-
-    /* CONTACT */
+    /* CONTACT FORM */
     .contact-section {
-      padding: 2rem 1.5rem;
-      border: 1px solid var(--border);
+      padding: 6rem 3rem;
+      max-width: 1180px;
+      margin: 0 auto;
     }
-
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      margin-top: 2rem;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      align-items: start;
     }
-
-    .contact-direct {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .contact-direct h3 {
-      font-size: 0.82rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--mid-gray);
-      font-weight: 500;
-      margin-bottom: 0.25rem;
-    }
-
-    .contact-row {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.85rem 1rem;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      text-decoration: none;
-      color: var(--black);
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .contact-row:hover { border-color: var(--orange); background: var(--orange-lt); }
-
-    .contact-row svg {
-      width: 18px;
-      height: 18px;
-      stroke: var(--orange);
-      fill: none;
-      stroke-width: 1.75;
-      flex-shrink: 0;
-    }
-
-    .contact-row-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--mid-gray);
-      line-height: 1.2;
-    }
-
-    .contact-row-value {
-      font-size: 1rem;
-      font-weight: 500;
-      line-height: 1.3;
-    }
-
-    /* FORM */
     .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      display: flex; flex-direction: column; gap: 1rem;
+      max-width: 640px;
     }
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
+    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
     .form-field label {
-      font-size: 0.78rem;
+      font-family: var(--mono);
+      font-size: 11px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--mid-gray);
+      color: var(--mute);
       font-weight: 500;
     }
-
     .form-field input,
     .form-field textarea,
     .form-field select {
       font-family: var(--sans);
       font-size: 1rem;
       padding: 0.85rem 1rem;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      background: var(--white);
-      color: var(--black);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      background: var(--bg);
+      color: var(--ink);
       width: 100%;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, background 0.2s;
       -webkit-appearance: none;
       appearance: none;
     }
-
     .form-field input:focus,
     .form-field textarea:focus,
     .form-field select:focus {
       outline: none;
-      border-color: var(--orange);
+      border-color: var(--accent);
+      background: #fff;
     }
-
     .form-field textarea {
       resize: vertical;
       min-height: 120px;
       line-height: 1.5;
     }
-
     .form-field select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A8A198' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238A8276' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 1rem center;
       background-size: 14px;
       padding-right: 2.5rem;
     }
-
     .form-honeypot {
-      position: absolute;
-      left: -9999px;
-      width: 1px;
-      height: 1px;
-      opacity: 0;
+      position: absolute; left: -9999px;
+      width: 1px; height: 1px; opacity: 0;
     }
-
     .form-submit {
       margin-top: 0.5rem;
-      padding: 1rem 1.75rem;
-      font-size: 1rem;
       justify-content: center;
     }
-
     .form-status {
       font-size: 0.9rem;
       padding: 0.85rem 1rem;
-      border-radius: 4px;
+      border-radius: 2px;
       display: none;
       line-height: 1.5;
     }
-
     .form-status.success {
       display: block;
-      background: var(--orange-lt);
-      color: var(--dark-gray);
-      border: 1px solid var(--orange);
+      background: var(--accent-soft);
+      color: var(--body);
+      border: 1px solid var(--accent);
     }
-
     .form-status.error {
       display: block;
       background: #FBE8E8;
       color: #8A2A2A;
       border: 1px solid #D95C5C;
     }
-
     .form-note {
       font-size: 0.85rem;
-      color: var(--mid-gray);
+      color: var(--mute);
       line-height: 1.5;
+      margin-top: 0.5rem;
     }
 
     /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: var(--mid-gray);
-      font-size: 0.82rem;
-      letter-spacing: 0.06em;
+    .footer {
+      padding: 2rem 3rem;
+      display: flex; justify-content: space-between; flex-wrap: wrap;
+      gap: 1rem;
+      border-top: 1px solid var(--line);
     }
-
-    footer a { color: var(--mid-gray); text-decoration: none; }
-    footer a:hover { color: var(--orange); }
-
-    /* IMAGE BREAKS */
-    .image-break {
-      width: 100%;
-      height: 360px;
-      overflow: hidden;
+    .footer span {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--body);
+      text-transform: uppercase;
     }
-
-    .image-break img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .image-break-short { height: 240px; }
-
-    /* AREA IMAGES */
-    .area-card-img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 2px;
-      margin-bottom: 1.25rem;
-    }
+    .footer a:hover { color: var(--accent); }
 
     /* MOBILE */
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
+      .nav { padding: 0.85rem 1.25rem; }
       .nav-links { display: none; }
-      .hero { padding: 5rem 1.5rem 3rem; }
-      .about-content { grid-template-columns: 1fr; }
-      .services-grid, .detail-grid, .areas-grid { grid-template-columns: 1fr; }
-      .why-grid, .clients-grid { grid-template-columns: 1fr; }
-      .agreements-grid { grid-template-columns: 1fr; }
-      .quality-grid { grid-template-columns: 1fr 1fr; }
-      .emergency-section { flex-direction: column; }
-      .image-break { height: 220px; }
-      .image-break-short { height: 160px; }
-      section { padding: 3rem 1.5rem; }
-      .cta-banner { padding: 3rem 1.5rem; }
-      nav { padding: 0.75rem 1.25rem; }
-      .contact-section { padding: 1.5rem 1.25rem; }
-    }
-
-    @media (min-width: 769px) {
-      .contact-grid {
-        grid-template-columns: 1fr 1.4fr;
-        gap: 3rem;
-        align-items: start;
+      .hero { padding: 2.5rem 1.25rem 4rem; }
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; min-height: auto; }
+      .hero h1 { font-size: clamp(2.8rem, 12vw, 4.5rem); }
+      .portrait-wrap { max-height: 480px; }
+      .section { padding: 4rem 1.25rem; }
+      .quote-panel { padding: 4rem 1.25rem; }
+      .cta { padding: 4rem 1.25rem; }
+      .contact-section { padding: 4rem 1.25rem; }
+      .section-head,
+      .quote-inner,
+      .contact-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .service-row {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        padding: 1.5rem 0;
       }
+      .service-arrow { display: none; }
+      .why-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .areas-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .plans-grid { grid-template-columns: 1fr; }
+      .quality { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+      .faq-wrap { margin-left: 0; }
+      .footer { padding: 1.5rem 1.25rem; }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <img class="nav-logo" src="/assets/pk-brand-logo.svg" alt="PK Service">
+  <nav class="nav">
+    <a href="/" aria-label="PK Service start">
+      <img class="nav-logo" src="/assets/pk-brand-logo.svg" alt="PK Service">
+    </a>
     <div class="nav-links">
       <a href="#tjanster">Tjänster</a>
-      <a href="#process">Process</a>
+      <a href="#avtal">Avtal</a>
       <a href="#omraden">Områden</a>
       <a href="#om-oss">Om oss</a>
       <a href="#kontakt">Kontakt</a>
     </div>
+    <a class="nav-phone" href="tel:+46739542966">073-954 29 66</a>
   </nav>
 
   <!-- HERO -->
-  <div class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <div class="hero-logo">
-        <img src="/assets/pk-brand-logo.svg" alt="PK Service">
+  <header class="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-eyebrow">PK / 001 / Stockholm — Åre</div>
+        <h1>
+          Förvalta.<br>
+          Bygga.<br>
+          <span class="accent">Fixa.</span>
+        </h1>
+        <p class="hero-desc">
+          Två grabbar som tar hand om byggnation, renovering, fastighetsskötsel och förvaltning.
+          Du ringer en — vi löser resten.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn btn-dark" href="tel:+46739542966">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Ring oss
+          </a>
+          <a class="btn btn-ghost-dark" href="#kontakt">Begär offert</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">24h</div>
+            <div class="hero-stat-label">Svarstid</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">Fast</div>
+            <div class="hero-stat-label">Pris</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">ROT</div>
+            <div class="hero-stat-label">Avdrag</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">F-skatt</div>
+            <div class="hero-stat-label">Reg.</div>
+          </div>
+        </div>
       </div>
-      <h1>Vi förvaltar, bygger<br>& <span>fixar.</span></h1>
-      <p class="hero-desc">Två grabbar som gör det mesta — byggnation, renovering, fastighetsskötsel och förvaltning i Stockholm och Åre. Stort som smått.</p>
-      <div class="hero-buttons">
-        <a href="tel:+46739542966" class="btn">Ring oss</a>
-        <a href="#offert" class="btn btn-outline">Begär offert</a>
+
+      <div class="portrait-wrap">
+        <div class="portrait-shadow"></div>
+        <div class="portrait-img">
+          <img src="/assets/johan-pk-service-2-1.webp" alt="Pelto & Kraiman">
+        </div>
+        <div class="portrait-caption">
+          <div>
+            <div class="portrait-caption-title">Pelto &amp; Kraiman</div>
+            <div class="portrait-caption-sub">Grundare — på plats</div>
+          </div>
+          <a class="portrait-caption-link" href="#om-oss">↗ Om oss</a>
+        </div>
       </div>
-      <div class="hero-location">
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-        Stockholm & Åre
-      </div>
+    </div>
+  </header>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">BYGGNATION <span class="star">✦</span></span>
+      <span class="marquee-item">RENOVERING <span class="star">✦</span></span>
+      <span class="marquee-item">FASTIGHETSSKÖTSEL <span class="star">✦</span></span>
+      <span class="marquee-item">TEKNISK FÖRVALTNING <span class="star">✦</span></span>
+      <span class="marquee-item">PROJEKTLEDNING <span class="star">✦</span></span>
+      <span class="marquee-item">BADRUM <span class="star">✦</span></span>
+      <span class="marquee-item">KÖK <span class="star">✦</span></span>
+      <span class="marquee-item">SNÖRÖJNING <span class="star">✦</span></span>
+      <span class="marquee-item">JOUR <span class="star">✦</span></span>
+      <span class="marquee-item">BYGGNATION <span class="star">✦</span></span>
+      <span class="marquee-item">RENOVERING <span class="star">✦</span></span>
+      <span class="marquee-item">FASTIGHETSSKÖTSEL <span class="star">✦</span></span>
+      <span class="marquee-item">TEKNISK FÖRVALTNING <span class="star">✦</span></span>
+      <span class="marquee-item">PROJEKTLEDNING <span class="star">✦</span></span>
+      <span class="marquee-item">BADRUM <span class="star">✦</span></span>
+      <span class="marquee-item">KÖK <span class="star">✦</span></span>
+      <span class="marquee-item">SNÖRÖJNING <span class="star">✦</span></span>
+      <span class="marquee-item">JOUR <span class="star">✦</span></span>
     </div>
   </div>
 
   <!-- TJÄNSTER -->
-  <section id="tjanster">
-    <p class="section-label">Tjänster</p>
-    <h2 class="section-title">Det här gör vi</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div>
-        <h3>Fastighetsskötsel</h3>
-        <p>Löpande underhåll och skötsel. Vi ser till att allt funkar och ser bra ut, året runt.</p>
+  <section class="section" id="tjanster">
+    <div class="section-head">
+      <div class="label-mono">§ 01<br>Tjänster</div>
+      <div>
+        <h2 class="section-title">Det här gör vi.</h2>
+        <p class="section-desc">Fyra ben — du tar in oss för en sak, vi tar det vidare. Inga underleverantörsled.</p>
       </div>
-      <div class="service-card">
-        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div>
-        <h3>Teknisk förvaltning</h3>
-        <p>Drift av fastighetssystem, planerat underhåll och snabb felavhjälpning när det behövs.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2M9 5h6M9 14l2 2 4-4"></path></svg></div>
-        <h3>Projektledning</h3>
-        <p>Vi håller koll på budget, tidsplan och alla delar så att du slipper. Från start till mål.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V10l8-6 8 6v10M9 20v-6h6v6"></path></svg></div>
-        <h3>Byggnation</h3>
-        <p>Renoveringar, ombyggnationer och nybyggen. Vi tar det från idé till färdigt resultat.</p>
-      </div>
+    </div>
+
+    <div class="services">
+      <a class="service-row" href="#kontakt">
+        <div class="label-mono service-num">01 / 04</div>
+        <div>
+          <h3 class="service-title">Fastighetsskötsel</h3>
+          <p class="service-desc">Löpande underhåll och skötsel. Vi ser till att allt funkar och ser bra ut, året runt.</p>
+        </div>
+        <div class="service-tags">
+          <span class="tag">Mark- och trädgårdsskötsel</span>
+          <span class="tag">Snöröjning &amp; sandning</span>
+          <span class="tag">Trapphus och gemensamma ytor</span>
+          <span class="tag">Avfallshantering</span>
+        </div>
+        <div class="service-arrow">
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
+
+      <a class="service-row" href="#kontakt">
+        <div class="label-mono service-num">02 / 04</div>
+        <div>
+          <h3 class="service-title">Teknisk förvaltning</h3>
+          <p class="service-desc">Drift av fastighetssystem, planerat underhåll och snabb felavhjälpning när det behövs.</p>
+        </div>
+        <div class="service-tags">
+          <span class="tag">VVS-drift och underhåll</span>
+          <span class="tag">El- och belysningssystem</span>
+          <span class="tag">Ventilation &amp; klimat</span>
+          <span class="tag">Lås &amp; säkerhet</span>
+        </div>
+        <div class="service-arrow">
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
+
+      <a class="service-row" href="#kontakt">
+        <div class="label-mono service-num">03 / 04</div>
+        <div>
+          <h3 class="service-title">Projektledning</h3>
+          <p class="service-desc">Vi håller koll på budget, tidsplan och alla delar så att du slipper. Från start till mål.</p>
+        </div>
+        <div class="service-tags">
+          <span class="tag">Byggprojektledning</span>
+          <span class="tag">Upphandling av UE</span>
+          <span class="tag">Budget- och tidplansstyrning</span>
+          <span class="tag">Besiktning &amp; kvalitetskontroll</span>
+        </div>
+        <div class="service-arrow">
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
+
+      <a class="service-row" href="#kontakt">
+        <div class="label-mono service-num">04 / 04</div>
+        <div>
+          <h3 class="service-title">Byggnation</h3>
+          <p class="service-desc">Renoveringar, ombyggnationer och nybyggen. Från idé till färdigt resultat.</p>
+        </div>
+        <div class="service-tags">
+          <span class="tag">Totalentreprenader</span>
+          <span class="tag">Badrumsrenoveringar</span>
+          <span class="tag">Köksrenoveringar</span>
+          <span class="tag">Tillbyggnader &amp; attefall</span>
+        </div>
+        <div class="service-arrow">
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
     </div>
   </section>
 
-  <!-- DETALJER -->
-  <section id="detaljer">
-    <p class="section-label">Detaljer</p>
-    <h2 class="section-title">Lite mer specifikt</h2>
-    <div class="detail-grid">
-      <div class="detail-card">
-        <h3>Fastighetsskötsel</h3>
-        <ul>
-          <li>Mark- och trädgårdsskötsel</li>
-          <li>Snöröjning & sandning</li>
-          <li>Trapphus- och gemensam ytskötsel</li>
-          <li>Avfallshantering</li>
-          <li>Rondering och tillsyn</li>
-        </ul>
-      </div>
-      <div class="detail-card">
-        <h3>Teknisk förvaltning</h3>
-        <ul>
-          <li>VVS-drift och underhåll</li>
-          <li>El- och belysningssystem</li>
-          <li>Ventilation & klimat</li>
-          <li>Lås & säkerhetssystem</li>
-          <li>Energioptimering</li>
-        </ul>
-      </div>
-      <div class="detail-card">
-        <h3>Projektledning</h3>
-        <ul>
-          <li>Byggprojektledning</li>
-          <li>Upphandling av underentreprenörer</li>
-          <li>Budget- och tidplansstyrning</li>
-          <li>Besiktning och kvalitetskontroll</li>
-          <li>Kontakt med myndigheter</li>
-        </ul>
-      </div>
-      <div class="detail-card">
-        <h3>Byggnation & renovering</h3>
-        <ul>
-          <li>Totalentreprenader</li>
-          <li>Badrumsrenoveringar</li>
-          <li>Köksrenoveringar</li>
-          <li>Tillbyggnader & attefallshus</li>
-          <li>Fasadarbeten</li>
-        </ul>
+  <!-- QUOTE / WHY -->
+  <section class="quote-panel" id="om-oss">
+    <div class="quote-inner">
+      <div class="label-mono">§ 02<br>Varför vi</div>
+      <div>
+        <p class="pull-quote">
+          &ldquo;Vi gillar att lösa saker. Stort som smått, byggen som krånglande lås — <span class="accent">vi tar det.</span>&rdquo;
+        </p>
+        <div class="why-grid">
+          <div>
+            <div class="label-mono why-num">01</div>
+            <h3 class="why-title">Ring en — allt fixat</h3>
+            <p class="why-desc">Slipp jaga olika firmor. Du ringer oss och vi löser resten.</p>
+          </div>
+          <div>
+            <div class="label-mono why-num">02</div>
+            <h3 class="why-title">Vi svarar snabbt</h3>
+            <p class="why-desc">Återkommer inom 24 timmar och kan oftast vara på plats samma vecka.</p>
+          </div>
+          <div>
+            <div class="label-mono why-num">03</div>
+            <h3 class="why-title">Du vet vad det kostar</h3>
+            <p class="why-desc">Fast pris från start. Inga överraskningar på fakturan.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-
-  <hr class="divider">
-
-  <!-- VARFÖR OSS -->
-  <section>
-    <p class="section-label">Fördelar</p>
-    <h2 class="section-title">Varför vi?</h2>
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-marker"></div>
-        <h3>Ring en — allt fixat</h3>
-        <p>Slipp jaga olika firmor. Du ringer oss och vi löser resten.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-marker"></div>
-        <h3>Vi svarar snabbt</h3>
-        <p>Vi återkommer inom 24 timmar och kan oftast vara på plats samma vecka.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-marker"></div>
-        <h3>Du vet vad det kostar</h3>
-        <p>Fast pris — inga överraskningar på fakturan.</p>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
 
   <!-- OMRÅDEN -->
-  <section id="omraden">
-    <p class="section-label">Områden</p>
-    <h2 class="section-title">Var vi finns</h2>
+  <section class="section" id="omraden">
+    <div class="section-head">
+      <div class="label-mono">§ 03<br>Områden</div>
+      <h2 class="section-title">Var vi finns.</h2>
+    </div>
+
     <div class="areas-grid">
-      <div class="area-card">
-        <img class="area-card-img" src="https://images.unsplash.com/photo-1658482621597-98d2a68ca90a?w=800&q=80" alt="Stockholm Gamla Stan" loading="lazy">
-        <h3>Stockholm</h3>
+      <div>
+        <div class="area-img">
+          <img src="https://images.unsplash.com/photo-1658482621597-98d2a68ca90a?w=1200&q=80" alt="Stockholm" loading="lazy">
+        </div>
+        <div class="area-row">
+          <h3 class="area-name">Stockholm.</h3>
+          <span class="label-mono area-num">01</span>
+        </div>
         <p class="area-desc">Vår hemmaplan. Vi täcker hela Storstockholm — innerstan, söderort, norrort, you name it.</p>
         <div class="area-tags">
-          <span class="area-tag">Söderort</span>
-          <span class="area-tag">Haninge</span>
-          <span class="area-tag">Nynäshamn</span>
-          <span class="area-tag">Huddinge</span>
-          <span class="area-tag">Södermalm</span>
-          <span class="area-tag">Hela Sthlm</span>
+          <span class="tag">Söderort</span>
+          <span class="tag">Haninge</span>
+          <span class="tag">Nynäshamn</span>
+          <span class="tag">Huddinge</span>
+          <span class="tag">Södermalm</span>
+          <span class="tag">Hela Sthlm</span>
         </div>
       </div>
-      <div class="area-card">
-        <img class="area-card-img" src="https://images.pexels.com/photos/15948354/pexels-photo-15948354.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Åre by med Åreskutan i bakgrunden" loading="lazy">
-        <h3>Åre</h3>
+      <div>
+        <div class="area-img">
+          <img src="https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=1200&q=80" alt="Åre" loading="lazy">
+        </div>
+        <div class="area-row">
+          <h3 class="area-name">Åre.</h3>
+          <span class="label-mono area-num">02</span>
+        </div>
         <p class="area-desc">Vi jobbar mycket i fjällen också — byggen, skötsel och förvaltning i hela Åre-området.</p>
         <div class="area-tags">
-          <span class="area-tag">Åre by</span>
-          <span class="area-tag">Duved</span>
-          <span class="area-tag">Tegefjäll</span>
-          <span class="area-tag">Björnänge</span>
-          <span class="area-tag">Östersund</span>
+          <span class="tag">Åre by</span>
+          <span class="tag">Duved</span>
+          <span class="tag">Tegefjäll</span>
+          <span class="tag">Björnänge</span>
+          <span class="tag">Östersund</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <div class="cta-banner" id="offert">
-    <div class="cta-inner">
-      <h2>Har du nåt som behöver fixas?</h2>
-      <p>Hör av dig så snackar vi igenom det. Offerten är alltid gratis — och vi brukar svara samma dag.</p>
-      <div class="cta-buttons">
-        <a href="tel:+46739542966" class="btn">073-954 29 66</a>
-        <a href="mailto:info@pkservice.se" class="btn btn-outline">info@pkservice.se</a>
-      </div>
+  <!-- AVTAL -->
+  <section class="section section-tight" id="avtal">
+    <div class="section-head">
+      <div class="label-mono">§ 04<br>Avtal</div>
+      <h2 class="section-title">Tre nivåer.</h2>
     </div>
-  </div>
 
-  <!-- SERVICEAVTAL -->
-  <section>
-    <p class="section-label">Avtal</p>
-    <h2 class="section-title">Serviceavtal</h2>
-    <div class="agreements-grid">
-      <div class="agreement-card">
-        <h3>Bas</h3>
-        <p class="agreement-desc">Grundläggande tillsyn.</p>
-        <ul class="agreement-features">
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Kvartalsvis rondering</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Felanmälan & uppföljning</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Årlig statusrapport</li>
+    <div class="plans-grid">
+      <div class="plan">
+        <div class="label-mono">Plan 01</div>
+        <h3 class="plan-name">Bas</h3>
+        <p class="plan-blurb">Grundläggande tillsyn för mindre fastigheter.</p>
+        <div class="plan-divider"></div>
+        <ul class="plan-feats">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Kvartalsvis rondering</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Felanmälan &amp; uppföljning</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Årlig statusrapport</li>
         </ul>
+        <a class="plan-cta" href="#kontakt">
+          Begär offert
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
-      <div class="agreement-card featured">
-        <div class="agreement-badge">Populärt</div>
-        <h3>Standard</h3>
-        <p class="agreement-desc">Löpande behov för BRF:er och fastighetsägare.</p>
-        <ul class="agreement-features">
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Månadsvis rondering</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Felavhjälpning inom 48h</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Mark- & trädgårdsskötsel</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Snöröjning (vinter)</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Fast månadspris</li>
+
+      <div class="plan featured">
+        <div class="label-mono plan-badge">★ Populärt</div>
+        <div class="label-mono">Plan 02</div>
+        <h3 class="plan-name">Standard</h3>
+        <p class="plan-blurb">Löpande behov för BRF:er och fastighetsägare.</p>
+        <div class="plan-divider"></div>
+        <ul class="plan-feats">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Månadsvis rondering</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Felavhjälpning inom 48h</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Mark- &amp; trädgårdsskötsel</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Snöröjning på vintern</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Fast månadspris</li>
         </ul>
+        <a class="plan-cta" href="#kontakt">
+          Begär offert
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
-      <div class="agreement-card">
-        <h3>Premium</h3>
-        <p class="agreement-desc">Totallösning för krävande fastigheter.</p>
-        <ul class="agreement-features">
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Allt i Standard</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Teknisk förvaltning</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Energiuppföljning</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Prioriterad jour</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Dedikerad kontaktperson</li>
+
+      <div class="plan">
+        <div class="label-mono">Plan 03</div>
+        <h3 class="plan-name">Premium</h3>
+        <p class="plan-blurb">Totallösning för krävande fastigheter.</p>
+        <div class="plan-divider"></div>
+        <ul class="plan-feats">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Allt i Standard</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Teknisk förvaltning</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Energiuppföljning</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Prioriterad jour</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Dedikerad kontaktperson</li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- IMAGE BREAK -->
-  <div class="image-break image-break-short">
-    <img src="https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=1600&q=80" alt="Vinterlandskap i fjällen" loading="lazy">
-  </div>
-
-  <!-- OM OSS -->
-  <section id="om-oss">
-    <p class="section-label">Om oss</p>
-    <h2 class="section-title">Vilka är vi?</h2>
-    <div class="about-content">
-      <div class="about-text">
-        <p>PK Service startades av oss — Pelto och Kraiman — för att vi gillar att bygga och fixa saker. Vi jobbar i Stockholm och Åre med allt från renoveringar och nybyggen till löpande skötsel och förvaltning av fastigheter.</p>
-        <p>Vi tar oss an det mesta, stort som smått. Oavsett om det handlar om att renovera ett badrum eller sköta en hel fastighet så lägger vi samma energi i jobbet. Ring oss så löser vi det.</p>
-      </div>
-      <div class="about-stats">
-        <div class="stat"><div class="stat-number">Stockholm</div><div class="stat-label">Hemmaplan</div></div>
-        <div class="stat"><div class="stat-number">Åre</div><div class="stat-label">Fjällen</div></div>
-        <div class="stat"><div class="stat-number">100%</div><div class="stat-label">Engagemang</div></div>
-        <div class="stat"><div class="stat-number">Alltid</div><div class="stat-label">Fasta priser</div></div>
+        <a class="plan-cta" href="#kontakt">
+          Begär offert
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
     </div>
   </section>
-
-  <hr class="divider">
 
   <!-- KVALITET -->
-  <section>
-    <p class="section-label">Garantier</p>
-    <h2 class="section-title">Vi gör det ordentligt</h2>
-    <div class="quality-grid">
-      <div class="quality-item"><div class="quality-number">F-skatt</div><div class="quality-label">Registrerat</div></div>
-      <div class="quality-item"><div class="quality-number">Försäkrat</div><div class="quality-label">Ansvarsförsäkring</div></div>
-      <div class="quality-item"><div class="quality-number">Garanti</div><div class="quality-label">På allt vi bygger</div></div>
-      <div class="quality-item"><div class="quality-number">ROT</div><div class="quality-label">Vi hanterar avdraget</div></div>
+  <section class="section section-tight">
+    <div class="quality">
+      <div class="quality-item"><span class="quality-num">F-skatt</span><span class="quality-label">Registrerat</span></div>
+      <div class="quality-item"><span class="quality-num">Försäkrat</span><span class="quality-label">Ansvarsförsäkring</span></div>
+      <div class="quality-item"><span class="quality-num">Garanti</span><span class="quality-label">På allt vi bygger</span></div>
+      <div class="quality-item"><span class="quality-num">ROT</span><span class="quality-label">Vi hanterar avdraget</span></div>
     </div>
   </section>
-
-  <hr class="divider">
 
   <!-- FAQ -->
-  <section>
-    <p class="section-label">FAQ</p>
-    <h2 class="section-title">Vanliga frågor</h2>
-    <div class="faq-list">
-      <div class="faq-item"><div class="faq-question">Hur snabbt kan ni komma igång?</div><div class="faq-answer">Vi brukar kunna komma förbi inom en vecka. Enklare jobb kan vi ofta köra igång samma vecka som du säger ja till offerten.</div></div>
-      <div class="faq-item"><div class="faq-question">Jobbar ni med fasta priser?</div><div class="faq-answer">Alltid. Du vet exakt vad det kostar innan vi börjar — inga konstigheter på fakturan.</div></div>
-      <div class="faq-item"><div class="faq-question">Kan jag använda ROT-avdrag?</div><div class="faq-answer">Absolut! Vi fixar hela ROT-hanteringen — du betalar bara din del.</div></div>
-      <div class="faq-item"><div class="faq-question">Tar ni små jobb också?</div><div class="faq-answer">Ja, vi gör allt från att byta ett lås till att bygga om hela kåken. Inget jobb är för litet.</div></div>
-      <div class="faq-item"><div class="faq-question">Hur funkar era serviceavtal?</div><div class="faq-answer">Vi snackar igenom vad din fastighet behöver och sätter ihop ett avtal. Fast månadspris, sen sköter vi allt — rondering, skötsel, felavhjälpning.</div></div>
+  <section class="section section-tight section-narrow" id="faq">
+    <div class="section-head">
+      <div class="label-mono">§ 05<br>FAQ</div>
+      <h2 class="section-title">Vanliga frågor.</h2>
     </div>
-  </section>
 
-  <hr class="divider">
-
-  <!-- AKUT -->
-  <section>
-    <div class="emergency-section">
-      <div class="emergency-dot"></div>
-      <div class="emergency-text">
-        <h3>Nåt akut?</h3>
-        <p>Vattenläcka, elfel eller inbrott? Ring oss direkt så fixar vi det.</p>
-        <a href="tel:+46739542966" class="btn">Ring 073-954 29 66</a>
+    <div class="faq-wrap">
+      <div class="faq">
+        <div class="faq-item open">
+          <button class="faq-button" type="button">
+            <span>Hur snabbt kan ni komma igång?</span>
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">Vi brukar kunna komma förbi inom en vecka. Enklare jobb kan vi ofta köra igång samma vecka som du säger ja till offerten.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-button" type="button">
+            <span>Jobbar ni med fasta priser?</span>
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">Alltid. Du vet exakt vad det kostar innan vi börjar — inga konstigheter på fakturan.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-button" type="button">
+            <span>Kan jag använda ROT-avdrag?</span>
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">Absolut. Vi fixar hela ROT-hanteringen — du betalar bara din del.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-button" type="button">
+            <span>Tar ni små jobb också?</span>
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">Ja, allt från att byta ett lås till att bygga om hela kåken. Inget jobb är för litet.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-button" type="button">
+            <span>Hur funkar era serviceavtal?</span>
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">Vi snackar igenom vad din fastighet behöver och sätter ihop ett avtal. Fast månadspris, sen sköter vi allt.</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- KONTAKT -->
-  <section id="kontakt">
-    <div class="contact-section">
-      <p class="section-label">Kontakt</p>
-      <h2 class="section-title">Hör av dig</h2>
-      <p class="section-desc">Skriv några rader om vad du behöver hjälp med — eller ring direkt om det är akut. Vi svarar inom 24 timmar.</p>
+  <!-- CTA SLAB -->
+  <section class="cta" id="offert">
+    <div class="cta-inner">
+      <h2>Nåt som behöver fixas?</h2>
+      <p>Hör av dig. Offerten är gratis — och vi brukar svara samma dag.</p>
+      <div class="cta-buttons">
+        <a class="btn btn-white" href="tel:+46739542966">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          073-954 29 66
+        </a>
+        <a class="btn btn-ghost-white" href="mailto:info@pkservice.se">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          info@pkservice.se
+        </a>
+      </div>
+    </div>
+  </section>
 
-      <div class="contact-grid">
-        <div class="contact-direct">
-          <h3>Direkt</h3>
-          <a class="contact-row" href="tel:+46739542966">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <div>
-              <div class="contact-row-label">Telefon</div>
-              <div class="contact-row-value">073-954 29 66</div>
-            </div>
-          </a>
-          <a class="contact-row" href="mailto:info@pkservice.se">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <div>
-              <div class="contact-row-label">E-post</div>
-              <div class="contact-row-value">info@pkservice.se</div>
-            </div>
-          </a>
-          <p class="form-note">Stockholm & Åre · Mån–fre 07–17 · Akut även kvällar/helger.</p>
+  <!-- KONTAKT FORM -->
+  <section class="contact-section" id="kontakt">
+    <div class="section-head">
+      <div class="label-mono">§ 06<br>Kontakt</div>
+      <div>
+        <h2 class="section-title">Skriv några rader.</h2>
+        <p class="section-desc">Berätta vad du behöver hjälp med så återkommer vi inom 24 timmar. Stockholm &amp; Åre · Mån–fre 07–17.</p>
+      </div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="label-mono">Formulär</div>
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-field">
+          <label for="cf-name">Namn</label>
+          <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="För- och efternamn">
         </div>
 
-        <form class="contact-form" id="contactForm" novalidate>
-          <div class="form-field">
-            <label for="cf-name">Namn</label>
-            <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="För- och efternamn">
-          </div>
+        <div class="form-field">
+          <label for="cf-contact">Telefon eller e-post</label>
+          <input type="text" id="cf-contact" name="contact" required autocomplete="email" placeholder="070-… eller namn@exempel.se" inputmode="email">
+        </div>
 
-          <div class="form-field">
-            <label for="cf-contact">Telefon eller e-post</label>
-            <input type="text" id="cf-contact" name="contact" required autocomplete="email" placeholder="070-... eller namn@exempel.se" inputmode="email">
-          </div>
+        <div class="form-field">
+          <label for="cf-type">Vad gäller det?</label>
+          <select id="cf-type" name="type">
+            <option value="Förvaltning">Förvaltning</option>
+            <option value="Byggnation / renovering">Byggnation / renovering</option>
+            <option value="Projektledning">Projektledning</option>
+            <option value="Fastighetsskötsel">Fastighetsskötsel</option>
+            <option value="Serviceavtal">Serviceavtal</option>
+            <option value="Annat">Annat</option>
+          </select>
+        </div>
 
-          <div class="form-field">
-            <label for="cf-type">Vad gäller det?</label>
-            <select id="cf-type" name="type">
-              <option value="Förvaltning">Förvaltning</option>
-              <option value="Byggnation / renovering">Byggnation / renovering</option>
-              <option value="Projektledning">Projektledning</option>
-              <option value="Fastighetsskötsel">Fastighetsskötsel</option>
-              <option value="Serviceavtal">Serviceavtal</option>
-              <option value="Annat">Annat</option>
-            </select>
-          </div>
+        <div class="form-field">
+          <label for="cf-message">Berätta kort</label>
+          <textarea id="cf-message" name="message" required placeholder="Vad behöver du hjälp med?"></textarea>
+        </div>
 
-          <div class="form-field">
-            <label for="cf-message">Berätta kort</label>
-            <textarea id="cf-message" name="message" required placeholder="Vad behöver du hjälp med?"></textarea>
-          </div>
+        <input type="text" class="form-honeypot" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-          <input type="text" class="form-honeypot" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-status" id="cf-status" role="status" aria-live="polite"></div>
 
-          <div class="form-status" id="cf-status" role="status" aria-live="polite"></div>
-
-          <button type="submit" class="btn form-submit" id="cf-submit">Skicka</button>
-        </form>
-      </div>
+        <button type="submit" class="btn btn-dark form-submit" id="cf-submit">Skicka</button>
+      </form>
     </div>
   </section>
 
+  <footer class="footer">
+    <span>© 2026 PK Service AB</span>
+    <span><a href="/brand/">PK / Stockholm · Åre</a></span>
+  </footer>
+
   <script>
-    const nav = document.querySelector('nav');
-    const hero = document.querySelector('.hero');
-    const observer = new IntersectionObserver(([entry]) => {
-      nav.classList.toggle('scrolled', !entry.isIntersecting);
-    }, { threshold: 0.1 });
-    observer.observe(hero);
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      const button = item.querySelector('.faq-button');
+      button.addEventListener('click', () => {
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach((i) => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
 
     const form = document.getElementById('contactForm');
     const status = document.getElementById('cf-status');
@@ -1235,7 +1251,7 @@
       }
 
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Skickar...';
+      submitBtn.textContent = 'Skickar…';
 
       try {
         const res = await fetch('/api/contact', {
@@ -1256,11 +1272,6 @@
       }
     });
   </script>
-
-  <footer>
-    <p>&copy; 2026 PK Service AB</p>
-    <p style="margin-top:0.4rem;"><a href="/brand/">Brand Guidelines</a></p>
-  </footer>
 
 </body>
 </html>
