@@ -4,10 +4,7 @@
 // Krävs i Cloudflare Pages env:
 //   RESEND_API_KEY  — API-nyckel från resend.com
 //   CONTACT_TO      — (valfritt) mottagare, default: info@pkservice.se
-//   CONTACT_FROM    — (valfritt) avsändare, default: "PK Service Webbformulär <noreply@coregym.club>"
-//                     OBS: from-domänen måste vara verifierad i Resend-kontot.
-//                     pkservice.se är inte verifierad där (skulle kräva paid plan).
-//                     reply_to sätts till kundens mail så Johan kan svara direkt.
+//   CONTACT_FROM    — (valfritt) avsändare, default: "PK Service <noreply@pkservice.se>"
 
 const escapeHtml = (s) =>
   String(s ?? '')
@@ -37,7 +34,7 @@ export async function onRequestPost({ request, env }) {
   }
 
   const to = env.CONTACT_TO || 'info@pkservice.se';
-  const from = env.CONTACT_FROM || 'PK Service Webbformulär <noreply@coregym.club>';
+  const from = env.CONTACT_FROM || 'PK Service <noreply@pkservice.se>';
   const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact);
 
   const subject = `Ny förfrågan via pkservice.se — ${type}`;
