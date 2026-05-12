@@ -441,86 +441,6 @@
     }
     .area-tags .tag { border-radius: 2px; }
 
-    /* PLANS */
-    .plans-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.6rem;
-    }
-    .plan {
-      padding: 2rem;
-      background: transparent;
-      color: var(--ink);
-      border: 1px solid var(--line);
-      display: flex; flex-direction: column; gap: 0.6rem;
-      position: relative;
-    }
-    .plan.featured {
-      background: var(--ink);
-      color: var(--bg);
-      border-color: var(--ink);
-    }
-    .plan-badge {
-      position: absolute;
-      top: 1rem; right: 1rem;
-      color: var(--accent);
-    }
-    .plan-name {
-      font-size: 2.6rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1;
-    }
-    .plan-blurb {
-      font-size: 0.95rem;
-      line-height: 1.55;
-      color: var(--body);
-      min-height: 50px;
-    }
-    .plan.featured .plan-blurb { color: #B8B0A4; }
-    .plan-divider {
-      height: 1px;
-      background: var(--line);
-      margin: 0.4rem 0;
-    }
-    .plan.featured .plan-divider { background: #3A3428; }
-    .plan-feats {
-      list-style: none;
-      padding: 0;
-      display: flex; flex-direction: column;
-      gap: 0.5rem;
-    }
-    .plan-feats li {
-      display: flex; align-items: center;
-      gap: 0.5rem;
-      font-size: 0.94rem;
-      color: var(--body);
-    }
-    .plan.featured .plan-feats li { color: #E2DDD5; }
-    .plan-feats svg {
-      width: 13px; height: 13px;
-      stroke: var(--accent); fill: none;
-      stroke-width: 2.4;
-      stroke-linecap: round; stroke-linejoin: round;
-      flex-shrink: 0;
-    }
-    .plan-cta {
-      margin-top: auto;
-      padding-top: 1.2rem;
-      display: inline-flex; align-items: center; gap: 6px;
-      font-family: var(--mono);
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      text-transform: uppercase;
-    }
-    .plan-cta svg {
-      width: 13px; height: 13px;
-      stroke: var(--accent); fill: none;
-      stroke-width: 1.8;
-      stroke-linecap: round; stroke-linejoin: round;
-    }
-
     /* QUALITY STRIP */
     .quality {
       border-top: 1px solid var(--line-dk);
@@ -760,7 +680,6 @@
       .service-arrow { display: none; }
       .why-grid { grid-template-columns: 1fr; gap: 1.5rem; }
       .areas-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .plans-grid { grid-template-columns: 1fr; }
       .quality { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
       .faq-wrap { margin-left: 0; }
       .footer { padding: 1.5rem 1.25rem; }
@@ -775,7 +694,6 @@
     </a>
     <div class="nav-links">
       <a href="#tjanster">Tjänster</a>
-      <a href="#avtal">Avtal</a>
       <a href="#omraden">Områden</a>
       <a href="#om-oss">Om oss</a>
       <a href="#kontakt">Kontakt</a>
@@ -1020,69 +938,6 @@
     </div>
   </section>
 
-  <!-- AVTAL -->
-  <section class="section section-tight" id="avtal">
-    <div class="section-head">
-      <div class="label-mono">§ 04<br>Avtal</div>
-      <h2 class="section-title">Tre nivåer.</h2>
-    </div>
-
-    <div class="plans-grid">
-      <div class="plan">
-        <div class="label-mono">Plan 01</div>
-        <h3 class="plan-name">Bas</h3>
-        <p class="plan-blurb">Grundläggande tillsyn för mindre fastigheter.</p>
-        <div class="plan-divider"></div>
-        <ul class="plan-feats">
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Kvartalsvis rondering</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Felanmälan &amp; uppföljning</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Årlig statusrapport</li>
-        </ul>
-        <a class="plan-cta" href="#kontakt">
-          Begär offert
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-
-      <div class="plan featured">
-        <div class="label-mono plan-badge">★ Populärt</div>
-        <div class="label-mono">Plan 02</div>
-        <h3 class="plan-name">Standard</h3>
-        <p class="plan-blurb">Löpande behov för BRF:er och fastighetsägare.</p>
-        <div class="plan-divider"></div>
-        <ul class="plan-feats">
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Månadsvis rondering</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Felavhjälpning inom 48h</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Mark- &amp; trädgårdsskötsel</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Snöröjning på vintern</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Fast månadspris</li>
-        </ul>
-        <a class="plan-cta" href="#kontakt">
-          Begär offert
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-
-      <div class="plan">
-        <div class="label-mono">Plan 03</div>
-        <h3 class="plan-name">Premium</h3>
-        <p class="plan-blurb">Totallösning för krävande fastigheter.</p>
-        <div class="plan-divider"></div>
-        <ul class="plan-feats">
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Allt i Standard</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Teknisk förvaltning</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Energiuppföljning</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Prioriterad jour</li>
-          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Dedikerad kontaktperson</li>
-        </ul>
-        <a class="plan-cta" href="#kontakt">
-          Begär offert
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <!-- KVALITET -->
   <section class="section section-tight">
     <div class="quality">
@@ -1096,7 +951,7 @@
   <!-- FAQ -->
   <section class="section section-tight section-narrow" id="faq">
     <div class="section-head">
-      <div class="label-mono">§ 05<br>FAQ</div>
+      <div class="label-mono">§ 04<br>FAQ</div>
       <h2 class="section-title">Vanliga frågor.</h2>
     </div>
 
@@ -1138,15 +993,6 @@
           </button>
           <div class="faq-answer">Ja, allt från att byta ett lås till att bygga om hela kåken. Inget jobb är för litet.</div>
         </div>
-        <div class="faq-item">
-          <button class="faq-button" type="button">
-            <span>Hur funkar era serviceavtal?</span>
-            <span class="faq-icon">
-              <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            </span>
-          </button>
-          <div class="faq-answer">Vi snackar igenom vad din fastighet behöver och sätter ihop ett avtal. Fast månadspris, sen sköter vi allt.</div>
-        </div>
       </div>
     </div>
   </section>
@@ -1172,7 +1018,7 @@
   <!-- KONTAKT FORM -->
   <section class="contact-section" id="kontakt">
     <div class="section-head">
-      <div class="label-mono">§ 06<br>Kontakt</div>
+      <div class="label-mono">§ 05<br>Kontakt</div>
       <div>
         <h2 class="section-title">Skriv några rader.</h2>
         <p class="section-desc">Berätta vad du behöver hjälp med så återkommer vi inom 24 timmar. Stockholm &amp; Åre · Mån–fre 07–17.</p>
@@ -1199,7 +1045,6 @@
             <option value="Byggnation / renovering">Byggnation / renovering</option>
             <option value="Projektledning">Projektledning</option>
             <option value="Fastighetsskötsel">Fastighetsskötsel</option>
-            <option value="Serviceavtal">Serviceavtal</option>
             <option value="Annat">Annat</option>
           </select>
         </div>
